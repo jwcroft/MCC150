@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<island simulinkPath='mp/txrx/Symbol Recovery' topLevelEntity='mp_txrx_Symbol_Recovery'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_dv' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_1_dv' stm='mp/mp_txrx_Symbol_Recovery_ChannelIn.stm' highLevelName='dv' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_dc' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_2_dc' stm='mp/mp_txrx_Symbol_Recovery_ChannelIn.stm' highLevelName='dc' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_pow_in' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_3_pow_in' stm='mp/mp_txrx_Symbol_Recovery_ChannelIn.stm' highLevelName='pow_in' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_I' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_4_I' stm='mp/mp_txrx_Symbol_Recovery_ChannelIn.stm' highLevelName='I' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='in_5_Q' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_5_Q' stm='mp/mp_txrx_Symbol_Recovery_ChannelIn.stm' highLevelName='Q' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='out_2_qv' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_out_2_qv' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='qv' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_qc' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_out_3_qc' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='qc' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_1_bits' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_1_bits' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='bits' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_4_phase' clock='clk' reset='areset' width='28' dir='out' role='data' qsys_role='data_out_4_phase' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='phase' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_5_trigger' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_5_trigger' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='trigger' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='out_6_sym_pwr' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_out_6_sym_pwr' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='sym_pwr' highLevelIndex='6' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

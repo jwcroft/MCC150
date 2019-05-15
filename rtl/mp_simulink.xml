@@ -1,0 +1,1294 @@
+
+<dsp-builder xmlns="http://www.altera.com/ns/2011/dsp-builder">
+
+  <design version="1.2">
+    <param name="designGenerator">"DSP Builder 18.0std b614 "</param>
+    <param name="generateAbsoluteOutputPath">"C:\\git_projects\\MCC150/C:/git_projects/MCC150/./rtl"</param>
+    <param name="generateLanguage">VHDL</param>
+    <param name="generateOutputPath">"C:/git_projects/MCC150/./rtl"</param>
+    <param name="generateSubPath">mp</param>
+    <model name="mp_txrx">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="generateHwTcl">true</param>
+      <param name="simulinkHasDeviceBlock">true</param>
+      <param name="simulinkPath">"mp/txrx"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthCircuitTimed">true</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthOutputMode">synthOutputHDLRoot</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="(pin (1 fromADC_I))">
+        <param name="0">[/mp_txrx/inputBlock/(1 fromADC_I)]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (1 toDAC_I))">
+        <param name="0">[/mp_txrx/ChanView/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (2 fromADC_Q))">
+        <param name="0">[/mp_txrx/inputBlock/(2 fromADC_Q)]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (2 toDAC_Q))">
+        <param name="0">[/mp_txrx/ChanView/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (3 sym_phase))">
+        <param name="0">[/mp_txrx/"Symbol Recovery"/(4 phase)]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 14 14)</param>
+      </block>
+      <block name="(pin (4 BER))">
+        <param name="0">[/mp_txrx/"BER Extraction"/(1 BER)]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeUFixed 1 0)</param>
+      </block>
+      <block name="(pin (5 bit_error))">
+        <param name="0">[/mp_txrx/"BER Extraction"/(4 bit_error)]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="hasBooleanType">true</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeUFixed 1 0)</param>
+      </block>
+      <block name="(pin (6 sym_pwr))">
+        <param name="0">[/mp_txrx/"Symbol Recovery"/(6 sym_pwr)]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (7 BBI))">
+        <param name="0">[/mp_txrx/ChanView1/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 19 11)</param>
+      </block>
+      <block name="(pin (8 BBQ))">
+        <param name="0">[/mp_txrx/ChanView2/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 19 11)</param>
+      </block>
+      <block name="(pin (9 mem_o))">
+        <param name="0">[/mp_txrx/ChanView3/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (10 bit_o))">
+        <param name="0">[/mp_txrx/ChanView4/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="hasBooleanType">true</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeUFixed 1 0)</param>
+      </block>
+      <block name="(pin (11 pow_rx))">
+        <param name="0">[/mp_txrx/ChanView5/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="(pin (12 pow_rx_preshift))">
+        <param name="0">[/mp_txrx/ChanView6/0]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="metadataTuple">()</param>
+        <param name="typePinType">(typeSFixed 25 0)</param>
+      </block>
+      <block name="&quot;BER Extraction&quot;">
+        <param name="(1 bits)">[/mp_txrx/"Symbol Recovery"/(1 bits)]</param>
+        <param name="(2 trigger)">[/mp_txrx/"Symbol Recovery"/(5 trigger)]</param>
+        <param name="(3 dc)">[/mp_txrx/Memory/(6 qc1)]</param>
+        <param name="(4 dv)">[/mp_txrx/Memory/(5 qv1)]</param>
+        <param name="(5 memory)">[/mp_txrx/Memory/(4 m1)]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_BER Extraction"]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="(1 BER)"/>
+        <wire name="(2 qc)"/>
+        <wire name="(3 qv)"/>
+        <wire name="(4 bit_error)"/>
+      </block>
+      <block name="ChanView">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/Scale/scaleWireData]</param>
+        <param name="portChannel">[/mp_txrx/Scale/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/Scale/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView"</param>
+        <wire name="0"/>
+      </block>
+      <block name="ChanView1">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/SingleRateFIR_I/firWireData]</param>
+        <param name="portChannel">[/mp_txrx/SingleRateFIR_I/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/SingleRateFIR_I/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 30 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 30 11 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView1"</param>
+        <wire name="0"/>
+      </block>
+      <block name="ChanView2">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/SingleRateFIR1_Q/firWireData]</param>
+        <param name="portChannel">[/mp_txrx/SingleRateFIR1_Q/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/SingleRateFIR1_Q/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 30 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 30 11 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView2"</param>
+        <wire name="0"/>
+      </block>
+      <block name="ChanView3">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/Memory/(1 m2)]</param>
+        <param name="portChannel">[/mp_txrx/Channel/primWireOut]</param>
+        <param name="portValid">[/mp_txrx/Valid/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView3"</param>
+        <wire name="0"/>
+      </block>
+      <block name="ChanView4">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/"Symbol Recovery"/(1 bits)]</param>
+        <param name="portChannel">[/mp_txrx/Memory/(6 qc1)]</param>
+        <param name="portValid">[/mp_txrx/Memory/(5 qv1)]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView4"</param>
+        <wire name="0"/>
+      </block>
+      <block name="ChanView5">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/Scale1/scaleWireData]</param>
+        <param name="portChannel">[/mp_txrx/Scale1/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/Scale1/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView5"</param>
+        <wire name="0"/>
+      </block>
+      <block name="ChanView6">
+        <param name="blockType">chanviewBlock</param>
+        <param name="chanviewInputCount">1</param>
+        <param name="chanviewPortData">[/mp_txrx/"Scrambled shit subsystem"/(3 pwr)]</param>
+        <param name="portChannel">[/mp_txrx/Scale3_I/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/Scale3_I/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 25 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 25 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/ChanView6"</param>
+        <wire name="0"/>
+      </block>
+      <block name="Channel">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 8 0)</param>
+        <param name="constValue">0</param>
+        <param name="simulinkExtraCacheKeys">((1 8 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="InterpolatingFIR">
+        <param name="blockType">firBlock</param>
+        <param name="firBandCount">1</param>
+        <param name="firChannelCount">1</param>
+        <param name="firCoefs">((-0x8p-12 -0x6p-12 -0x4p-12 0 0x2p-12 0x4p-12 0x6p-12 0xAp-12 0xCp-12 0xEp-12 0x1p-8 0x1.2p-8 0x1.2p-8 0x1.4p-8 ^5 0x1.2p-8 0x1p-8 0xCp-12 0xAp-12 0x6p-12 0x2p-12 -0x4p-12 -0xAp-12 -0xEp-12 -0x1.4p-8 -0x1.ap-8 -0x2p-8 -0x2.6p-8 -0x2.cp-8 -0x3.2p-8 -0x3.8p-8 -0x3.cp-8 -0x4p-8 -0x4.4p-8 -0x4.6p-8 -0x4.8p-8 -0x4.8p-8 -0x4.6p-8 -0x4.4p-8 -0x4p-8 -0x3.ap-8 -0x3.2p-8 -0x2.8p-8 -0x1.ep-8 -0x1p-8 0 0x1.2p-8 0x2.4p-8 0x3.ap-8 0x5.2p-8 0x6.ap-8 0x8.4p-8 0xA.2p-8 0xB.ep-8 0xD.ep-8 0xF.ep-8 0x1.1ep-4 0x1.4p-4 0x1.62p-4 0x1.86p-4 0x1.a8p-4 0x1.cap-4 0x1.ecp-4 0x2.0cp-4 0x2.2ep-4 0x2.4cp-4 0x2.6ap-4 0x2.86p-4 0x2.9ep-4 0x2.b6p-4 0x2.ccp-4 0x2.ep-4 0x2.fp-4 0x2.fcp-4 0x3.08p-4 0x3.1p-4 0x3.14p-4 0x3.16p-4 0x3.14p-4 0x3.1p-4 0x3.08p-4 0x2.fcp-4 0x2.fp-4 0x2.ep-4 0x2.ccp-4 0x2.b6p-4 0x2.9ep-4 0x2.86p-4 0x2.6ap-4 0x2.4cp-4 0x2.2ep-4 0x2.0cp-4 0x1.ecp-4 0x1.cap-4 0x1.a8p-4 0x1.86p-4 0x1.62p-4 0x1.4p-4 0x1.1ep-4 0xF.ep-8 0xD.ep-8 0xB.ep-8 0xA.2p-8 0x8.4p-8 0x6.ap-8 0x5.2p-8 0x3.ap-8 0x2.4p-8 0x1.2p-8 0 -0x1p-8 -0x1.ep-8 -0x2.8p-8 -0x3.2p-8 -0x3.ap-8 -0x4p-8 -0x4.4p-8 -0x4.6p-8 -0x4.8p-8 -0x4.8p-8 -0x4.6p-8 -0x4.4p-8 -0x4p-8 -0x3.cp-8 -0x3.8p-8 -0x3.2p-8 -0x2.cp-8 -0x2.6p-8 -0x2p-8 -0x1.ap-8 -0x1.4p-8 -0xEp-12 -0xAp-12 -0x4p-12 0x2p-12 0x6p-12 0xAp-12 0xCp-12 0x1p-8 0x1.2p-8 0x1.4p-8 ^5 0x1.2p-8 0x1.2p-8 0x1p-8 0xEp-12 0xCp-12 0xAp-12 0x6p-12 0x4p-12 0x2p-12 0 -0x4p-12 -0x6p-12 -0x8p-12))</param>
+        <param name="firCoefsType">(typeSFixed -1 11)</param>
+        <param name="firDecimFactor">1</param>
+        <param name="firInputRate">1</param>
+        <param name="firInterpFactor">40</param>
+        <param name="firMM">((0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15))</param>
+        <param name="firPortData">[/mp_txrx/Memory/(1 m2)]</param>
+        <param name="firShapeType">firShapeSymmetrical</param>
+        <param name="portChannel">[/mp_txrx/Memory/(3 qc)]</param>
+        <param name="portValid">[/mp_txrx/Memory/(2 qv)]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 25 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/InterpolatingFIR"</param>
+        <wire name="firWireData"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="Memory">
+        <param name="(1 dv)">[/mp_txrx/Valid/primWireOut]</param>
+        <param name="(2 dc)">[/mp_txrx/Channel/primWireOut]</param>
+        <param name="(3 trigger)">[/mp_txrx/"Symbol Recovery"/(5 trigger)]</param>
+        <param name="(4 dc1)">[/mp_txrx/"Symbol Recovery"/(3 qc)]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/mp_txrx_Memory]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <wire name="(1 m2)"/>
+        <wire name="(2 qv)"/>
+        <wire name="(3 qc)"/>
+        <wire name="(4 m1)"/>
+        <wire name="(5 qv1)"/>
+        <wire name="(6 qc1)"/>
+      </block>
+      <block name="Scale">
+        <param name="blockType">scaleBlock</param>
+        <param name="portChannel">[/mp_txrx/InterpolatingFIR/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/InterpolatingFIR/wireValid]</param>
+        <param name="scaleOutputType">(typeSFixed 12 0)</param>
+        <param name="scalePortData">[/mp_txrx/InterpolatingFIR/firWireData]</param>
+        <param name="scaleRoundingMode">roundingBiased</param>
+        <param name="scaleSaturateMode">saturateSymmetric</param>
+        <param name="scaleShiftVector">(13)</param>
+        <param name="simulinkExtraCacheKeys">((1 25 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/Scale"</param>
+        <param name="synthBitAccurate">false</param>
+        <wire name="scaleWireData"/>
+        <wire name="scaleWireOverflow"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="Scale1">
+        <param name="blockType">scaleBlock</param>
+        <param name="portChannel">[/mp_txrx/Scale3_I/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/Scale3_I/wireValid]</param>
+        <param name="scaleOutputType">(typeSFixed 12 0)</param>
+        <param name="scalePortData">[/mp_txrx/"Scrambled shit subsystem"/(3 pwr)]</param>
+        <param name="scaleRoundingMode">roundingBiased</param>
+        <param name="scaleSaturateMode">saturateSymmetric</param>
+        <param name="scaleShiftVector">(-11)</param>
+        <param name="simulinkExtraCacheKeys">((1 25 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/Scale1"</param>
+        <param name="synthBitAccurate">false</param>
+        <wire name="scaleWireData"/>
+        <wire name="scaleWireOverflow"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="Scale2_Q">
+        <param name="blockType">scaleBlock</param>
+        <param name="portChannel">[/mp_txrx/SingleRateFIR1_Q/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/SingleRateFIR1_Q/wireValid]</param>
+        <param name="scaleOutputType">(typeSFixed 12 0)</param>
+        <param name="scalePortData">[/mp_txrx/SingleRateFIR1_Q/firWireData]</param>
+        <param name="scaleRoundingMode">roundingBiased</param>
+        <param name="scaleSaturateMode">saturateSymmetric</param>
+        <param name="scaleShiftVector">(-3)</param>
+        <param name="simulinkExtraCacheKeys">((1 30 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/Scale2_Q"</param>
+        <param name="synthBitAccurate">false</param>
+        <wire name="scaleWireData"/>
+        <wire name="scaleWireOverflow"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="Scale3_I">
+        <param name="blockType">scaleBlock</param>
+        <param name="portChannel">[/mp_txrx/SingleRateFIR_I/wireChannel]</param>
+        <param name="portValid">[/mp_txrx/SingleRateFIR_I/wireValid]</param>
+        <param name="scaleOutputType">(typeSFixed 12 0)</param>
+        <param name="scalePortData">[/mp_txrx/SingleRateFIR_I/firWireData]</param>
+        <param name="scaleRoundingMode">roundingBiased</param>
+        <param name="scaleSaturateMode">saturateSymmetric</param>
+        <param name="scaleShiftVector">(-3)</param>
+        <param name="simulinkExtraCacheKeys">((1 30 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/Scale3_I"</param>
+        <param name="synthBitAccurate">false</param>
+        <wire name="scaleWireData"/>
+        <wire name="scaleWireOverflow"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="&quot;Scrambled shit subsystem&quot;">
+        <param name="(1 In1)">[/mp_txrx/Scale3_I/scaleWireData]</param>
+        <param name="(2 In2)">[/mp_txrx/Scale2_Q/scaleWireData]</param>
+        <param name="(3 dc)">[/mp_txrx/Scale3_I/wireChannel]</param>
+        <param name="(4 dv)">[/mp_txrx/Scale3_I/wireValid]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_Scrambled shit subsystem"]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 25 0 0 1 0) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <wire name="(1 Out1)"/>
+        <wire name="(2 Out2)"/>
+        <wire name="(3 pwr)"/>
+        <wire name="(4 qc)"/>
+        <wire name="(5 qv)"/>
+      </block>
+      <block name="SingleRateFIR1_Q">
+        <param name="blockType">firBlock</param>
+        <param name="busAccessMode">busAccessReadWrite</param>
+        <param name="busBaseAddr">512</param>
+        <param name="busUsePipelinedReads">true</param>
+        <param name="firBandCount">1</param>
+        <param name="firChannelCount">1</param>
+        <param name="firCoefs">((-0x8p-12 -0x6p-12 -0x4p-12 0 0x2p-12 0x4p-12 0x6p-12 0xAp-12 0xCp-12 0xEp-12 0x1p-8 0x1.2p-8 0x1.2p-8 0x1.4p-8 ^5 0x1.2p-8 0x1p-8 0xCp-12 0xAp-12 0x6p-12 0x2p-12 -0x4p-12 -0xAp-12 -0xEp-12 -0x1.4p-8 -0x1.ap-8 -0x2p-8 -0x2.6p-8 -0x2.cp-8 -0x3.2p-8 -0x3.8p-8 -0x3.cp-8 -0x4p-8 -0x4.4p-8 -0x4.6p-8 -0x4.8p-8 -0x4.8p-8 -0x4.6p-8 -0x4.4p-8 -0x4p-8 -0x3.ap-8 -0x3.2p-8 -0x2.8p-8 -0x1.ep-8 -0x1p-8 0 0x1.2p-8 0x2.4p-8 0x3.ap-8 0x5.2p-8 0x6.ap-8 0x8.4p-8 0xA.2p-8 0xB.ep-8 0xD.ep-8 0xF.ep-8 0x1.1ep-4 0x1.4p-4 0x1.62p-4 0x1.86p-4 0x1.a8p-4 0x1.cap-4 0x1.ecp-4 0x2.0cp-4 0x2.2ep-4 0x2.4cp-4 0x2.6ap-4 0x2.86p-4 0x2.9ep-4 0x2.b6p-4 0x2.ccp-4 0x2.ep-4 0x2.fp-4 0x2.fcp-4 0x3.08p-4 0x3.1p-4 0x3.14p-4 0x3.16p-4 0x3.14p-4 0x3.1p-4 0x3.08p-4 0x2.fcp-4 0x2.fp-4 0x2.ep-4 0x2.ccp-4 0x2.b6p-4 0x2.9ep-4 0x2.86p-4 0x2.6ap-4 0x2.4cp-4 0x2.2ep-4 0x2.0cp-4 0x1.ecp-4 0x1.cap-4 0x1.a8p-4 0x1.86p-4 0x1.62p-4 0x1.4p-4 0x1.1ep-4 0xF.ep-8 0xD.ep-8 0xB.ep-8 0xA.2p-8 0x8.4p-8 0x6.ap-8 0x5.2p-8 0x3.ap-8 0x2.4p-8 0x1.2p-8 0 -0x1p-8 -0x1.ep-8 -0x2.8p-8 -0x3.2p-8 -0x3.ap-8 -0x4p-8 -0x4.4p-8 -0x4.6p-8 -0x4.8p-8 -0x4.8p-8 -0x4.6p-8 -0x4.4p-8 -0x4p-8 -0x3.cp-8 -0x3.8p-8 -0x3.2p-8 -0x2.cp-8 -0x2.6p-8 -0x2p-8 -0x1.ap-8 -0x1.4p-8 -0xEp-12 -0xAp-12 -0x4p-12 0x2p-12 0x6p-12 0xAp-12 0xCp-12 0x1p-8 0x1.2p-8 0x1.4p-8 ^5 0x1.2p-8 0x1.2p-8 0x1p-8 0xEp-12 0xCp-12 0xAp-12 0x6p-12 0x4p-12 0x2p-12 0 -0x4p-12 -0x6p-12 -0x8p-12))</param>
+        <param name="firCoefsType">(typeSFixed -1 11)</param>
+        <param name="firDecimFactor">1</param>
+        <param name="firInputRate">40</param>
+        <param name="firInterpFactor">1</param>
+        <param name="firMM">((0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19))</param>
+        <param name="firPortData">[/mp_txrx/inputBlock/(2 fromADC_Q)]</param>
+        <param name="firShapeType">firShapeSymmetrical</param>
+        <param name="portChannel">[/mp_txrx/Channel/primWireOut]</param>
+        <param name="portValid">[/mp_txrx/Valid/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 30 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/SingleRateFIR1_Q"</param>
+        <wire name="firWireData"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="SingleRateFIR_I">
+        <param name="blockType">firBlock</param>
+        <param name="busAccessMode">busAccessReadWrite</param>
+        <param name="busBaseAddr">1024</param>
+        <param name="busUsePipelinedReads">true</param>
+        <param name="firBandCount">1</param>
+        <param name="firChannelCount">1</param>
+        <param name="firCoefs">((-0x8p-12 -0x6p-12 -0x4p-12 0 0x2p-12 0x4p-12 0x6p-12 0xAp-12 0xCp-12 0xEp-12 0x1p-8 0x1.2p-8 0x1.2p-8 0x1.4p-8 ^5 0x1.2p-8 0x1p-8 0xCp-12 0xAp-12 0x6p-12 0x2p-12 -0x4p-12 -0xAp-12 -0xEp-12 -0x1.4p-8 -0x1.ap-8 -0x2p-8 -0x2.6p-8 -0x2.cp-8 -0x3.2p-8 -0x3.8p-8 -0x3.cp-8 -0x4p-8 -0x4.4p-8 -0x4.6p-8 -0x4.8p-8 -0x4.8p-8 -0x4.6p-8 -0x4.4p-8 -0x4p-8 -0x3.ap-8 -0x3.2p-8 -0x2.8p-8 -0x1.ep-8 -0x1p-8 0 0x1.2p-8 0x2.4p-8 0x3.ap-8 0x5.2p-8 0x6.ap-8 0x8.4p-8 0xA.2p-8 0xB.ep-8 0xD.ep-8 0xF.ep-8 0x1.1ep-4 0x1.4p-4 0x1.62p-4 0x1.86p-4 0x1.a8p-4 0x1.cap-4 0x1.ecp-4 0x2.0cp-4 0x2.2ep-4 0x2.4cp-4 0x2.6ap-4 0x2.86p-4 0x2.9ep-4 0x2.b6p-4 0x2.ccp-4 0x2.ep-4 0x2.fp-4 0x2.fcp-4 0x3.08p-4 0x3.1p-4 0x3.14p-4 0x3.16p-4 0x3.14p-4 0x3.1p-4 0x3.08p-4 0x2.fcp-4 0x2.fp-4 0x2.ep-4 0x2.ccp-4 0x2.b6p-4 0x2.9ep-4 0x2.86p-4 0x2.6ap-4 0x2.4cp-4 0x2.2ep-4 0x2.0cp-4 0x1.ecp-4 0x1.cap-4 0x1.a8p-4 0x1.86p-4 0x1.62p-4 0x1.4p-4 0x1.1ep-4 0xF.ep-8 0xD.ep-8 0xB.ep-8 0xA.2p-8 0x8.4p-8 0x6.ap-8 0x5.2p-8 0x3.ap-8 0x2.4p-8 0x1.2p-8 0 -0x1p-8 -0x1.ep-8 -0x2.8p-8 -0x3.2p-8 -0x3.ap-8 -0x4p-8 -0x4.4p-8 -0x4.6p-8 -0x4.8p-8 -0x4.8p-8 -0x4.6p-8 -0x4.4p-8 -0x4p-8 -0x3.cp-8 -0x3.8p-8 -0x3.2p-8 -0x2.cp-8 -0x2.6p-8 -0x2p-8 -0x1.ap-8 -0x1.4p-8 -0xEp-12 -0xAp-12 -0x4p-12 0x2p-12 0x6p-12 0xAp-12 0xCp-12 0x1p-8 0x1.2p-8 0x1.4p-8 ^5 0x1.2p-8 0x1.2p-8 0x1p-8 0xEp-12 0xCp-12 0xAp-12 0x6p-12 0x4p-12 0x2p-12 0 -0x4p-12 -0x6p-12 -0x8p-12))</param>
+        <param name="firCoefsType">(typeSFixed -1 11)</param>
+        <param name="firDecimFactor">1</param>
+        <param name="firInputRate">40</param>
+        <param name="firInterpFactor">1</param>
+        <param name="firMM">((0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19))</param>
+        <param name="firPortData">[/mp_txrx/inputBlock/(1 fromADC_I)]</param>
+        <param name="firShapeType">firShapeSymmetrical</param>
+        <param name="portChannel">[/mp_txrx/Channel/primWireOut]</param>
+        <param name="portValid">[/mp_txrx/Valid/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 30 11 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/SingleRateFIR_I"</param>
+        <wire name="firWireData"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="&quot;Symbol Recovery&quot;">
+        <param name="(1 dv)">[/mp_txrx/SingleRateFIR_I/wireValid]</param>
+        <param name="(2 dc)">[/mp_txrx/SingleRateFIR_I/wireChannel]</param>
+        <param name="(3 pow_in)">[/mp_txrx/ChanView5/0]</param>
+        <param name="(4 I)">[/mp_txrx/"Scrambled shit subsystem"/(1 Out1)]</param>
+        <param name="(5 Q)">[/mp_txrx/"Scrambled shit subsystem"/(2 Out2)]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_Symbol Recovery"]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 28 14 0 1 0) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <wire name="(1 bits)"/>
+        <wire name="(2 qv)"/>
+        <wire name="(3 qc)"/>
+        <wire name="(4 phase)"/>
+        <wire name="(5 trigger)"/>
+        <wire name="(6 sym_pwr)"/>
+      </block>
+      <block name="Valid">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 1 0)</param>
+        <param name="constValue">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="(1 fromADC_I)"/>
+        <wire name="(2 fromADC_Q)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 toDAC_I)">[/mp_txrx/ChanView/0]</param>
+        <param name="(2 toDAC_Q)">[/mp_txrx/ChanView/0]</param>
+        <param name="(3 sym_phase)">[/mp_txrx/"Symbol Recovery"/(4 phase)]</param>
+        <param name="(4 BER)">[/mp_txrx/"BER Extraction"/(1 BER)]</param>
+        <param name="(5 bit_error)">[/mp_txrx/"BER Extraction"/(4 bit_error)]</param>
+        <param name="(6 sym_pwr)">[/mp_txrx/"Symbol Recovery"/(6 sym_pwr)]</param>
+        <param name="(7 BBI)">[/mp_txrx/ChanView1/0]</param>
+        <param name="(8 BBQ)">[/mp_txrx/ChanView2/0]</param>
+        <param name="(9 mem_o)">[/mp_txrx/ChanView3/0]</param>
+        <param name="(10 bit_o)">[/mp_txrx/ChanView4/0]</param>
+        <param name="(11 pow_rx)">[/mp_txrx/ChanView5/0]</param>
+        <param name="(12 pow_rx_preshift)">[/mp_txrx/ChanView6/0]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="metadataTuple">()</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_BER Extraction&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+      <param name="simulinkPath">"mp/txrx/BER Extraction"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="(&quot;mem loop compensate&quot; loopPin)">
+        <param name="0">[/"mp_txrx_BER Extraction"/"mem loop compensate"/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeUFixed 1 0)</param>
+      </block>
+      <block name="And">
+        <param name="0">[/"mp_txrx_BER Extraction"/CmpNE/primWireOut]</param>
+        <param name="1">[/"mp_txrx_BER Extraction"/ChannelIn/1]</param>
+        <param name="blockType">andBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="ChannelIn">
+        <param name="0">[/"mp_txrx_BER Extraction"/inputBlock/(1 bits)]</param>
+        <param name="1">[/"mp_txrx_BER Extraction"/inputBlock/(2 trigger)]</param>
+        <param name="2">[/"mp_txrx_BER Extraction"/inputBlock/(5 memory)]</param>
+        <param name="blockType">channelInBlock</param>
+        <param name="portChannel">[/"mp_txrx_BER Extraction"/inputBlock/(3 dc)]</param>
+        <param name="portValid">[/"mp_txrx_BER Extraction"/inputBlock/(4 dv)]</param>
+        <param name="scheduleOrigin">true</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/BER Extraction/ChannelIn"</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="2"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="ChannelOut">
+        <param name="0">[/"mp_txrx_BER Extraction"/Const1/primWireOut]</param>
+        <param name="1">[/"mp_txrx_BER Extraction"/And/primWireOut]</param>
+        <param name="blockType">channelOutBlock</param>
+        <param name="portChannel">[/"mp_txrx_BER Extraction"/ChannelIn/wireChannel]</param>
+        <param name="portValid">[/"mp_txrx_BER Extraction"/ChannelIn/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/BER Extraction/ChannelOut"</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="CmpNE">
+        <param name="0">[/"mp_txrx_BER Extraction"/"mem loop compensate"/primWireOut]</param>
+        <param name="1">[/"mp_txrx_BER Extraction"/ChannelIn/2]</param>
+        <param name="blockType">cmpNEBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Const1">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 1 0)</param>
+        <param name="constValue">0</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <wire name="(1 bits)"/>
+        <wire name="(2 trigger)"/>
+        <wire name="(3 dc)"/>
+        <wire name="(4 dv)"/>
+        <wire name="(5 memory)"/>
+      </block>
+      <block name="&quot;mem loop compensate&quot;">
+        <param name="0">[/"mp_txrx_BER Extraction"/ChannelIn/0]</param>
+        <param name="blockType">delayBlock</param>
+        <param name="delayLength">5</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 BER)">[/"mp_txrx_BER Extraction"/ChannelOut/0]</param>
+        <param name="(2 qc)">[/"mp_txrx_BER Extraction"/ChannelOut/wireChannel]</param>
+        <param name="(3 qv)">[/"mp_txrx_BER Extraction"/ChannelOut/wireValid]</param>
+        <param name="(4 bit_error)">[/"mp_txrx_BER Extraction"/ChannelOut/1]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+      </block>
+    </model>
+    <model name="mp_txrx_Memory">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+      <param name="simulinkPath">"mp/txrx/Memory"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="(SampleDelay2 loopPin)">
+        <param name="0">[/mp_txrx_Memory/SampleDelay2/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeUFixed 1 0)</param>
+      </block>
+      <block name="And1">
+        <param name="0">[/mp_txrx_Memory/ChannelIn1/wireValid]</param>
+        <param name="1">[/mp_txrx_Memory/Not1/primWireOut]</param>
+        <param name="blockType">andBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="And3">
+        <param name="0">[/mp_txrx_Memory/DualMem/dualMemWireData1]</param>
+        <param name="1">[/mp_txrx_Memory/ChannelIn1/wireValid]</param>
+        <param name="blockType">andBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="ChannelIn">
+        <param name="blockType">channelInBlock</param>
+        <param name="portChannel">[/mp_txrx_Memory/inputBlock/(2 dc)]</param>
+        <param name="portValid">[/mp_txrx_Memory/inputBlock/(1 dv)]</param>
+        <param name="scheduleOrigin">true</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/Memory/ChannelIn"</param>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="ChannelIn1">
+        <param name="blockType">channelInBlock</param>
+        <param name="portChannel">[/mp_txrx_Memory/inputBlock/(4 dc1)]</param>
+        <param name="portValid">[/mp_txrx_Memory/inputBlock/(3 trigger)]</param>
+        <param name="scheduleOrigin">true</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <param name="simulinkPath">"mp/txrx/Memory/ChannelIn1"</param>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="ChannelOut">
+        <param name="0">[/mp_txrx_Memory/DualMem/dualMemWireData2]</param>
+        <param name="blockType">channelOutBlock</param>
+        <param name="portChannel">[/mp_txrx_Memory/ChannelIn/wireChannel]</param>
+        <param name="portValid">[/mp_txrx_Memory/Not/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/Memory/ChannelOut"</param>
+        <wire name="0"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="ChannelOut1">
+        <param name="0">[/mp_txrx_Memory/And3/primWireOut]</param>
+        <param name="blockType">channelOutBlock</param>
+        <param name="portChannel">[/mp_txrx_Memory/ChannelIn1/wireChannel]</param>
+        <param name="portValid">[/mp_txrx_Memory/And1/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/Memory/ChannelOut1"</param>
+        <wire name="0"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="Const2">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 1 0)</param>
+        <param name="constValue">0</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Counter">
+        <param name="blockType">counterBlock</param>
+        <param name="counterInitial">0</param>
+        <param name="counterLimit">1024</param>
+        <param name="counterStep">1</param>
+        <param name="portEnable">[/mp_txrx_Memory/Not/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 10 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Counter1">
+        <param name="blockType">counterBlock</param>
+        <param name="counterInitial">0</param>
+        <param name="counterLimit">1024</param>
+        <param name="counterStep">1</param>
+        <param name="portEnable">[/mp_txrx_Memory/SampleDelay2/primWireOut]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 10 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Counter1_PostCast_primWireOut">
+        <param name="0">[/mp_txrx_Memory/Counter1/primWireOut]</param>
+        <param name="blockType">castBlock</param>
+        <param name="castMode">castModeConvert</param>
+        <param name="castOutputType">(typeUFixed 10 0)</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Counter_PostCast_primWireOut">
+        <param name="0">[/mp_txrx_Memory/Counter/primWireOut]</param>
+        <param name="blockType">castBlock</param>
+        <param name="castMode">castModeConvert</param>
+        <param name="castOutputType">(typeUFixed 10 0)</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="DualMem">
+        <param name="blockType">dualMemBlock</param>
+        <param name="dualMemData">(0 1 1 -1 -1 1 1 -1 -1 1 1 -1 1 -1 ^8 1 1 -1 -1 1 -1 -1 1 -1 1 -1 -1 1 1 -1 1 1 -1 1 1 1 -1 ^4 1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 1 1 -1 1 1 -1 -1 1 1 -1 -1 1 1 1 -1 1 1 1 -1 -1 -1 1 1 -1 1 1 1 -1 -1 1 1 -1 -1 1 -1 1 1 -1 -1 -1 1 1 1 -1 1 1 -1 -1 1 1 1 -1 -1 -1 1 -1 -1 -1 1 -1 1 ^4 -1 1 ^6 -1 ^5 1 -1 -1 -1 1 1 -1 -1 1 ^6 -1 1 -1 1 1 1 -1 ^7 1 ^4 -1 1 -1 -1 1 1 -1 1 1 -1 -1 -1 1 1 -1 1 1 -1 -1 1 1 -1 ^5 1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 1 -1 -1 1 -1 1 ^5 -1 -1 1 -1 1 ^4 -1 -1 1 ^7 -1 1 -1 1 -1 1 -1 -1 1 ^10 -1 1 -1 1 -1 -1 1 1 1 -1 1 1 -1 1 1 -1 1 -1 -1 -1 1 ^7 -1 1 -1 ^4 1 1 -1 -1 1 -1 -1 1 1 -1 -1 -1 1 1 1 -1 1 -1 1 1 -1 -1 -1 1 -1 -1 -1 1 1 1 -1 -1 1 -1 1 -1 -1 -1 1 1 1 -1 ^4 1 ^4 -1 1 -1 1 1 1 -1 -1 1 ^7 -1 1 -1 -1 1 -1 1 -1 1 -1 -1 1 -1 ^5 1 ^4 -1 1 1 1 -1 1 -1 -1 -1 1 1 -1 -1 -1 1 -1 1 1 -1 -1 1 1 -1 -1 -1 1 -1 1 -1 -1 -1 1 1 -1 1 ^4 -1 -1 -1 1 -1 1 -1 1 1 -1 1 -1 1 -1 ^5 1 1 -1 -1 1 1 -1 1 ^4 -1 -1 1 -1 -1 -1 1 ^5 -1 1 1 -1 ^9 1 ^7 -1 1 -1 1 -1 ^4 1 1 -1 1 1 1 -1 1 1 1 -1 1 -1 1 1 1 -1 1 1 -1 -1 1 -1 -1 1 1 1 -1 -1 -1 1 1 1 -1 -1 1 -1 1 1 1 -1 1 -1 1 -1 -1 1 -1 -1 -1 1 -1 -1 1 -1 -1 1 1 -1 1 1 -1 1 ^6 -1 ^4 1 -1 1 -1 -1 1 1 1 -1 -1 1 -1 1 1 -1 1 1 1 -1 ^4 1 1 -1 1 1 -1 -1 1 -1 -1 1 1 -1 1 -1 -1 1 1 -1 1 1 -1 1 1 -1 1 -1 -1 -1 1 -1 ^4 1 ^4 -1 -1 1 1 1 -1 ^4 1 -1 -1 1 -1 -1 1 1 1 -1 1 -1 1 1 1 -1 -1 -1 1 -1 -1 1 -1 1 1 1 -1 -1 1 -1 1 ^8 -1 -1 -1 1 -1 1 1 -1 1 ^5 -1 1 1 -1 -1 1 -1 1 -1 -1 1 -1 1 -1 -1 1 ^7 -1 -1 1 -1 -1 1 1 -1 1 -1 ^6 1 1 -1 ^8 1 ^5 -1 1 1 1 -1 1 -1 1 1 -1 1 -1 ^5 1 ^10 -1 1 -1 1 1 1 -1 -1 -1 1 1 -1 -1 1 1 1 -1 -1 1 -1 -1 -1 1 -1 1 -1 1 ^4 -1 1 -1 -1 -1 1 -1 -1 -1 1 -1 -1 1 1 1 -1 -1 1 1 1 -1 -1 -1 1 1 1 -1 ^4 1 ^7 -1 1 -1 1 -1 -1 1 -1 1 1 -1 1 -1 1 1 -1 ^5 1 -1 1 -1 1 -1 1 1 1 -1 1 1 1 -1 -1 1 -1 -1 -1 1 1 -1 1 ^6 -1 1 -1 1 1 -1 1 -1 -1 -1 1 1 -1 1 1 -1 -1 1 1 1 -1 ^4 1 -1 1 1 -1 1 1 -1 1 -1 1 1 1 -1 -1 1 -1 -1 1 1 1 -1 -1 1 1 -1 -1 -1 1 1 -1 1 1 -1 -1 1 -1 1 1 -1 -1 -1 1 -1 -1 1 1 -1 1 -1 ^5 1 -1 1 ^5 -1 1 1 -1 1 1 1 -1 1 1 -1 -1 1 1 -1 -1 -1 1 -1 1 -1 1 -1 1 -1 1 1 -1 -1 1 -1 ^5 1 -1 1 1 -1 -1 1 -1 1 1 1 -1 1 -1 -1 -1 1 ^4 -1 1 1 -1 -1 -1 1 1 -1 1 1 1 -1 -1 -1 1 1 -1 ^4 1 1 -1 1 1 1)</param>
+        <param name="dualMemPortAddr1">[/mp_txrx_Memory/Counter1_PostCast_primWireOut/primWireOut]</param>
+        <param name="dualMemPortAddr2">[/mp_txrx_Memory/Counter_PostCast_primWireOut/primWireOut]</param>
+        <param name="dualMemPortData1">[/mp_txrx_Memory/Const2/primWireOut]</param>
+        <param name="dualMemPortWrite1En">[/mp_txrx_Memory/Const2/primWireOut]</param>
+        <param name="dualMemRWConflictMode">dualMemRWConflictIgnore</param>
+        <param name="dualMemTypeData1">(typeSFixed 12 0)</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 10 0 ^4) (1 1 0 ^4) (1 10 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="dualMemWireData1"/>
+        <wire name="dualMemWireData2"/>
+      </block>
+      <block name="Not">
+        <param name="0">[/mp_txrx_Memory/Sequence/primWireOut]</param>
+        <param name="blockType">notBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Not1">
+        <param name="0">[/mp_txrx_Memory/Sequence1/primWireOut]</param>
+        <param name="blockType">notBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SampleDelay2">
+        <param name="0">[/mp_txrx_Memory/And1/primWireOut]</param>
+        <param name="blockType">delayBlock</param>
+        <param name="delayLength">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Sequence">
+        <param name="blockType">sequenceBlock</param>
+        <param name="portEnable">[/mp_txrx_Memory/ChannelIn/wireValid]</param>
+        <param name="sequencePeriod">40</param>
+        <param name="sequencePhase">0</param>
+        <param name="sequenceStep">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Sequence1">
+        <param name="blockType">sequenceBlock</param>
+        <param name="portEnable">[/mp_txrx_Memory/ChannelIn1/wireValid]</param>
+        <param name="sequencePeriod">40</param>
+        <param name="sequencePhase">35</param>
+        <param name="sequenceStep">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <wire name="(1 dv)"/>
+        <wire name="(2 dc)"/>
+        <wire name="(3 trigger)"/>
+        <wire name="(4 dc1)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 m2)">[/mp_txrx_Memory/ChannelOut/0]</param>
+        <param name="(2 qv)">[/mp_txrx_Memory/ChannelOut/wireValid]</param>
+        <param name="(3 qc)">[/mp_txrx_Memory/ChannelOut/wireChannel]</param>
+        <param name="(4 m1)">[/mp_txrx_Memory/ChannelOut1/0]</param>
+        <param name="(5 qv1)">[/mp_txrx_Memory/ChannelOut1/wireValid]</param>
+        <param name="(6 qc1)">[/mp_txrx_Memory/ChannelOut1/wireChannel]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_Scrambled shit subsystem&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 8 0 ^4) (1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 25 0 0 1 0) (1 8 0 ^4) (1 1 0 ^4))</param>
+      <param name="simulinkPath">"mp/txrx/Scrambled shit subsystem"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="Add">
+        <param name="0">[/"mp_txrx_Scrambled shit subsystem"/Mult1/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Scrambled shit subsystem"/Mult2/primWireOut]</param>
+        <param name="blockType">addBlock</param>
+        <param name="floatRoundingMode">correctRounding</param>
+        <param name="fpcNormThreshold">0</param>
+        <param name="fusedDatapath">2</param>
+        <param name="simulinkExtraCacheKeys">((1 24 0 0 1 0) (1 24 0 0 1 0) (1 25 0 0 1 0))</param>
+        <param name="synthForceSoftFP">false</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="ChannelIn">
+        <param name="0">[/"mp_txrx_Scrambled shit subsystem"/inputBlock/(1 In1)]</param>
+        <param name="1">[/"mp_txrx_Scrambled shit subsystem"/inputBlock/(2 In2)]</param>
+        <param name="blockType">channelInBlock</param>
+        <param name="portChannel">[/"mp_txrx_Scrambled shit subsystem"/inputBlock/(3 dc)]</param>
+        <param name="portValid">[/"mp_txrx_Scrambled shit subsystem"/inputBlock/(4 dv)]</param>
+        <param name="scheduleOrigin">true</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/Scrambled shit subsystem/ChannelIn"</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="ChannelOut">
+        <param name="0">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/0]</param>
+        <param name="1">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/1]</param>
+        <param name="2">[/"mp_txrx_Scrambled shit subsystem"/Add/primWireOut]</param>
+        <param name="blockType">channelOutBlock</param>
+        <param name="portChannel">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/wireChannel]</param>
+        <param name="portValid">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 25 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 25 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/Scrambled shit subsystem/ChannelOut"</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="2"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="Mult1">
+        <param name="0">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/0]</param>
+        <param name="1">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/0]</param>
+        <param name="blockType">multBlock</param>
+        <param name="floatRoundingMode">correctRounding</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 24 0 0 1 0))</param>
+        <param name="synthForceSoftFP">false</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Mult2">
+        <param name="0">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/1]</param>
+        <param name="1">[/"mp_txrx_Scrambled shit subsystem"/ChannelIn/1]</param>
+        <param name="blockType">multBlock</param>
+        <param name="floatRoundingMode">correctRounding</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 24 0 0 1 0))</param>
+        <param name="synthForceSoftFP">false</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 8 0 ^4) (1 1 0 ^4))</param>
+        <wire name="(1 In1)"/>
+        <wire name="(2 In2)"/>
+        <wire name="(3 dc)"/>
+        <wire name="(4 dv)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 Out1)">[/"mp_txrx_Scrambled shit subsystem"/ChannelOut/0]</param>
+        <param name="(2 Out2)">[/"mp_txrx_Scrambled shit subsystem"/ChannelOut/1]</param>
+        <param name="(3 pwr)">[/"mp_txrx_Scrambled shit subsystem"/ChannelOut/2]</param>
+        <param name="(4 qc)">[/"mp_txrx_Scrambled shit subsystem"/ChannelOut/wireChannel]</param>
+        <param name="(5 qv)">[/"mp_txrx_Scrambled shit subsystem"/ChannelOut/wireValid]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 25 0 0 1 0) (1 8 0 ^4) (1 1 0 ^4))</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_Symbol Recovery&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 28 14 0 1 0) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+      <param name="simulinkPath">"mp/txrx/Symbol Recovery"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="Angle">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeSFixed 14 14)</param>
+        <param name="constValue">0</param>
+        <param name="simulinkExtraCacheKeys">((1 28 14 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="CORDIC">
+        <param name="blockType">cordicBlock</param>
+        <param name="cordicPortAngle">[/"mp_txrx_Symbol Recovery"/Angle/primWireOut]</param>
+        <param name="cordicPortMode">[/"mp_txrx_Symbol Recovery"/"Mode
+Meas1"/primWireOut]</param>
+        <param name="cordicPortX">[/"mp_txrx_Symbol Recovery"/latch_0L1/(1 q)]</param>
+        <param name="cordicPortY">[/"mp_txrx_Symbol Recovery"/latch_0L2/(1 q)]</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 28 14 0 1 0) (1 1 0 ^4) (1 28 14 0 1 0) (1 28 14 0 1 0) (1 28 14 0 1 0))</param>
+        <wire name="cordicWireAngle"/>
+        <wire name="cordicWireX"/>
+        <wire name="cordicWireY"/>
+      </block>
+      <block name="CORDIC_PostCast_cordicWireAngle">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/CORDIC/cordicWireAngle]</param>
+        <param name="blockType">castBlock</param>
+        <param name="castMode">castModeConvert</param>
+        <param name="castOutputType">(typeSFixed 14 14)</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="ChannelIn">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/inputBlock/(3 pow_in)]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery"/inputBlock/(4 I)]</param>
+        <param name="2">[/"mp_txrx_Symbol Recovery"/inputBlock/(5 Q)]</param>
+        <param name="blockType">channelInBlock</param>
+        <param name="portChannel">[/"mp_txrx_Symbol Recovery"/inputBlock/(2 dc)]</param>
+        <param name="portValid">[/"mp_txrx_Symbol Recovery"/inputBlock/(1 dv)]</param>
+        <param name="scheduleOrigin">true</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/Symbol Recovery/ChannelIn"</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="2"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="ChannelOut">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/CmpGE1_PostCast_primWireOut/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery"/CORDIC_PostCast_cordicWireAngle/primWireOut]</param>
+        <param name="2">[/"mp_txrx_Symbol Recovery"/SRlatch/(1 q)]</param>
+        <param name="3">[/"mp_txrx_Symbol Recovery"/latch_0L/(1 q)]</param>
+        <param name="blockType">channelOutBlock</param>
+        <param name="portChannel">[/"mp_txrx_Symbol Recovery"/ChannelIn/wireChannel]</param>
+        <param name="portValid">[/"mp_txrx_Symbol Recovery"/ChannelIn/wireValid]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 28 14 0 1 0) (1 1 0 ^4) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4) (1 28 14 0 1 0) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <param name="simulinkPath">"mp/txrx/Symbol Recovery/ChannelOut"</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="2"/>
+        <wire name="3"/>
+        <wire name="wireChannel"/>
+        <wire name="wireValid"/>
+      </block>
+      <block name="CmpGE">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/ChannelIn/0]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery"/Threshold/primWireOut]</param>
+        <param name="blockType">cmpGEBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 65 22 0 1 0) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="CmpGE1">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/latch_0L/(1 q)]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery"/Threshold1/primWireOut]</param>
+        <param name="blockType">cmpGEBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="CmpGE1_PostCast_primWireOut">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/CmpGE1/primWireOut]</param>
+        <param name="blockType">castBlock</param>
+        <param name="castMode">castModeConvert</param>
+        <param name="castOutputType">(typeUFixed 1 0)</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="CmpGE_PostCast_primWireOut">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/CmpGE/primWireOut]</param>
+        <param name="blockType">castBlock</param>
+        <param name="castMode">castModeConvert</param>
+        <param name="castOutputType">(typeUFixed 1 0)</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="&quot;Mode&#xA;Meas&quot;">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 1 0)</param>
+        <param name="constValue">0</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="&quot;Mode&#xA;Meas1&quot;">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 1 0)</param>
+        <param name="constValue">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Not">
+        <param name="0">[/"mp_txrx_Symbol Recovery"/Sequence/primWireOut]</param>
+        <param name="blockType">notBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SRlatch">
+        <param name="(1 s)">[/"mp_txrx_Symbol Recovery"/CmpGE_PostCast_primWireOut/primWireOut]</param>
+        <param name="(2 r)">[/"mp_txrx_Symbol Recovery"/"Mode
+Meas"/primWireOut]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_Symbol Recovery_SRlatch"]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="(1 q)"/>
+      </block>
+      <block name="Sequence">
+        <param name="blockType">sequenceBlock</param>
+        <param name="portEnable">[/"mp_txrx_Symbol Recovery"/SRlatch/(1 q)]</param>
+        <param name="sequencePeriod">40</param>
+        <param name="sequencePhase">35</param>
+        <param name="sequenceStep">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Threshold">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeSFixed 43 22)</param>
+        <param name="constValue">2198</param>
+        <param name="simulinkExtraCacheKeys">((1 65 22 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Threshold1">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeSFixed 12 0)</param>
+        <param name="constValue">1099</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="(1 dv)"/>
+        <wire name="(2 dc)"/>
+        <wire name="(3 pow_in)"/>
+        <wire name="(4 I)"/>
+        <wire name="(5 Q)"/>
+      </block>
+      <block name="latch_0L">
+        <param name="(1 e)">[/"mp_txrx_Symbol Recovery"/Not/primWireOut]</param>
+        <param name="(2 d)">[/"mp_txrx_Symbol Recovery"/ChannelIn/0]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_Symbol Recovery_latch_0L"]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="(1 q)"/>
+      </block>
+      <block name="latch_0L1">
+        <param name="(1 e)">[/"mp_txrx_Symbol Recovery"/Not/primWireOut]</param>
+        <param name="(2 d)">[/"mp_txrx_Symbol Recovery"/ChannelIn/1]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_Symbol Recovery_latch_0L1"]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="(1 q)"/>
+      </block>
+      <block name="latch_0L2">
+        <param name="(1 e)">[/"mp_txrx_Symbol Recovery"/Not/primWireOut]</param>
+        <param name="(2 d)">[/"mp_txrx_Symbol Recovery"/ChannelIn/2]</param>
+        <param name="blockType">modelBlock</param>
+        <param name="modelNode">[/"mp_txrx_Symbol Recovery_latch_0L2"]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="(1 q)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 bits)">[/"mp_txrx_Symbol Recovery"/ChannelOut/0]</param>
+        <param name="(2 qv)">[/"mp_txrx_Symbol Recovery"/ChannelOut/wireValid]</param>
+        <param name="(3 qc)">[/"mp_txrx_Symbol Recovery"/ChannelOut/wireChannel]</param>
+        <param name="(4 phase)">[/"mp_txrx_Symbol Recovery"/ChannelOut/1]</param>
+        <param name="(5 trigger)">[/"mp_txrx_Symbol Recovery"/ChannelOut/2]</param>
+        <param name="(6 sym_pwr)">[/"mp_txrx_Symbol Recovery"/ChannelOut/3]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 28 14 0 1 0) (1 1 0 ^4) (1 12 0 0 1 0))</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_Symbol Recovery_SRlatch&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+      <param name="simulinkPath">"mp/txrx/Symbol Recovery/SRlatch"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="And">
+        <param name="0">[/"mp_txrx_Symbol Recovery_SRlatch"/Or/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_SRlatch"/Not/primWireOut]</param>
+        <param name="blockType">andBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Not">
+        <param name="0">[/"mp_txrx_Symbol Recovery_SRlatch"/inputBlock/(2 r)]</param>
+        <param name="blockType">notBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Or">
+        <param name="0">[/"mp_txrx_Symbol Recovery_SRlatch"/SampleDelay1_PostCast_primWireOut/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_SRlatch"/inputBlock/(1 s)]</param>
+        <param name="blockType">orBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SampleDelay1">
+        <param name="0">[/"mp_txrx_Symbol Recovery_SRlatch"/And/primWireOut]</param>
+        <param name="blockType">delayBlock</param>
+        <param name="delayLength">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SampleDelay1_PostCast_primWireOut">
+        <param name="0">[/"mp_txrx_Symbol Recovery_SRlatch"/SampleDelay1/primWireOut]</param>
+        <param name="blockType">castBlock</param>
+        <param name="castMode">castModeReinterp</param>
+        <param name="castOutputType">(typeUFixed 1 0)</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4))</param>
+        <wire name="(1 s)"/>
+        <wire name="(2 r)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 q)">[/"mp_txrx_Symbol Recovery_SRlatch"/SampleDelay1_PostCast_primWireOut/primWireOut]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_Symbol Recovery_latch_0L&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+      <param name="simulinkPath">"mp/txrx/Symbol Recovery/latch_0L"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="(SampleDelay loopPin)">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L"/SampleDelay/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="Mux">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L"/SampleDelay/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_latch_0L"/inputBlock/(2 d)]</param>
+        <param name="blockType">muxBlock</param>
+        <param name="muxPortSelect">[/"mp_txrx_Symbol Recovery_latch_0L"/inputBlock/(1 e)]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SameDT">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L"/inputBlock/(2 d)]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_latch_0L"/Mux/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <param name="typePinPortTypes">((typeSFixed 12 0) (typeSFixed 12 0))</param>
+      </block>
+      <block name="SampleDelay">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L"/Mux/primWireOut]</param>
+        <param name="blockType">delayBlock</param>
+        <param name="delayLength">1</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <wire name="(1 e)"/>
+        <wire name="(2 d)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 q)">[/"mp_txrx_Symbol Recovery_latch_0L"/Mux/primWireOut]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0))</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_Symbol Recovery_latch_0L1&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+      <param name="simulinkPath">"mp/txrx/Symbol Recovery/latch_0L1"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="(SampleDelay loopPin)">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L1"/SampleDelay/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="Mux">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L1"/SampleDelay/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_latch_0L1"/inputBlock/(2 d)]</param>
+        <param name="blockType">muxBlock</param>
+        <param name="muxPortSelect">[/"mp_txrx_Symbol Recovery_latch_0L1"/inputBlock/(1 e)]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SameDT">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L1"/inputBlock/(2 d)]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_latch_0L1"/Mux/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <param name="typePinPortTypes">((typeSFixed 12 0) (typeSFixed 12 0))</param>
+      </block>
+      <block name="SampleDelay">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L1"/Mux/primWireOut]</param>
+        <param name="blockType">delayBlock</param>
+        <param name="delayLength">1</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <wire name="(1 e)"/>
+        <wire name="(2 d)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 q)">[/"mp_txrx_Symbol Recovery_latch_0L1"/Mux/primWireOut]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0))</param>
+      </block>
+    </model>
+    <model name="&quot;mp_txrx_Symbol Recovery_latch_0L2&quot;">
+      <param name="avalonMMInterfaceName">bus</param>
+      <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+      <param name="simulinkPath">"mp/txrx/Symbol Recovery/latch_0L2"</param>
+      <param name="synthATBChannelMismatch">synthATBModeError</param>
+      <param name="synthATBFloatThreshold">0</param>
+      <param name="synthATBFloatZeroThreshold">0</param>
+      <param name="synthATBGPIOMismatch">synthATBModeWarning</param>
+      <param name="synthBitAccurate">false</param>
+      <param name="synthBusAddrWidth">10</param>
+      <param name="synthBusClockMode">synthBusClockSys</param>
+      <param name="synthBusDataWidth">16</param>
+      <param name="synthBusEndianMode">synthBusEndianBig</param>
+      <param name="synthBusFreq">40</param>
+      <param name="synthClockFreq">40</param>
+      <param name="synthClockName">clk</param>
+      <param name="synthCycleAccurate">false</param>
+      <param name="synthDeviceFamily">"Cyclone V"</param>
+      <param name="synthDeviceInitialiseMemories">true</param>
+      <param name="synthDevicePart">"5CSXFC6D6F31C6"</param>
+      <param name="synthDeviceSpeedGrade">"6_H6"</param>
+      <param name="synthDeviceSubFamily">""</param>
+      <param name="synthGenerateATB">true</param>
+      <param name="synthResetActiveMode">synthResetActiveHigh</param>
+      <param name="synthResetName">areset</param>
+      <block name="(SampleDelay loopPin)">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L2"/SampleDelay/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="typePinType">(typeSFixed 12 0)</param>
+      </block>
+      <block name="Mux">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L2"/SampleDelay/primWireOut]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_latch_0L2"/inputBlock/(2 d)]</param>
+        <param name="blockType">muxBlock</param>
+        <param name="muxPortSelect">[/"mp_txrx_Symbol Recovery_latch_0L2"/inputBlock/(1 e)]</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0) (1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="SameDT">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L2"/inputBlock/(2 d)]</param>
+        <param name="1">[/"mp_txrx_Symbol Recovery_latch_0L2"/Mux/primWireOut]</param>
+        <param name="blockType">typePinBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <param name="typePinPortTypes">((typeSFixed 12 0) (typeSFixed 12 0))</param>
+      </block>
+      <block name="SampleDelay">
+        <param name="0">[/"mp_txrx_Symbol Recovery_latch_0L2"/Mux/primWireOut]</param>
+        <param name="blockType">delayBlock</param>
+        <param name="delayLength">1</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 12 0 0 1 0))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="inputBlock">
+        <param name="blockType">inputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 12 0 0 1 0))</param>
+        <wire name="(1 e)"/>
+        <wire name="(2 d)"/>
+      </block>
+      <block name="outputBlock">
+        <param name="(1 q)">[/"mp_txrx_Symbol Recovery_latch_0L2"/Mux/primWireOut]</param>
+        <param name="blockType">outputBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0))</param>
+      </block>
+    </model>
+  </design>
+
+</dsp-builder>
