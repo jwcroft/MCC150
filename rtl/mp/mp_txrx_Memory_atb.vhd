@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Memory
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:16 2019
 
 
 library IEEE;
@@ -36,7 +36,7 @@ component mp_txrx_Memory is
         in_4_dc1 : in std_logic_vector(7 downto 0);  -- ufix8
         out_2_qv : out std_logic_vector(0 downto 0);  -- ufix1
         out_3_qc : out std_logic_vector(7 downto 0);  -- ufix8
-        out_1_m2 : out std_logic_vector(11 downto 0);  -- sfix12
+        out_1_m2 : out std_logic_vector(1 downto 0);  -- sfix2
         out_5_qv1 : out std_logic_vector(0 downto 0);  -- ufix1
         out_6_qc1 : out std_logic_vector(7 downto 0);  -- ufix8
         out_4_m1 : out std_logic_vector(11 downto 0);  -- ufix12
@@ -53,7 +53,7 @@ component mp_txrx_Memory_stm is
         in_4_dc1_stm : out std_logic_vector(7 downto 0);
         out_2_qv_stm : out std_logic_vector(0 downto 0);
         out_3_qc_stm : out std_logic_vector(7 downto 0);
-        out_1_m2_stm : out std_logic_vector(11 downto 0);
+        out_1_m2_stm : out std_logic_vector(1 downto 0);
         out_5_qv1_stm : out std_logic_vector(0 downto 0);
         out_6_qc1_stm : out std_logic_vector(7 downto 0);
         out_4_m1_stm : out std_logic_vector(11 downto 0);
@@ -68,7 +68,7 @@ signal in_3_trigger_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal in_4_dc1_stm : STD_LOGIC_VECTOR (7 downto 0);
 signal out_2_qv_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_3_qc_stm : STD_LOGIC_VECTOR (7 downto 0);
-signal out_1_m2_stm : STD_LOGIC_VECTOR (11 downto 0);
+signal out_1_m2_stm : STD_LOGIC_VECTOR (1 downto 0);
 signal out_5_qv1_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_6_qc1_stm : STD_LOGIC_VECTOR (7 downto 0);
 signal out_4_m1_stm : STD_LOGIC_VECTOR (11 downto 0);
@@ -78,7 +78,7 @@ signal in_3_trigger_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal in_4_dc1_dut : STD_LOGIC_VECTOR (7 downto 0);
 signal out_2_qv_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_3_qc_dut : STD_LOGIC_VECTOR (7 downto 0);
-signal out_1_m2_dut : STD_LOGIC_VECTOR (11 downto 0);
+signal out_1_m2_dut : STD_LOGIC_VECTOR (1 downto 0);
 signal out_5_qv1_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_6_qc1_dut : STD_LOGIC_VECTOR (7 downto 0);
 signal out_4_m1_dut : STD_LOGIC_VECTOR (11 downto 0);

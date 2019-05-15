@@ -14,11 +14,11 @@ source $base_dir/mp/mp_txrx_ChanView5.dspb.do
 source $base_dir/mp/mp_txrx_ChanView6.dspb.do
 source $base_dir/mp/mp_txrx_InterpolatingFIR.dspb.do
 source $base_dir/mp/mp_txrx_Memory.dspb.do
+source $base_dir/mp/mp_txrx_Pwr_extraction.dspb.do
 source $base_dir/mp/mp_txrx_Scale.dspb.do
 source $base_dir/mp/mp_txrx_Scale1.dspb.do
 source $base_dir/mp/mp_txrx_Scale2_Q.dspb.do
 source $base_dir/mp/mp_txrx_Scale3_I.dspb.do
-source $base_dir/mp/mp_txrx_Scrambled_shit_subsystem.dspb.do
 source $base_dir/mp/mp_txrx_SingleRateFIR1_Q.dspb.do
 source $base_dir/mp/mp_txrx_SingleRateFIR_I.dspb.do
 source $base_dir/mp/mp_txrx_Symbol_Recovery.dspb.do

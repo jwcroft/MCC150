@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_InterpolatingFIR
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:16 2019
 
 
 library IEEE;
@@ -32,10 +32,10 @@ component mp_txrx_InterpolatingFIR is
     port (
         xIn_v : in std_logic_vector(0 downto 0);  -- sfix1
         xIn_c : in std_logic_vector(7 downto 0);  -- sfix8
-        xIn_0 : in std_logic_vector(11 downto 0);  -- sfix12
+        xIn_0 : in std_logic_vector(1 downto 0);  -- sfix2
         xOut_v : out std_logic_vector(0 downto 0);  -- ufix1
         xOut_c : out std_logic_vector(7 downto 0);  -- ufix8
-        xOut_0 : out std_logic_vector(24 downto 0);  -- sfix25
+        xOut_0 : out std_logic_vector(14 downto 0);  -- sfix15
         clk : in std_logic;
         areset : in std_logic
     );
@@ -45,10 +45,10 @@ component mp_txrx_InterpolatingFIR_stm is
     port (
         xIn_v_stm : out std_logic_vector(0 downto 0);
         xIn_c_stm : out std_logic_vector(7 downto 0);
-        xIn_0_stm : out std_logic_vector(11 downto 0);
+        xIn_0_stm : out std_logic_vector(1 downto 0);
         xOut_v_stm : out std_logic_vector(0 downto 0);
         xOut_c_stm : out std_logic_vector(7 downto 0);
-        xOut_0_stm : out std_logic_vector(24 downto 0);
+        xOut_0_stm : out std_logic_vector(14 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -56,16 +56,16 @@ end component;
 
 signal xIn_v_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal xIn_c_stm : STD_LOGIC_VECTOR (7 downto 0);
-signal xIn_0_stm : STD_LOGIC_VECTOR (11 downto 0);
+signal xIn_0_stm : STD_LOGIC_VECTOR (1 downto 0);
 signal xOut_v_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal xOut_c_stm : STD_LOGIC_VECTOR (7 downto 0);
-signal xOut_0_stm : STD_LOGIC_VECTOR (24 downto 0);
+signal xOut_0_stm : STD_LOGIC_VECTOR (14 downto 0);
 signal xIn_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal xIn_c_dut : STD_LOGIC_VECTOR (7 downto 0);
-signal xIn_0_dut : STD_LOGIC_VECTOR (11 downto 0);
+signal xIn_0_dut : STD_LOGIC_VECTOR (1 downto 0);
 signal xOut_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal xOut_c_dut : STD_LOGIC_VECTOR (7 downto 0);
-signal xOut_0_dut : STD_LOGIC_VECTOR (24 downto 0);
+signal xOut_0_dut : STD_LOGIC_VECTOR (14 downto 0);
         signal clk : std_logic;
         signal areset : std_logic;
 

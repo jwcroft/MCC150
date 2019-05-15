@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Scale
--- VHDL created on Wed May 15 10:15:10 2019
+-- VHDL created on Wed May 15 14:31:18 2019
 
 
 library IEEE;
@@ -28,7 +28,7 @@ entity mp_txrx_Scale_stm is
     port (
         xIn_v_stm : out std_logic_vector(0 downto 0);
         xIn_c_stm : out std_logic_vector(7 downto 0);
-        xIn_0_stm : out std_logic_vector(24 downto 0);
+        xIn_0_stm : out std_logic_vector(14 downto 0);
         gain_i_stm : out std_logic_vector(0 downto 0);
         qOut_v_stm : out std_logic_vector(0 downto 0);
         qOut_c_stm : out std_logic_vector(7 downto 0);
@@ -103,7 +103,7 @@ architecture normal of mp_txrx_Scale_stm is
             variable xIn_c_int_0 : Integer;
             variable xIn_c_temp : std_logic_vector(7 downto 0);
             variable xIn_0_int_0 : Integer;
-            variable xIn_0_temp : std_logic_vector(24 downto 0);
+            variable xIn_0_temp : std_logic_vector(14 downto 0);
             variable gain_i_int_0 : Integer;
             variable gain_i_temp : std_logic_vector(0 downto 0);
 
@@ -131,7 +131,7 @@ architecture normal of mp_txrx_Scale_stm is
                     xIn_c_temp(7 downto 0) := std_logic_vector(to_unsigned(xIn_c_int_0, 8));
                     xIn_c_stm <= xIn_c_temp;
                     read(L, xIn_0_int_0);
-                    xIn_0_temp(24 downto 0) := std_logic_vector(to_unsigned(xIn_0_int_0, 25));
+                    xIn_0_temp(14 downto 0) := std_logic_vector(to_unsigned(xIn_0_int_0, 15));
                     xIn_0_stm <= xIn_0_temp;
                     read(L, gain_i_int_0);
                     gain_i_temp(0 downto 0) := std_logic_vector(to_unsigned(gain_i_int_0, 1));

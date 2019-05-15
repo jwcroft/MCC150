@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:15 2019
 
 
 library IEEE;
@@ -37,7 +37,7 @@ entity mp_txrx_stm is
         fromADC_Q_stm : out std_logic_vector(11 downto 0);
         toDAC_I_stm : out std_logic_vector(11 downto 0);
         toDAC_Q_stm : out std_logic_vector(11 downto 0);
-        sym_phase_stm : out std_logic_vector(27 downto 0);
+        sym_phase_stm : out std_logic_vector(28 downto 0);
         BER_stm : out std_logic_vector(0 downto 0);
         bit_error_stm : out std_logic_vector(0 downto 0);
         sym_pwr_stm : out std_logic_vector(11 downto 0);
@@ -47,6 +47,7 @@ entity mp_txrx_stm is
         bit_o_stm : out std_logic_vector(0 downto 0);
         pow_rx_stm : out std_logic_vector(11 downto 0);
         pow_rx_preshift_stm : out std_logic_vector(24 downto 0);
+        trigger_stm : out std_logic_vector(0 downto 0);
         clk : out std_logic;
         areset : out std_logic;
         h_areset : out std_logic
@@ -73,6 +74,7 @@ architecture normal of mp_txrx_stm is
     signal clk_bit_o_stm_sig_stop : std_logic := '0';
     signal clk_pow_rx_stm_sig_stop : std_logic := '0';
     signal clk_pow_rx_preshift_stm_sig_stop : std_logic := '0';
+    signal clk_trigger_stm_sig_stop : std_logic := '0';
 
     function str_to_stdvec(inp: string) return std_logic_vector is
         variable temp: std_logic_vector(inp'range) := (others => 'X');
@@ -297,7 +299,7 @@ architecture normal of mp_txrx_stm is
             variable dummy_int : Integer;
             file data_file_ChannelOut : text open read_mode is "mp/mp_txrx_Symbol_Recovery_ChannelOut.stm";
             variable out_4_phase_int_0 : Integer;
-            variable out_4_phase_temp : std_logic_vector(27 downto 0);
+            variable out_4_phase_temp : std_logic_vector(28 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -318,7 +320,7 @@ architecture normal of mp_txrx_stm is
                     read(L, dummy_int);
                     read(L, dummy_int);
                     read(L, out_4_phase_int_0);
-                    out_4_phase_temp(27 downto 0) := std_logic_vector(to_unsigned(out_4_phase_int_0, 28));
+                    out_4_phase_temp(28 downto 0) := std_logic_vector(to_unsigned(out_4_phase_int_0, 29));
                     sym_phase_stm <= out_4_phase_temp;
                     read(L, dummy_int);
                     read(L, dummy_int);
@@ -676,8 +678,50 @@ architecture normal of mp_txrx_stm is
                 end loop;
             wait;
         END PROCESS;
+        -- Generating stimulus for trigger
+        trigger_stm_init_p: process
 
-    clk_stm_sig_stop <= clk_fromADC_I_stm_sig_stop OR clk_fromADC_Q_stm_sig_stop OR clk_toDAC_I_stm_sig_stop OR clk_toDAC_Q_stm_sig_stop OR clk_sym_phase_stm_sig_stop OR clk_BER_stm_sig_stop OR clk_bit_error_stm_sig_stop OR clk_sym_pwr_stm_sig_stop OR clk_BBI_stm_sig_stop OR clk_BBQ_stm_sig_stop OR clk_mem_o_stm_sig_stop OR clk_bit_o_stm_sig_stop OR clk_pow_rx_stm_sig_stop OR clk_pow_rx_preshift_stm_sig_stop OR '0';
+            variable L : line;
+            variable dummy_int : Integer;
+            file data_file_ChannelOut : text open read_mode is "mp/mp_txrx_Symbol_Recovery_ChannelOut.stm";
+            variable out_5_trigger_int_0 : Integer;
+            variable out_5_trigger_temp : std_logic_vector(0 downto 0);
+
+        begin
+            -- initialize all outputs to 0
+            trigger_stm <= (others => '0');
+
+            wait for 201 ps; -- wait delay
+            
+            while true loop
+            
+                -- (ports connected to trigger)
+                IF (endfile(data_file_ChannelOut)) THEN
+                    clk_trigger_stm_sig_stop <= '1';
+                    wait;
+                ELSE
+                    readline(data_file_ChannelOut, L);
+                    
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, out_5_trigger_int_0);
+                    out_5_trigger_temp(0 downto 0) := std_logic_vector(to_unsigned(out_5_trigger_int_0, 1));
+                    trigger_stm <= out_5_trigger_temp;
+                    read(L, dummy_int);
+
+                    deallocate(L);
+                END IF;
+                -- -- wait for rising edge to pass (assert signals just after rising edge)
+                wait until clk_stm_sig'EVENT and clk_stm_sig = '1';
+                wait for 1 ps; -- wait delay
+                
+                end loop;
+            wait;
+        END PROCESS;
+
+    clk_stm_sig_stop <= clk_fromADC_I_stm_sig_stop OR clk_fromADC_Q_stm_sig_stop OR clk_toDAC_I_stm_sig_stop OR clk_toDAC_Q_stm_sig_stop OR clk_sym_phase_stm_sig_stop OR clk_BER_stm_sig_stop OR clk_bit_error_stm_sig_stop OR clk_sym_pwr_stm_sig_stop OR clk_BBI_stm_sig_stop OR clk_BBQ_stm_sig_stop OR clk_mem_o_stm_sig_stop OR clk_bit_o_stm_sig_stop OR clk_pow_rx_stm_sig_stop OR clk_pow_rx_preshift_stm_sig_stop OR clk_trigger_stm_sig_stop OR '0';
 
 
     END normal;

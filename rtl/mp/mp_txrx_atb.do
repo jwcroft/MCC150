@@ -112,11 +112,11 @@ vcom -quiet $base_dir/mp/mp_txrx_ChanView5.vhd
 vcom -quiet $base_dir/mp/mp_txrx_ChanView6.vhd
 vcom -quiet $base_dir/mp/mp_txrx_InterpolatingFIR.vhd
 vcom -quiet $base_dir/mp/mp_txrx_Memory.vhd
+vcom -quiet $base_dir/mp/mp_txrx_Pwr_extraction.vhd
 vcom -quiet $base_dir/mp/mp_txrx_Scale.vhd
 vcom -quiet $base_dir/mp/mp_txrx_Scale1.vhd
 vcom -quiet $base_dir/mp/mp_txrx_Scale2_Q.vhd
 vcom -quiet $base_dir/mp/mp_txrx_Scale3_I.vhd
-vcom -quiet $base_dir/mp/mp_txrx_Scrambled_shit_subsystem.vhd
 vcom -quiet $base_dir/mp/mp_txrx_SingleRateFIR1_Q.vhd
 vcom -quiet $base_dir/mp/mp_txrx_SingleRateFIR_I.vhd
 vcom -quiet $base_dir/mp/mp_txrx_Symbol_Recovery.vhd
@@ -175,6 +175,9 @@ if {$vcomfailed == 0} {
             }
             if { [catch {exa mismatch_pow_rx_preshift} mismatch] == 0 && $mismatch } {
                 report_mismatch pow_rx_preshift $cyclenum
+            }
+            if { [catch {exa mismatch_trigger} mismatch] == 0 && $mismatch } {
+                report_mismatch trigger $cyclenum
             }
         } else {
             puts "Signal mismatch detected at $my_tb";

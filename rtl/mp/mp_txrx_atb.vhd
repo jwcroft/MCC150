@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:15 2019
 
 
 library IEEE;
@@ -41,7 +41,7 @@ component mp_txrx is
         fromADC_Q : in std_logic_vector(11 downto 0);  -- sfix12
         toDAC_I : out std_logic_vector(11 downto 0);  -- sfix12
         toDAC_Q : out std_logic_vector(11 downto 0);  -- sfix12
-        sym_phase : out std_logic_vector(27 downto 0);  -- sfix28_en14
+        sym_phase : out std_logic_vector(28 downto 0);  -- sfix29_en14
         BER : out std_logic_vector(0 downto 0);  -- ufix1
         bit_error : out std_logic_vector(0 downto 0);  -- ufix1
         sym_pwr : out std_logic_vector(11 downto 0);  -- sfix12
@@ -51,6 +51,7 @@ component mp_txrx is
         bit_o : out std_logic_vector(0 downto 0);  -- ufix1
         pow_rx : out std_logic_vector(11 downto 0);  -- sfix12
         pow_rx_preshift : out std_logic_vector(24 downto 0);  -- sfix25
+        trigger : out std_logic_vector(0 downto 0);  -- ufix1
         clk : in std_logic;
         areset : in std_logic;
         h_areset : in std_logic
@@ -70,7 +71,7 @@ component mp_txrx_stm is
         fromADC_Q_stm : out std_logic_vector(11 downto 0);
         toDAC_I_stm : out std_logic_vector(11 downto 0);
         toDAC_Q_stm : out std_logic_vector(11 downto 0);
-        sym_phase_stm : out std_logic_vector(27 downto 0);
+        sym_phase_stm : out std_logic_vector(28 downto 0);
         BER_stm : out std_logic_vector(0 downto 0);
         bit_error_stm : out std_logic_vector(0 downto 0);
         sym_pwr_stm : out std_logic_vector(11 downto 0);
@@ -80,6 +81,7 @@ component mp_txrx_stm is
         bit_o_stm : out std_logic_vector(0 downto 0);
         pow_rx_stm : out std_logic_vector(11 downto 0);
         pow_rx_preshift_stm : out std_logic_vector(24 downto 0);
+        trigger_stm : out std_logic_vector(0 downto 0);
         clk : out std_logic;
         areset : out std_logic;
         h_areset : out std_logic
@@ -97,7 +99,7 @@ signal fromADC_I_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal fromADC_Q_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal toDAC_I_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal toDAC_Q_stm : STD_LOGIC_VECTOR (11 downto 0);
-signal sym_phase_stm : STD_LOGIC_VECTOR (27 downto 0);
+signal sym_phase_stm : STD_LOGIC_VECTOR (28 downto 0);
 signal BER_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal bit_error_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal sym_pwr_stm : STD_LOGIC_VECTOR (11 downto 0);
@@ -107,6 +109,7 @@ signal mem_o_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal bit_o_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal pow_rx_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal pow_rx_preshift_stm : STD_LOGIC_VECTOR (24 downto 0);
+signal trigger_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal busIn_writedata_dut : STD_LOGIC_VECTOR (15 downto 0);
 signal busIn_address_dut : STD_LOGIC_VECTOR (9 downto 0);
 signal busIn_write_dut : STD_LOGIC_VECTOR (0 downto 0);
@@ -118,7 +121,7 @@ signal fromADC_I_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal fromADC_Q_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal toDAC_I_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal toDAC_Q_dut : STD_LOGIC_VECTOR (11 downto 0);
-signal sym_phase_dut : STD_LOGIC_VECTOR (27 downto 0);
+signal sym_phase_dut : STD_LOGIC_VECTOR (28 downto 0);
 signal BER_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal bit_error_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal sym_pwr_dut : STD_LOGIC_VECTOR (11 downto 0);
@@ -128,6 +131,7 @@ signal mem_o_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal bit_o_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal pow_rx_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal pow_rx_preshift_dut : STD_LOGIC_VECTOR (24 downto 0);
+signal trigger_dut : STD_LOGIC_VECTOR (0 downto 0);
         signal clk : std_logic;
         signal areset : std_logic;
         signal h_areset : std_logic;
@@ -422,6 +426,29 @@ begin
 END PROCESS;
 
 
+-- General Purpose data out check
+checktrigger : process (clk, areset)
+variable mismatch_trigger : BOOLEAN := FALSE;
+variable ok : BOOLEAN := TRUE;
+begin
+    IF (areset = '1') THEN
+        -- do nothing during reset
+    ELSIF (clk'EVENT AND clk = '0') THEN -- falling clock edge to avoid transitions
+        ok := TRUE;
+        mismatch_trigger := FALSE;
+        IF ( (trigger_dut /= trigger_stm)) THEN
+            mismatch_trigger := TRUE;
+            report "Mismatch on device output pin trigger" severity Warning;
+        END IF;
+        IF (mismatch_trigger) THEN
+            ok := FALSE;
+        END IF;
+        assert (ok)
+        report "mismatch in general purpose signal. Check the status of any associated valid signals." severity Warning;
+    END IF;
+END PROCESS;
+
+
 dut : mp_txrx port map (
     busIn_writedata_stm,
     busIn_address_stm,
@@ -444,6 +471,7 @@ dut : mp_txrx port map (
     bit_o_dut,
     pow_rx_dut,
     pow_rx_preshift_dut,
+    trigger_dut,
         clk,
         areset,
         h_areset
@@ -471,6 +499,7 @@ sim : mp_txrx_stm port map (
     bit_o_stm,
     pow_rx_stm,
     pow_rx_preshift_stm,
+    trigger_stm,
         clk,
         areset,
         h_areset

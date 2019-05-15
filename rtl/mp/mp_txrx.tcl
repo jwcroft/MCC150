@@ -55,6 +55,7 @@ set_instance_assignment -name VIRTUAL_PIN ON -to mem_o
 set_instance_assignment -name VIRTUAL_PIN ON -to bit_o
 set_instance_assignment -name VIRTUAL_PIN ON -to pow_rx
 set_instance_assignment -name VIRTUAL_PIN ON -to pow_rx_preshift
+set_instance_assignment -name VIRTUAL_PIN ON -to trigger
 set_instance_assignment -name VIRTUAL_PIN ON -to busIn_writedata
 set_instance_assignment -name VIRTUAL_PIN ON -to busIn_address
 set_instance_assignment -name VIRTUAL_PIN ON -to busIn_write

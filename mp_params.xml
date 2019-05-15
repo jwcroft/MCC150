@@ -24,7 +24,7 @@
 		<param name="createTrace" value="false" />
 		<param name="hardwareDestinationDirectory" value="./rtl" />
 		<param name="clockFrequency" value="40" />
-		<param name="quartusWorkDirectory" value="./RFADA" />
+		<param name="quartusWorkDirectory" value="C:\MCC150_mini_project\RFADA" />
 		<param name="errorOnChanMismatch" value="true" />
 		<param name="validMapVariable" value="" />
 		<param name="cycleAccurate" value="false" />

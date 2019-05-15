@@ -40,8 +40,8 @@ add wave -noupdate -format Logical /mp_txrx_Memory_atb/dut/out_2_qv
 add wave -noupdate -format Logical /mp_txrx_Memory_atb/sim/out_2_qv_stm
 add_fixpt_wave /mp_txrx_Memory_atb/dut/out_3_qc 8 0 unsigned
 add_fixpt_wave /mp_txrx_Memory_atb/sim/out_3_qc_stm 8 0 unsigned
-add_fixpt_wave /mp_txrx_Memory_atb/dut/out_1_m2 12 0 signed
-add_fixpt_wave /mp_txrx_Memory_atb/sim/out_1_m2_stm 12 0 signed
+add_fixpt_wave /mp_txrx_Memory_atb/dut/out_1_m2 2 0 signed
+add_fixpt_wave /mp_txrx_Memory_atb/sim/out_1_m2_stm 2 0 signed
 add wave -noupdate -format Logical /mp_txrx_Memory_atb/dut/out_5_qv1
 add wave -noupdate -format Logical /mp_txrx_Memory_atb/sim/out_5_qv1_stm
 add_fixpt_wave /mp_txrx_Memory_atb/dut/out_6_qc1 8 0 unsigned

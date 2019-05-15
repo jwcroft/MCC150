@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:15 2019
 
 
 library IEEE;
@@ -46,7 +46,7 @@ entity mp_txrx is
         fromADC_Q : in std_logic_vector(11 downto 0);  -- sfix12
         toDAC_I : out std_logic_vector(11 downto 0);  -- sfix12
         toDAC_Q : out std_logic_vector(11 downto 0);  -- sfix12
-        sym_phase : out std_logic_vector(27 downto 0);  -- sfix28_en14
+        sym_phase : out std_logic_vector(28 downto 0);  -- sfix29_en14
         BER : out std_logic_vector(0 downto 0);  -- ufix1
         bit_error : out std_logic_vector(0 downto 0);  -- ufix1
         sym_pwr : out std_logic_vector(11 downto 0);  -- sfix12
@@ -56,6 +56,7 @@ entity mp_txrx is
         bit_o : out std_logic_vector(0 downto 0);  -- ufix1
         pow_rx : out std_logic_vector(11 downto 0);  -- sfix12
         pow_rx_preshift : out std_logic_vector(24 downto 0);  -- sfix25
+        trigger : out std_logic_vector(0 downto 0);  -- ufix1
         clk : in std_logic;
         areset : in std_logic;
         h_areset : in std_logic
@@ -170,10 +171,10 @@ architecture normal of mp_txrx is
 
     component mp_txrx_InterpolatingFIR is
         port (
-            xIn_0 : in std_logic_vector(11 downto 0);  -- Fixed Point
+            xIn_0 : in std_logic_vector(1 downto 0);  -- Fixed Point
             xIn_v : in std_logic_vector(0 downto 0);  -- Fixed Point
             xIn_c : in std_logic_vector(7 downto 0);  -- Fixed Point
-            xOut_0 : out std_logic_vector(24 downto 0);  -- Fixed Point
+            xOut_0 : out std_logic_vector(14 downto 0);  -- Fixed Point
             xOut_v : out std_logic_vector(0 downto 0);  -- Fixed Point
             xOut_c : out std_logic_vector(7 downto 0);  -- Fixed Point
             clk : in std_logic;
@@ -188,7 +189,7 @@ architecture normal of mp_txrx is
             in_2_dc : in std_logic_vector(7 downto 0);  -- Fixed Point
             in_3_trigger : in std_logic_vector(0 downto 0);  -- Fixed Point
             in_4_dc1 : in std_logic_vector(7 downto 0);  -- Fixed Point
-            out_1_m2 : out std_logic_vector(11 downto 0);  -- Fixed Point
+            out_1_m2 : out std_logic_vector(1 downto 0);  -- Fixed Point
             out_2_qv : out std_logic_vector(0 downto 0);  -- Fixed Point
             out_3_qc : out std_logic_vector(7 downto 0);  -- Fixed Point
             out_4_m1 : out std_logic_vector(11 downto 0);  -- Fixed Point
@@ -200,9 +201,26 @@ architecture normal of mp_txrx is
     end component;
 
 
+    component mp_txrx_Pwr_extraction is
+        port (
+            in_1_In1 : in std_logic_vector(11 downto 0);  -- Fixed Point
+            in_2_In2 : in std_logic_vector(11 downto 0);  -- Fixed Point
+            in_3_dc : in std_logic_vector(7 downto 0);  -- Fixed Point
+            in_4_dv : in std_logic_vector(0 downto 0);  -- Fixed Point
+            out_1_Out1 : out std_logic_vector(11 downto 0);  -- Fixed Point
+            out_2_Out2 : out std_logic_vector(11 downto 0);  -- Fixed Point
+            out_3_pwr : out std_logic_vector(24 downto 0);  -- Fixed Point
+            out_4_qc : out std_logic_vector(7 downto 0);  -- Fixed Point
+            out_5_qv : out std_logic_vector(0 downto 0);  -- Fixed Point
+            clk : in std_logic;
+            areset : in std_logic
+        );
+    end component;
+
+
     component mp_txrx_Scale is
         port (
-            xIn_0 : in std_logic_vector(24 downto 0);  -- Fixed Point
+            xIn_0 : in std_logic_vector(14 downto 0);  -- Fixed Point
             xIn_v : in std_logic_vector(0 downto 0);  -- Fixed Point
             xIn_c : in std_logic_vector(7 downto 0);  -- Fixed Point
             qOut_0 : out std_logic_vector(11 downto 0);  -- Fixed Point
@@ -254,23 +272,6 @@ architecture normal of mp_txrx is
             qOut_v : out std_logic_vector(0 downto 0);  -- Fixed Point
             qOut_c : out std_logic_vector(7 downto 0);  -- Fixed Point
             eOut_0 : out std_logic_vector(0 downto 0);  -- Fixed Point
-            clk : in std_logic;
-            areset : in std_logic
-        );
-    end component;
-
-
-    component mp_txrx_Scrambled_shit_subsystem is
-        port (
-            in_1_In1 : in std_logic_vector(11 downto 0);  -- Fixed Point
-            in_2_In2 : in std_logic_vector(11 downto 0);  -- Fixed Point
-            in_3_dc : in std_logic_vector(7 downto 0);  -- Fixed Point
-            in_4_dv : in std_logic_vector(0 downto 0);  -- Fixed Point
-            out_1_Out1 : out std_logic_vector(11 downto 0);  -- Fixed Point
-            out_2_Out2 : out std_logic_vector(11 downto 0);  -- Fixed Point
-            out_3_pwr : out std_logic_vector(24 downto 0);  -- Fixed Point
-            out_4_qc : out std_logic_vector(7 downto 0);  -- Fixed Point
-            out_5_qv : out std_logic_vector(0 downto 0);  -- Fixed Point
             clk : in std_logic;
             areset : in std_logic
         );
@@ -329,7 +330,7 @@ architecture normal of mp_txrx is
             out_1_bits : out std_logic_vector(0 downto 0);  -- Fixed Point
             out_2_qv : out std_logic_vector(0 downto 0);  -- Fixed Point
             out_3_qc : out std_logic_vector(7 downto 0);  -- Fixed Point
-            out_4_phase : out std_logic_vector(27 downto 0);  -- Fixed Point
+            out_4_phase : out std_logic_vector(28 downto 0);  -- Fixed Point
             out_5_trigger : out std_logic_vector(0 downto 0);  -- Fixed Point
             out_6_sym_pwr : out std_logic_vector(11 downto 0);  -- Fixed Point
             clk : in std_logic;
@@ -350,15 +351,18 @@ architecture normal of mp_txrx is
     signal ChanView5_c0_o : STD_LOGIC_VECTOR (11 downto 0);
     signal ChanView6_c0_o : STD_LOGIC_VECTOR (24 downto 0);
     signal Channel_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal InterpolatingFIR_xOut_0 : STD_LOGIC_VECTOR (24 downto 0);
+    signal InterpolatingFIR_xOut_0 : STD_LOGIC_VECTOR (14 downto 0);
     signal InterpolatingFIR_xOut_v : STD_LOGIC_VECTOR (0 downto 0);
     signal InterpolatingFIR_xOut_c : STD_LOGIC_VECTOR (7 downto 0);
-    signal Memory_out_1_m2 : STD_LOGIC_VECTOR (11 downto 0);
+    signal Memory_out_1_m2 : STD_LOGIC_VECTOR (1 downto 0);
     signal Memory_out_2_qv : STD_LOGIC_VECTOR (0 downto 0);
     signal Memory_out_3_qc : STD_LOGIC_VECTOR (7 downto 0);
     signal Memory_out_4_m1 : STD_LOGIC_VECTOR (11 downto 0);
     signal Memory_out_5_qv1 : STD_LOGIC_VECTOR (0 downto 0);
     signal Memory_out_6_qc1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal Pwr_extraction_x_out_1_Out1 : STD_LOGIC_VECTOR (11 downto 0);
+    signal Pwr_extraction_x_out_2_Out2 : STD_LOGIC_VECTOR (11 downto 0);
+    signal Pwr_extraction_x_out_3_pwr : STD_LOGIC_VECTOR (24 downto 0);
     signal Scale_qOut_0 : STD_LOGIC_VECTOR (11 downto 0);
     signal Scale_qOut_v : STD_LOGIC_VECTOR (0 downto 0);
     signal Scale_qOut_c : STD_LOGIC_VECTOR (7 downto 0);
@@ -369,9 +373,6 @@ architecture normal of mp_txrx is
     signal Scale3_I_qOut_0 : STD_LOGIC_VECTOR (11 downto 0);
     signal Scale3_I_qOut_v : STD_LOGIC_VECTOR (0 downto 0);
     signal Scale3_I_qOut_c : STD_LOGIC_VECTOR (7 downto 0);
-    signal Scrambled_shit_subsystem_x_out_1_Out1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal Scrambled_shit_subsystem_x_out_2_Out2 : STD_LOGIC_VECTOR (11 downto 0);
-    signal Scrambled_shit_subsystem_x_out_3_pwr : STD_LOGIC_VECTOR (24 downto 0);
     signal SingleRateFIR1_Q_busOut_readdata : STD_LOGIC_VECTOR (15 downto 0);
     signal SingleRateFIR1_Q_busOut_readdatavalid : STD_LOGIC_VECTOR (0 downto 0);
     signal SingleRateFIR1_Q_xOut_0 : STD_LOGIC_VECTOR (29 downto 0);
@@ -384,7 +385,7 @@ architecture normal of mp_txrx is
     signal SingleRateFIR_I_xOut_c : STD_LOGIC_VECTOR (7 downto 0);
     signal Symbol_Recovery_x_out_1_bits : STD_LOGIC_VECTOR (0 downto 0);
     signal Symbol_Recovery_x_out_3_qc : STD_LOGIC_VECTOR (7 downto 0);
-    signal Symbol_Recovery_x_out_4_phase : STD_LOGIC_VECTOR (27 downto 0);
+    signal Symbol_Recovery_x_out_4_phase : STD_LOGIC_VECTOR (28 downto 0);
     signal Symbol_Recovery_x_out_5_trigger : STD_LOGIC_VECTOR (0 downto 0);
     signal Symbol_Recovery_x_out_6_sym_pwr : STD_LOGIC_VECTOR (11 downto 0);
     signal bus_selector_q : STD_LOGIC_VECTOR (15 downto 0);
@@ -464,12 +465,12 @@ begin
         END IF;
     END PROCESS;
 
-    -- mp_txrx_readDelayed(DELAY,53)
+    -- mp_txrx_readDelayed(DELAY,54)
     mp_txrx_readDelayed : dspba_delay
     GENERIC MAP ( width => 1, depth => 4, reset_kind => "ASYNC" )
     PORT MAP ( xin => busIn_read, xout => mp_txrx_readDelayed_q, clk => clk, aclr => h_areset );
 
-    -- mp_txrx_readDataValid(LOGICAL,54)
+    -- mp_txrx_readDataValid(LOGICAL,55)
     mp_txrx_readDataValid_q <= bus_selector_v or mp_txrx_readDelayed_q;
 
     -- busOut(BUSOUT,27)
@@ -477,7 +478,7 @@ begin
     busOut_readdata <= bus_selector_q;
     busOut_waitrequest <= GND_q;
 
-    -- Scale2_Q(BLACKBOX,19)
+    -- Scale2_Q(BLACKBOX,20)
     theScale2_Q : mp_txrx_Scale2_Q
     PORT MAP (
         xIn_0 => SingleRateFIR1_Q_xOut_0,
@@ -488,7 +489,7 @@ begin
         areset => areset
     );
 
-    -- Scale3_I(BLACKBOX,20)
+    -- Scale3_I(BLACKBOX,21)
     theScale3_I : mp_txrx_Scale3_I
     PORT MAP (
         xIn_0 => SingleRateFIR_I_xOut_0,
@@ -501,24 +502,24 @@ begin
         areset => areset
     );
 
-    -- Scrambled_shit_subsystem_x(BLACKBOX,21)
-    theScrambled_shit_subsystem_x : mp_txrx_Scrambled_shit_subsystem
+    -- Pwr_extraction_x(BLACKBOX,17)
+    thePwr_extraction_x : mp_txrx_Pwr_extraction
     PORT MAP (
         in_1_In1 => Scale3_I_qOut_0,
         in_2_In2 => Scale2_Q_qOut_0,
         in_3_dc => Scale3_I_qOut_c,
         in_4_dv => Scale3_I_qOut_v,
-        out_1_Out1 => Scrambled_shit_subsystem_x_out_1_Out1,
-        out_2_Out2 => Scrambled_shit_subsystem_x_out_2_Out2,
-        out_3_pwr => Scrambled_shit_subsystem_x_out_3_pwr,
+        out_1_Out1 => Pwr_extraction_x_out_1_Out1,
+        out_2_Out2 => Pwr_extraction_x_out_2_Out2,
+        out_3_pwr => Pwr_extraction_x_out_3_pwr,
         clk => clk,
         areset => areset
     );
 
-    -- Scale1(BLACKBOX,18)
+    -- Scale1(BLACKBOX,19)
     theScale1 : mp_txrx_Scale1
     PORT MAP (
-        xIn_0 => Scrambled_shit_subsystem_x_out_3_pwr,
+        xIn_0 => Pwr_extraction_x_out_3_pwr,
         xIn_v => Scale3_I_qOut_v,
         xIn_c => Scale3_I_qOut_c,
         qOut_0 => Scale1_qOut_0,
@@ -545,8 +546,8 @@ begin
         in_1_dv => SingleRateFIR_I_xOut_v,
         in_2_dc => SingleRateFIR_I_xOut_c,
         in_3_pow_in => ChanView5_c0_o,
-        in_4_I => Scrambled_shit_subsystem_x_out_1_Out1,
-        in_5_Q => Scrambled_shit_subsystem_x_out_2_Out2,
+        in_4_I => Pwr_extraction_x_out_1_Out1,
+        in_5_Q => Pwr_extraction_x_out_2_Out2,
         out_1_bits => Symbol_Recovery_x_out_1_bits,
         out_3_qc => Symbol_Recovery_x_out_3_qc,
         out_4_phase => Symbol_Recovery_x_out_4_phase,
@@ -586,7 +587,7 @@ begin
         areset => areset
     );
 
-    -- Scale(BLACKBOX,17)
+    -- Scale(BLACKBOX,18)
     theScale : mp_txrx_Scale
     PORT MAP (
         xIn_0 => InterpolatingFIR_xOut_0,
@@ -673,7 +674,7 @@ begin
     -- ChanView3(BLACKBOX,10)
     theChanView3 : mp_txrx_ChanView3
     PORT MAP (
-        xIn_0 => Memory_out_1_m2,
+        xIn_0 => Memory_out_4_m1,
         xIn_v => VCC_q,
         xIn_c => Channel_q,
         c0_o => ChanView3_c0_o,
@@ -704,7 +705,7 @@ begin
     -- ChanView6(BLACKBOX,13)
     theChanView6 : mp_txrx_ChanView6
     PORT MAP (
-        xIn_0 => Scrambled_shit_subsystem_x_out_3_pwr,
+        xIn_0 => Pwr_extraction_x_out_3_pwr,
         xIn_v => Scale3_I_qOut_v,
         xIn_c => Scale3_I_qOut_c,
         c0_o => ChanView6_c0_o,
@@ -714,5 +715,8 @@ begin
 
     -- pow_rx_preshift(GPOUT,43)
     pow_rx_preshift <= ChanView6_c0_o;
+
+    -- trigger(GPOUT,44)
+    trigger <= Symbol_Recovery_x_out_5_trigger;
 
 END normal;

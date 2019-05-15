@@ -14,7 +14,7 @@ This help page relates to the specific instance 'mp_txrx_Scale' of the SCALE blo
  <TEXT>Created using DSP Builder for Intel(R) FPGAs - Advanced Blockset software</TEXT>
 </INFO>
 <INFO>
- <TEXT>Written on Wed May 15 10:15:07 2019
+ <TEXT>Written on Wed May 15 14:31:15 2019
 </TEXT>
 </INFO>
 <INFO>
@@ -44,7 +44,7 @@ This help page relates to the specific instance 'mp_txrx_Scale' of the SCALE blo
 </PORT>
 <PORT>
  <NAME>xIn_0</NAME>
- <WIDTH>25</WIDTH>
+ <WIDTH>15</WIDTH>
  <DIRECTION>in</DIRECTION>
  <DESCRIPTION>Data signal</DESCRIPTION>
 </PORT>
@@ -88,7 +88,7 @@ This help page relates to the specific instance 'mp_txrx_Scale' of the SCALE blo
 </TIMING>
 <RESOURCES>
 <TOTAL>
- <LUT4>120</LUT4>
+ <LUT4>90</LUT4>
  <MULT>0</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>

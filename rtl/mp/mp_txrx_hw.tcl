@@ -30,11 +30,11 @@ proc quartus_synth_callback {entity_name} {
 	add_fileset_file "mp_txrx_InterpolatingFIR.vhd" VHDL PATH "mp_txrx_InterpolatingFIR.vhd"
 	add_fileset_file "mp_txrx_Memory.vhd" VHDL PATH "mp_txrx_Memory.vhd"
 	add_fileset_file "mp_txrx_Memory_DualMem.hex" HEX PATH "mp_txrx_Memory_DualMem.hex"
+	add_fileset_file "mp_txrx_Pwr_extraction.vhd" VHDL PATH "mp_txrx_Pwr_extraction.vhd"
 	add_fileset_file "mp_txrx_Scale.vhd" VHDL PATH "mp_txrx_Scale.vhd"
 	add_fileset_file "mp_txrx_Scale1.vhd" VHDL PATH "mp_txrx_Scale1.vhd"
 	add_fileset_file "mp_txrx_Scale2_Q.vhd" VHDL PATH "mp_txrx_Scale2_Q.vhd"
 	add_fileset_file "mp_txrx_Scale3_I.vhd" VHDL PATH "mp_txrx_Scale3_I.vhd"
-	add_fileset_file "mp_txrx_Scrambled_shit_subsystem.vhd" VHDL PATH "mp_txrx_Scrambled_shit_subsystem.vhd"
 	add_fileset_file "mp_txrx_SingleRateFIR1_Q.vhd" VHDL PATH "mp_txrx_SingleRateFIR1_Q.vhd"
 	add_fileset_file "mp_txrx_SingleRateFIR1_Q_rm.hex" HEX PATH "mp_txrx_SingleRateFIR1_Q_rm.hex"
 	add_fileset_file "mp_txrx_SingleRateFIR_I.vhd" VHDL PATH "mp_txrx_SingleRateFIR_I.vhd"
@@ -59,11 +59,11 @@ proc sim_verilog_callback {entity_name} {
 	add_fileset_file "mp_txrx_InterpolatingFIR.vhd" VHDL PATH "mp_txrx_InterpolatingFIR.vhd"
 	add_fileset_file "mp_txrx_Memory.vhd" VHDL PATH "mp_txrx_Memory.vhd"
 	add_fileset_file "mp_txrx_Memory_DualMem.hex" HEX PATH "mp_txrx_Memory_DualMem.hex"
+	add_fileset_file "mp_txrx_Pwr_extraction.vhd" VHDL PATH "mp_txrx_Pwr_extraction.vhd"
 	add_fileset_file "mp_txrx_Scale.vhd" VHDL PATH "mp_txrx_Scale.vhd"
 	add_fileset_file "mp_txrx_Scale1.vhd" VHDL PATH "mp_txrx_Scale1.vhd"
 	add_fileset_file "mp_txrx_Scale2_Q.vhd" VHDL PATH "mp_txrx_Scale2_Q.vhd"
 	add_fileset_file "mp_txrx_Scale3_I.vhd" VHDL PATH "mp_txrx_Scale3_I.vhd"
-	add_fileset_file "mp_txrx_Scrambled_shit_subsystem.vhd" VHDL PATH "mp_txrx_Scrambled_shit_subsystem.vhd"
 	add_fileset_file "mp_txrx_SingleRateFIR1_Q.vhd" VHDL PATH "mp_txrx_SingleRateFIR1_Q.vhd"
 	add_fileset_file "mp_txrx_SingleRateFIR1_Q_rm.hex" HEX PATH "mp_txrx_SingleRateFIR1_Q_rm.hex"
 	add_fileset_file "mp_txrx_SingleRateFIR_I.vhd" VHDL PATH "mp_txrx_SingleRateFIR_I.vhd"
@@ -88,11 +88,11 @@ proc sim_vhdl_callback {entity_name} {
 	add_fileset_file "mp_txrx_InterpolatingFIR.vhd" VHDL PATH "mp_txrx_InterpolatingFIR.vhd"
 	add_fileset_file "mp_txrx_Memory.vhd" VHDL PATH "mp_txrx_Memory.vhd"
 	add_fileset_file "mp_txrx_Memory_DualMem.hex" HEX PATH "mp_txrx_Memory_DualMem.hex"
+	add_fileset_file "mp_txrx_Pwr_extraction.vhd" VHDL PATH "mp_txrx_Pwr_extraction.vhd"
 	add_fileset_file "mp_txrx_Scale.vhd" VHDL PATH "mp_txrx_Scale.vhd"
 	add_fileset_file "mp_txrx_Scale1.vhd" VHDL PATH "mp_txrx_Scale1.vhd"
 	add_fileset_file "mp_txrx_Scale2_Q.vhd" VHDL PATH "mp_txrx_Scale2_Q.vhd"
 	add_fileset_file "mp_txrx_Scale3_I.vhd" VHDL PATH "mp_txrx_Scale3_I.vhd"
-	add_fileset_file "mp_txrx_Scrambled_shit_subsystem.vhd" VHDL PATH "mp_txrx_Scrambled_shit_subsystem.vhd"
 	add_fileset_file "mp_txrx_SingleRateFIR1_Q.vhd" VHDL PATH "mp_txrx_SingleRateFIR1_Q.vhd"
 	add_fileset_file "mp_txrx_SingleRateFIR1_Q_rm.hex" HEX PATH "mp_txrx_SingleRateFIR1_Q_rm.hex"
 	add_fileset_file "mp_txrx_SingleRateFIR_I.vhd" VHDL PATH "mp_txrx_SingleRateFIR_I.vhd"
@@ -136,9 +136,11 @@ add_interface exp conduit end
 set_interface_property exp ENABLED true
 add_interface_port exp fromADC_I data_fromADC_I Input 12
 add_interface_port exp fromADC_Q data_fromADC_Q Input 12
-add_interface_port exp sym_phase data_sym_phase Output 28
+add_interface_port exp sym_phase data_sym_phase Output 29
 add_interface_port exp BER data_BER Output 1
 set_port_property BER VHDL_TYPE STD_LOGIC_VECTOR
 add_interface_port exp bit_error data_bit_error Output 1
 set_port_property bit_error VHDL_TYPE STD_LOGIC_VECTOR
 add_interface_port exp sym_pwr data_sym_pwr Output 12
+add_interface_port exp trigger data_trigger Output 1
+set_port_property trigger VHDL_TYPE STD_LOGIC_VECTOR

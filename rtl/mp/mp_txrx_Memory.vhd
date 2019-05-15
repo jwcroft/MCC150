@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Memory
--- VHDL created on Wed May 15 10:15:07 2019
+-- VHDL created on Wed May 15 14:31:15 2019
 
 
 library IEEE;
@@ -41,7 +41,7 @@ entity mp_txrx_Memory is
         in_4_dc1 : in std_logic_vector(7 downto 0);  -- ufix8
         out_2_qv : out std_logic_vector(0 downto 0);  -- ufix1
         out_3_qc : out std_logic_vector(7 downto 0);  -- ufix8
-        out_1_m2 : out std_logic_vector(11 downto 0);  -- sfix12
+        out_1_m2 : out std_logic_vector(1 downto 0);  -- sfix2
         out_5_qv1 : out std_logic_vector(0 downto 0);  -- ufix1
         out_6_qc1 : out std_logic_vector(7 downto 0);  -- ufix8
         out_4_m1 : out std_logic_vector(11 downto 0);  -- ufix12
@@ -76,6 +76,7 @@ architecture normal of mp_txrx_Memory is
     signal DualMem_q : STD_LOGIC_VECTOR (11 downto 0);
     signal DualMem_ir : STD_LOGIC_VECTOR (11 downto 0);
     signal DualMem_r : STD_LOGIC_VECTOR (11 downto 0);
+    signal Mapper_1_x_q : STD_LOGIC_VECTOR (1 downto 0);
     signal Not_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Not1_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Sequence_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
@@ -83,21 +84,17 @@ architecture normal of mp_txrx_Memory is
     signal Sequence1_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Sequence1_eq : std_logic;
     signal redist0_Not_rsrvd_fix_q_4_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist1_DualMem_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist2_ChannelIn1_in_3_trigger_1_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist3_ChannelIn1_in_3_trigger_3_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist4_ChannelIn1_in_4_dc1_4_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal redist5_ChannelIn_in_2_dc_5_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal redist6_And1_q_3_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist5_ChannelIn_in_2_dc_5_outputreg_q : STD_LOGIC_VECTOR (7 downto 0);
+    signal redist1_ChannelIn1_in_3_trigger_1_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist2_ChannelIn1_in_3_trigger_3_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist3_ChannelIn1_in_4_dc1_4_q : STD_LOGIC_VECTOR (7 downto 0);
+    signal redist4_ChannelIn_in_2_dc_5_q : STD_LOGIC_VECTOR (7 downto 0);
+    signal redist5_And1_q_3_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist4_ChannelIn_in_2_dc_5_outputreg_q : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
 
-    -- VCC(CONSTANT,1)
-    VCC_q <= "1";
-
-    -- Sequence_rsrvd_fix(SEQUENCE,19)@0 + 1
+    -- Sequence_rsrvd_fix(SEQUENCE,20)@0 + 1
     Sequence_rsrvd_fix_clkproc: PROCESS (clk, areset)
         variable Sequence_rsrvd_fix_c : SIGNED(7 downto 0);
     BEGIN
@@ -122,7 +119,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- Not_rsrvd_fix(LOGICAL,16)@1
+    -- VCC(CONSTANT,1)
+    VCC_q <= "1";
+
+    -- Not_rsrvd_fix(LOGICAL,17)@1
     Not_rsrvd_fix_q <= not (Sequence_rsrvd_fix_q);
 
     -- Counter(COUNTER,11)@1 + 1
@@ -142,7 +142,7 @@ begin
     -- GND(CONSTANT,0)
     GND_q <= "0";
 
-    -- Sequence1(SEQUENCE,20)@2 + 1
+    -- Sequence1(SEQUENCE,21)@1 + 1
     Sequence1_clkproc: PROCESS (clk, areset)
         variable Sequence1_c : SIGNED(7 downto 0);
     BEGIN
@@ -167,18 +167,18 @@ begin
         END IF;
     END PROCESS;
 
-    -- Not1(LOGICAL,17)@3
+    -- Not1(LOGICAL,18)@2
     Not1_q <= not (Sequence1_q);
 
-    -- redist2_ChannelIn1_in_3_trigger_1(DELAY,25)
-    redist2_ChannelIn1_in_3_trigger_1 : dspba_delay
+    -- redist1_ChannelIn1_in_3_trigger_1(DELAY,25)
+    redist1_ChannelIn1_in_3_trigger_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => in_3_trigger, xout => redist2_ChannelIn1_in_3_trigger_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => in_3_trigger, xout => redist1_ChannelIn1_in_3_trigger_1_q, clk => clk, aclr => areset );
 
-    -- And1(LOGICAL,4)@3
-    And1_q <= redist2_ChannelIn1_in_3_trigger_1_q and Not1_q;
+    -- And1(LOGICAL,4)@2
+    And1_q <= redist1_ChannelIn1_in_3_trigger_1_q and Not1_q;
 
-    -- Counter1(COUNTER,12)@2 + 1
+    -- Counter1(COUNTER,12)@1 + 1
     -- low=0, high=1023, step=1, init=0
     Counter1_clkproc: PROCESS (clk, areset)
     BEGIN
@@ -193,10 +193,6 @@ begin
     Counter1_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(Counter1_i, 10)));
 
     -- DualMem(DUALMEM,15)@2 + 2
-    -- in a@3
-    -- in d@3
-    -- in e@3
-    -- out r@5
     DualMem_aa <= Counter1_q;
     DualMem_ab <= Counter_q;
     DualMem_reset0 <= areset;
@@ -243,56 +239,65 @@ begin
     DualMem_q <= DualMem_iq(11 downto 0);
     DualMem_r <= DualMem_ir(11 downto 0);
 
-    -- redist1_DualMem_q_1(DELAY,24)
-    redist1_DualMem_q_1 : dspba_delay
-    GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => DualMem_q, xout => redist1_DualMem_q_1_q, clk => clk, aclr => areset );
+    -- Mapper_1_x(LOOKUP,16)@4 + 1
+    Mapper_1_x_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            Mapper_1_x_q <= "11";
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            CASE (DualMem_q) IS
+                WHEN "000000000000" => Mapper_1_x_q <= "11";
+                WHEN "000000000001" => Mapper_1_x_q <= "01";
+                WHEN OTHERS => Mapper_1_x_q <= "11";
+            END CASE;
+        END IF;
+    END PROCESS;
 
-    -- redist5_ChannelIn_in_2_dc_5(DELAY,28)
-    redist5_ChannelIn_in_2_dc_5 : dspba_delay
+    -- redist4_ChannelIn_in_2_dc_5(DELAY,28)
+    redist4_ChannelIn_in_2_dc_5 : dspba_delay
     GENERIC MAP ( width => 8, depth => 4, reset_kind => "ASYNC" )
-    PORT MAP ( xin => in_2_dc, xout => redist5_ChannelIn_in_2_dc_5_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => in_2_dc, xout => redist4_ChannelIn_in_2_dc_5_q, clk => clk, aclr => areset );
 
-    -- redist5_ChannelIn_in_2_dc_5_outputreg(DELAY,30)
-    redist5_ChannelIn_in_2_dc_5_outputreg : dspba_delay
+    -- redist4_ChannelIn_in_2_dc_5_outputreg(DELAY,30)
+    redist4_ChannelIn_in_2_dc_5_outputreg : dspba_delay
     GENERIC MAP ( width => 8, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist5_ChannelIn_in_2_dc_5_q, xout => redist5_ChannelIn_in_2_dc_5_outputreg_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist4_ChannelIn_in_2_dc_5_q, xout => redist4_ChannelIn_in_2_dc_5_outputreg_q, clk => clk, aclr => areset );
 
-    -- redist0_Not_rsrvd_fix_q_4(DELAY,23)
+    -- redist0_Not_rsrvd_fix_q_4(DELAY,24)
     redist0_Not_rsrvd_fix_q_4 : dspba_delay
     GENERIC MAP ( width => 1, depth => 4, reset_kind => "ASYNC" )
     PORT MAP ( xin => Not_rsrvd_fix_q, xout => redist0_Not_rsrvd_fix_q_4_q, clk => clk, aclr => areset );
 
     -- ChannelOut(PORTOUT,8)@5 + 1
     out_2_qv <= redist0_Not_rsrvd_fix_q_4_q;
-    out_3_qc <= redist5_ChannelIn_in_2_dc_5_outputreg_q;
-    out_1_m2 <= redist1_DualMem_q_1_q;
+    out_3_qc <= redist4_ChannelIn_in_2_dc_5_outputreg_q;
+    out_1_m2 <= Mapper_1_x_q;
 
-    -- redist3_ChannelIn1_in_3_trigger_3(DELAY,26)
-    redist3_ChannelIn1_in_3_trigger_3 : dspba_delay
+    -- redist2_ChannelIn1_in_3_trigger_3(DELAY,26)
+    redist2_ChannelIn1_in_3_trigger_3 : dspba_delay
     GENERIC MAP ( width => 1, depth => 2, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist2_ChannelIn1_in_3_trigger_1_q, xout => redist3_ChannelIn1_in_3_trigger_3_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist1_ChannelIn1_in_3_trigger_1_q, xout => redist2_ChannelIn1_in_3_trigger_3_q, clk => clk, aclr => areset );
 
-    -- And3(LOGICAL,5)@5 + 1
-    And3_b <= STD_LOGIC_VECTOR("00000000000" & redist3_ChannelIn1_in_3_trigger_3_q);
+    -- And3(LOGICAL,5)@4 + 1
+    And3_b <= STD_LOGIC_VECTOR("00000000000" & redist2_ChannelIn1_in_3_trigger_3_q);
     And3_qi <= DualMem_r and And3_b;
     And3_delay : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
     PORT MAP ( xin => And3_qi, xout => And3_q, clk => clk, aclr => areset );
 
-    -- redist4_ChannelIn1_in_4_dc1_4(DELAY,27)
-    redist4_ChannelIn1_in_4_dc1_4 : dspba_delay
+    -- redist3_ChannelIn1_in_4_dc1_4(DELAY,27)
+    redist3_ChannelIn1_in_4_dc1_4 : dspba_delay
     GENERIC MAP ( width => 8, depth => 4, reset_kind => "ASYNC" )
-    PORT MAP ( xin => in_4_dc1, xout => redist4_ChannelIn1_in_4_dc1_4_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => in_4_dc1, xout => redist3_ChannelIn1_in_4_dc1_4_q, clk => clk, aclr => areset );
 
-    -- redist6_And1_q_3(DELAY,29)
-    redist6_And1_q_3 : dspba_delay
+    -- redist5_And1_q_3(DELAY,29)
+    redist5_And1_q_3 : dspba_delay
     GENERIC MAP ( width => 1, depth => 3, reset_kind => "ASYNC" )
-    PORT MAP ( xin => And1_q, xout => redist6_And1_q_3_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => And1_q, xout => redist5_And1_q_3_q, clk => clk, aclr => areset );
 
-    -- ChannelOut1(PORTOUT,9)@6 + 1
-    out_5_qv1 <= redist6_And1_q_3_q;
-    out_6_qc1 <= redist4_ChannelIn1_in_4_dc1_4_q;
+    -- ChannelOut1(PORTOUT,9)@5 + 1
+    out_5_qv1 <= redist5_And1_q_3_q;
+    out_6_qc1 <= redist3_ChannelIn1_in_4_dc1_4_q;
     out_4_m1 <= And3_q;
 
 END normal;

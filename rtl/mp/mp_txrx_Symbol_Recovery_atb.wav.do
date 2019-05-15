@@ -43,8 +43,8 @@ add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/dut/out_3_qc 8 0 unsigned
 add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/sim/out_3_qc_stm 8 0 unsigned
 add wave -noupdate -format Logical /mp_txrx_Symbol_Recovery_atb/dut/out_1_bits
 add wave -noupdate -format Logical /mp_txrx_Symbol_Recovery_atb/sim/out_1_bits_stm
-add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/dut/out_4_phase 28 14 signed
-add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/sim/out_4_phase_stm 28 14 signed
+add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/dut/out_4_phase 29 14 signed
+add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/sim/out_4_phase_stm 29 14 signed
 add wave -noupdate -format Logical /mp_txrx_Symbol_Recovery_atb/dut/out_5_trigger
 add wave -noupdate -format Logical /mp_txrx_Symbol_Recovery_atb/sim/out_5_trigger_stm
 add_fixpt_wave /mp_txrx_Symbol_Recovery_atb/dut/out_6_sym_pwr 12 0 signed

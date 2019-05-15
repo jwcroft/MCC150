@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Scale
--- VHDL created on Wed May 15 10:15:07 2019
+-- VHDL created on Wed May 15 14:31:15 2019
 
 
 library IEEE;
@@ -37,7 +37,7 @@ entity mp_txrx_Scale is
     port (
         xIn_v : in std_logic_vector(0 downto 0);  -- sfix1
         xIn_c : in std_logic_vector(7 downto 0);  -- sfix8
-        xIn_0 : in std_logic_vector(24 downto 0);  -- sfix25
+        xIn_0 : in std_logic_vector(14 downto 0);  -- sfix15
         gain_i : in std_logic_vector(0 downto 0);  -- sfix1
         qOut_v : out std_logic_vector(0 downto 0);  -- ufix1
         qOut_c : out std_logic_vector(7 downto 0);  -- ufix8
@@ -62,23 +62,23 @@ architecture normal of mp_txrx_Scale is
     signal u0_rnd_bias_q : STD_LOGIC_VECTOR (1 downto 0);
     signal redist0_xIn_v_1_q : STD_LOGIC_VECTOR (0 downto 0);
     signal redist1_xIn_c_1_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal u0_shiftsel_q : STD_LOGIC_VECTOR (37 downto 0);
-    signal u0_shiftsel_qint : STD_LOGIC_VECTOR (37 downto 0);
-    signal u0_rnd_trunc_q : STD_LOGIC_VECTOR (27 downto 0);
-    signal u0_rnd_trunc_qint : STD_LOGIC_VECTOR (37 downto 0);
-    signal u0_rnd_add_a : STD_LOGIC_VECTOR (28 downto 0);
-    signal u0_rnd_add_b : STD_LOGIC_VECTOR (28 downto 0);
-    signal u0_rnd_add_o : STD_LOGIC_VECTOR (28 downto 0);
-    signal u0_rnd_add_q : STD_LOGIC_VECTOR (28 downto 0);
-    signal u0_rnd_shift_q : STD_LOGIC_VECTOR (27 downto 0);
-    signal u0_rnd_shift_qint : STD_LOGIC_VECTOR (28 downto 0);
-    signal u0_low_a : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_low_b : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_low_o : STD_LOGIC_VECTOR (29 downto 0);
+    signal u0_shiftsel_q : STD_LOGIC_VECTOR (27 downto 0);
+    signal u0_shiftsel_qint : STD_LOGIC_VECTOR (27 downto 0);
+    signal u0_rnd_trunc_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal u0_rnd_trunc_qint : STD_LOGIC_VECTOR (27 downto 0);
+    signal u0_rnd_add_a : STD_LOGIC_VECTOR (18 downto 0);
+    signal u0_rnd_add_b : STD_LOGIC_VECTOR (18 downto 0);
+    signal u0_rnd_add_o : STD_LOGIC_VECTOR (18 downto 0);
+    signal u0_rnd_add_q : STD_LOGIC_VECTOR (18 downto 0);
+    signal u0_rnd_shift_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal u0_rnd_shift_qint : STD_LOGIC_VECTOR (18 downto 0);
+    signal u0_low_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal u0_low_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal u0_low_o : STD_LOGIC_VECTOR (19 downto 0);
     signal u0_low_c : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_high_a : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_high_b : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_high_o : STD_LOGIC_VECTOR (29 downto 0);
+    signal u0_high_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal u0_high_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal u0_high_o : STD_LOGIC_VECTOR (19 downto 0);
     signal u0_high_c : STD_LOGIC_VECTOR (0 downto 0);
 
 begin
@@ -89,21 +89,21 @@ begin
 
     -- u0_shiftsel(BITSHIFT,4)@0
     u0_shiftsel_qint <= xIn_0 & "0000000000000";
-    u0_shiftsel_q <= u0_shiftsel_qint(37 downto 0);
+    u0_shiftsel_q <= u0_shiftsel_qint(27 downto 0);
 
     -- u0_rnd_trunc(BITSHIFT,13)@0
     u0_rnd_trunc_qint <= u0_shiftsel_q;
-    u0_rnd_trunc_q <= u0_rnd_trunc_qint(37 downto 10);
+    u0_rnd_trunc_q <= u0_rnd_trunc_qint(27 downto 10);
 
     -- u0_rnd_add(ADD,14)@0
-    u0_rnd_add_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((28 downto 28 => u0_rnd_trunc_q(27)) & u0_rnd_trunc_q));
-    u0_rnd_add_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((28 downto 2 => u0_rnd_bias_q(1)) & u0_rnd_bias_q));
+    u0_rnd_add_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((18 downto 18 => u0_rnd_trunc_q(17)) & u0_rnd_trunc_q));
+    u0_rnd_add_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((18 downto 2 => u0_rnd_bias_q(1)) & u0_rnd_bias_q));
     u0_rnd_add_o <= STD_LOGIC_VECTOR(SIGNED(u0_rnd_add_a) + SIGNED(u0_rnd_add_b));
-    u0_rnd_add_q <= u0_rnd_add_o(28 downto 0);
+    u0_rnd_add_q <= u0_rnd_add_o(18 downto 0);
 
     -- u0_rnd_shift(BITSHIFT,15)@0
     u0_rnd_shift_qint <= u0_rnd_add_q;
-    u0_rnd_shift_q <= u0_rnd_shift_qint(28 downto 1);
+    u0_rnd_shift_q <= u0_rnd_shift_qint(18 downto 1);
 
     -- u0_highconst(CONSTANT,7)
     u0_highconst_q <= "011111111111";
@@ -112,19 +112,19 @@ begin
     GND_q <= "0";
 
     -- u0_high(COMPARE,9)@0
-    u0_high_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((29 downto 12 => u0_highconst_q(11)) & u0_highconst_q));
-    u0_high_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((29 downto 28 => u0_rnd_shift_q(27)) & u0_rnd_shift_q));
+    u0_high_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 12 => u0_highconst_q(11)) & u0_highconst_q));
+    u0_high_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => u0_rnd_shift_q(17)) & u0_rnd_shift_q));
     u0_high_o <= STD_LOGIC_VECTOR(SIGNED(u0_high_a) - SIGNED(u0_high_b));
-    u0_high_c(0) <= u0_high_o(29);
+    u0_high_c(0) <= u0_high_o(19);
 
     -- u0_lowconst(CONSTANT,6)
     u0_lowconst_q <= "100000000001";
 
     -- u0_low(COMPARE,8)@0
-    u0_low_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((29 downto 28 => u0_rnd_shift_q(27)) & u0_rnd_shift_q));
-    u0_low_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((29 downto 12 => u0_lowconst_q(11)) & u0_lowconst_q));
+    u0_low_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => u0_rnd_shift_q(17)) & u0_rnd_shift_q));
+    u0_low_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 12 => u0_lowconst_q(11)) & u0_lowconst_q));
     u0_low_o <= STD_LOGIC_VECTOR(SIGNED(u0_low_a) - SIGNED(u0_low_b));
-    u0_low_c(0) <= u0_low_o(29);
+    u0_low_c(0) <= u0_low_o(19);
 
     -- VCC(CONSTANT,1)
     VCC_q <= "1";

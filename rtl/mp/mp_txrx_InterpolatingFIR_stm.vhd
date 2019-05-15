@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_InterpolatingFIR
--- VHDL created on Wed May 15 10:15:09 2019
+-- VHDL created on Wed May 15 14:31:18 2019
 
 
 library IEEE;
@@ -28,10 +28,10 @@ entity mp_txrx_InterpolatingFIR_stm is
     port (
         xIn_v_stm : out std_logic_vector(0 downto 0);
         xIn_c_stm : out std_logic_vector(7 downto 0);
-        xIn_0_stm : out std_logic_vector(11 downto 0);
+        xIn_0_stm : out std_logic_vector(1 downto 0);
         xOut_v_stm : out std_logic_vector(0 downto 0);
         xOut_c_stm : out std_logic_vector(7 downto 0);
-        xOut_0_stm : out std_logic_vector(24 downto 0);
+        xOut_0_stm : out std_logic_vector(14 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -101,7 +101,7 @@ architecture normal of mp_txrx_InterpolatingFIR_stm is
             variable xIn_c_int_0 : Integer;
             variable xIn_c_temp : std_logic_vector(7 downto 0);
             variable xIn_0_int_0 : Integer;
-            variable xIn_0_temp : std_logic_vector(11 downto 0);
+            variable xIn_0_temp : std_logic_vector(1 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -126,7 +126,7 @@ architecture normal of mp_txrx_InterpolatingFIR_stm is
                     xIn_c_temp(7 downto 0) := std_logic_vector(to_unsigned(xIn_c_int_0, 8));
                     xIn_c_stm <= xIn_c_temp;
                     read(L, xIn_0_int_0);
-                    xIn_0_temp(11 downto 0) := std_logic_vector(to_unsigned(xIn_0_int_0, 12));
+                    xIn_0_temp(1 downto 0) := std_logic_vector(to_unsigned(xIn_0_int_0, 2));
                     xIn_0_stm <= xIn_0_temp;
 
                     deallocate(L);
@@ -149,7 +149,7 @@ architecture normal of mp_txrx_InterpolatingFIR_stm is
             variable xOut_c_int_0 : Integer;
             variable xOut_c_temp : std_logic_vector(7 downto 0);
             variable xOut_0_int_0 : Integer;
-            variable xOut_0_temp : std_logic_vector(24 downto 0);
+            variable xOut_0_temp : std_logic_vector(14 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -174,7 +174,7 @@ architecture normal of mp_txrx_InterpolatingFIR_stm is
                     xOut_c_temp(7 downto 0) := std_logic_vector(to_unsigned(xOut_c_int_0, 8));
                     xOut_c_stm <= xOut_c_temp;
                     read(L, xOut_0_int_0);
-                    xOut_0_temp(24 downto 0) := std_logic_vector(to_unsigned(xOut_0_int_0, 25));
+                    xOut_0_temp(14 downto 0) := std_logic_vector(to_unsigned(xOut_0_int_0, 15));
                     xOut_0_stm <= xOut_0_temp;
 
                     deallocate(L);

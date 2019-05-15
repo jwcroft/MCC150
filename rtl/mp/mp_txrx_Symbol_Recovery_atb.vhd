@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Symbol_Recovery
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:16 2019
 
 
 library IEEE;
@@ -38,7 +38,7 @@ component mp_txrx_Symbol_Recovery is
         out_2_qv : out std_logic_vector(0 downto 0);  -- ufix1
         out_3_qc : out std_logic_vector(7 downto 0);  -- ufix8
         out_1_bits : out std_logic_vector(0 downto 0);  -- ufix1
-        out_4_phase : out std_logic_vector(27 downto 0);  -- sfix28_en14
+        out_4_phase : out std_logic_vector(28 downto 0);  -- sfix29_en14
         out_5_trigger : out std_logic_vector(0 downto 0);  -- ufix1
         out_6_sym_pwr : out std_logic_vector(11 downto 0);  -- sfix12
         clk : in std_logic;
@@ -56,7 +56,7 @@ component mp_txrx_Symbol_Recovery_stm is
         out_2_qv_stm : out std_logic_vector(0 downto 0);
         out_3_qc_stm : out std_logic_vector(7 downto 0);
         out_1_bits_stm : out std_logic_vector(0 downto 0);
-        out_4_phase_stm : out std_logic_vector(27 downto 0);
+        out_4_phase_stm : out std_logic_vector(28 downto 0);
         out_5_trigger_stm : out std_logic_vector(0 downto 0);
         out_6_sym_pwr_stm : out std_logic_vector(11 downto 0);
         clk : out std_logic;
@@ -72,7 +72,7 @@ signal in_5_Q_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal out_2_qv_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_3_qc_stm : STD_LOGIC_VECTOR (7 downto 0);
 signal out_1_bits_stm : STD_LOGIC_VECTOR (0 downto 0);
-signal out_4_phase_stm : STD_LOGIC_VECTOR (27 downto 0);
+signal out_4_phase_stm : STD_LOGIC_VECTOR (28 downto 0);
 signal out_5_trigger_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_6_sym_pwr_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal in_1_dv_dut : STD_LOGIC_VECTOR (0 downto 0);
@@ -83,7 +83,7 @@ signal in_5_Q_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal out_2_qv_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_3_qc_dut : STD_LOGIC_VECTOR (7 downto 0);
 signal out_1_bits_dut : STD_LOGIC_VECTOR (0 downto 0);
-signal out_4_phase_dut : STD_LOGIC_VECTOR (27 downto 0);
+signal out_4_phase_dut : STD_LOGIC_VECTOR (28 downto 0);
 signal out_5_trigger_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_6_sym_pwr_dut : STD_LOGIC_VECTOR (11 downto 0);
         signal clk : std_logic;

@@ -39,8 +39,8 @@ add_fixpt_wave /mp_txrx_atb/dut/toDAC_I 12 0 signed
 add_fixpt_wave /mp_txrx_atb/sim/toDAC_I_stm 12 0 signed
 add_fixpt_wave /mp_txrx_atb/dut/toDAC_Q 12 0 signed
 add_fixpt_wave /mp_txrx_atb/sim/toDAC_Q_stm 12 0 signed
-add_fixpt_wave /mp_txrx_atb/dut/sym_phase 28 14 signed
-add_fixpt_wave /mp_txrx_atb/sim/sym_phase_stm 28 14 signed
+add_fixpt_wave /mp_txrx_atb/dut/sym_phase 29 14 signed
+add_fixpt_wave /mp_txrx_atb/sim/sym_phase_stm 29 14 signed
 add wave -noupdate -format Logical /mp_txrx_atb/dut/BER
 add wave -noupdate -format Logical /mp_txrx_atb/sim/BER_stm
 add wave -noupdate -format Logical /mp_txrx_atb/dut/bit_error
@@ -59,4 +59,6 @@ add_fixpt_wave /mp_txrx_atb/dut/pow_rx 12 0 signed
 add_fixpt_wave /mp_txrx_atb/sim/pow_rx_stm 12 0 signed
 add_fixpt_wave /mp_txrx_atb/dut/pow_rx_preshift 25 0 signed
 add_fixpt_wave /mp_txrx_atb/sim/pow_rx_preshift_stm 25 0 signed
+add wave -noupdate -format Logical /mp_txrx_atb/dut/trigger
+add wave -noupdate -format Logical /mp_txrx_atb/sim/trigger_stm
 TreeUpdate [SetDefaultTree]

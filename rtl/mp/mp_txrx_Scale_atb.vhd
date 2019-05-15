@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Scale
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:16 2019
 
 
 library IEEE;
@@ -32,7 +32,7 @@ component mp_txrx_Scale is
     port (
         xIn_v : in std_logic_vector(0 downto 0);  -- sfix1
         xIn_c : in std_logic_vector(7 downto 0);  -- sfix8
-        xIn_0 : in std_logic_vector(24 downto 0);  -- sfix25
+        xIn_0 : in std_logic_vector(14 downto 0);  -- sfix15
         gain_i : in std_logic_vector(0 downto 0);  -- sfix1
         qOut_v : out std_logic_vector(0 downto 0);  -- ufix1
         qOut_c : out std_logic_vector(7 downto 0);  -- ufix8
@@ -47,7 +47,7 @@ component mp_txrx_Scale_stm is
     port (
         xIn_v_stm : out std_logic_vector(0 downto 0);
         xIn_c_stm : out std_logic_vector(7 downto 0);
-        xIn_0_stm : out std_logic_vector(24 downto 0);
+        xIn_0_stm : out std_logic_vector(14 downto 0);
         gain_i_stm : out std_logic_vector(0 downto 0);
         qOut_v_stm : out std_logic_vector(0 downto 0);
         qOut_c_stm : out std_logic_vector(7 downto 0);
@@ -60,7 +60,7 @@ end component;
 
 signal xIn_v_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal xIn_c_stm : STD_LOGIC_VECTOR (7 downto 0);
-signal xIn_0_stm : STD_LOGIC_VECTOR (24 downto 0);
+signal xIn_0_stm : STD_LOGIC_VECTOR (14 downto 0);
 signal gain_i_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal qOut_v_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal qOut_c_stm : STD_LOGIC_VECTOR (7 downto 0);
@@ -68,7 +68,7 @@ signal qOut_0_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal eOut_0_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal xIn_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal xIn_c_dut : STD_LOGIC_VECTOR (7 downto 0);
-signal xIn_0_dut : STD_LOGIC_VECTOR (24 downto 0);
+signal xIn_0_dut : STD_LOGIC_VECTOR (14 downto 0);
 signal gain_i_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal qOut_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal qOut_c_dut : STD_LOGIC_VECTOR (7 downto 0);

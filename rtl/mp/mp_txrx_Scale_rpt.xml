@@ -4,7 +4,7 @@
     <port name='areset' dir='in' clock='clk' role='resetHigh'/>
     <port name='xIn_v' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_xIn_v' stm=''/>
     <port name='xIn_c' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_xIn_c' stm=''/>
-    <port name='xIn_0' clock='clk' reset='areset' width='25' dir='in' role='data' qsys_role='data_xIn_0' stm=''/>
+    <port name='xIn_0' clock='clk' reset='areset' width='15' dir='in' role='data' qsys_role='data_xIn_0' stm=''/>
     <port name='gain_i' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_gain_i' stm=''/>
     <port name='qOut_v' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_qOut_v' stm=''/>
     <port name='qOut_c' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_qOut_c' stm=''/>

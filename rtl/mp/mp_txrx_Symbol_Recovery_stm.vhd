@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Symbol_Recovery
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:16 2019
 
 
 library IEEE;
@@ -34,7 +34,7 @@ entity mp_txrx_Symbol_Recovery_stm is
         out_2_qv_stm : out std_logic_vector(0 downto 0);
         out_3_qc_stm : out std_logic_vector(7 downto 0);
         out_1_bits_stm : out std_logic_vector(0 downto 0);
-        out_4_phase_stm : out std_logic_vector(27 downto 0);
+        out_4_phase_stm : out std_logic_vector(28 downto 0);
         out_5_trigger_stm : out std_logic_vector(0 downto 0);
         out_6_sym_pwr_stm : out std_logic_vector(11 downto 0);
         clk : out std_logic;
@@ -168,7 +168,7 @@ architecture normal of mp_txrx_Symbol_Recovery_stm is
             variable out_1_bits_int_0 : Integer;
             variable out_1_bits_temp : std_logic_vector(0 downto 0);
             variable out_4_phase_int_0 : Integer;
-            variable out_4_phase_temp : std_logic_vector(27 downto 0);
+            variable out_4_phase_temp : std_logic_vector(28 downto 0);
             variable out_5_trigger_int_0 : Integer;
             variable out_5_trigger_temp : std_logic_vector(0 downto 0);
             variable out_6_sym_pwr_int_0 : Integer;
@@ -203,7 +203,7 @@ architecture normal of mp_txrx_Symbol_Recovery_stm is
                     out_1_bits_temp(0 downto 0) := std_logic_vector(to_unsigned(out_1_bits_int_0, 1));
                     out_1_bits_stm <= out_1_bits_temp;
                     read(L, out_4_phase_int_0);
-                    out_4_phase_temp(27 downto 0) := std_logic_vector(to_unsigned(out_4_phase_int_0, 28));
+                    out_4_phase_temp(28 downto 0) := std_logic_vector(to_unsigned(out_4_phase_int_0, 29));
                     out_4_phase_stm <= out_4_phase_temp;
                     read(L, out_5_trigger_int_0);
                     out_5_trigger_temp(0 downto 0) := std_logic_vector(to_unsigned(out_5_trigger_int_0, 1));

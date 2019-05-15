@@ -33,7 +33,7 @@ add wave -noupdate -format Logic /mp_txrx_Scale_atb/dut/clk
 add wave -noupdate -format Logic /mp_txrx_Scale_atb/dut/areset
 add wave -noupdate -format Logical /mp_txrx_Scale_atb/sim/xIn_v_stm
 add_fixpt_wave /mp_txrx_Scale_atb/sim/xIn_c_stm 8 0 signed
-add_fixpt_wave /mp_txrx_Scale_atb/sim/xIn_0_stm 25 0 signed
+add_fixpt_wave /mp_txrx_Scale_atb/sim/xIn_0_stm 15 0 signed
 add wave -noupdate -format Logical /mp_txrx_Scale_atb/sim/gain_i_stm
 add wave -noupdate -divider {Output Ports}
 add wave -noupdate -format Logical /mp_txrx_Scale_atb/dut/qOut_v

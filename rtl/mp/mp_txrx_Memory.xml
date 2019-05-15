@@ -3,12 +3,12 @@
 <MODEL>
 <NAME>mp/txrx/Memory</NAME>
 <BUILD_YEAR>2018</BUILD_YEAR>
-<LATENCY block='lastTStep'>6</LATENCY>
+<LATENCY block='lastTStep'>5</LATENCY>
 <INFO>
  <TEXT>Created using DSP Builder for Intel(R) FPGAs - Advanced Blockset software</TEXT>
 </INFO>
 <INFO>
- <TEXT>Written on Wed May 15 10:15:07 2019
+ <TEXT>Written on Wed May 15 14:31:15 2019
 </TEXT>
 </INFO>
 <PORTS>
@@ -50,7 +50,7 @@
 </PORT>
 <PORT>
  <NAME>out_1_m2</NAME>
- <WIDTH>12</WIDTH>
+ <WIDTH>2</WIDTH>
  <DIRECTION>out</DIRECTION>
  <DESCRIPTION>Data signal</DESCRIPTION>
 </PORT>
@@ -196,6 +196,16 @@
  <LATENCY>2</LATENCY>
 </FUNIT>
 <FUNIT>
+ <FUNAME>Mapper_1_x</FUNAME>
+ <FUTYPE>LOOKUP</FUTYPE>
+ <LUT4>1</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+ <SHOWINRESOURCEVIEWER>1</SHOWINRESOURCEVIEWER>
+ <LATENCY>1</LATENCY>
+</FUNIT>
+<FUNIT>
  <FUNAME>Not_rsrvd_fix</FUNAME>
  <FUTYPE>LOGICAL</FUTYPE>
  <LUT4>0</LUT4>
@@ -246,17 +256,7 @@
  <LATENCY>4</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist1_DualMem_q_1</FUNAME>
- <FUTYPE>DELAY</FUTYPE>
- <LUT4>6</LUT4>
- <MULT>0</MULT>
- <BITS>0</BITS>
- <BLOCKS>0</BLOCKS>
- <SHOWINRESOURCEVIEWER>1</SHOWINRESOURCEVIEWER>
- <LATENCY>1</LATENCY>
-</FUNIT>
-<FUNIT>
- <FUNAME>redist2_ChannelIn1_in_3_trigger_1</FUNAME>
+ <FUNAME>redist1_ChannelIn1_in_3_trigger_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -266,7 +266,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist3_ChannelIn1_in_3_trigger_3</FUNAME>
+ <FUNAME>redist2_ChannelIn1_in_3_trigger_3</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -276,7 +276,7 @@
  <LATENCY>2</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist4_ChannelIn1_in_4_dc1_4</FUNAME>
+ <FUNAME>redist3_ChannelIn1_in_4_dc1_4</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>16</LUT4>
  <MULT>0</MULT>
@@ -286,7 +286,7 @@
  <LATENCY>4</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist5_ChannelIn_in_2_dc_5</FUNAME>
+ <FUNAME>redist4_ChannelIn_in_2_dc_5</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>16</LUT4>
  <MULT>0</MULT>
@@ -296,7 +296,7 @@
  <LATENCY>4</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist6_And1_q_3</FUNAME>
+ <FUNAME>redist5_And1_q_3</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>2</LUT4>
  <MULT>0</MULT>
@@ -306,7 +306,7 @@
  <LATENCY>3</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist5_ChannelIn_in_2_dc_5_outputreg</FUNAME>
+ <FUNAME>redist4_ChannelIn_in_2_dc_5_outputreg</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>4</LUT4>
  <MULT>0</MULT>
@@ -316,7 +316,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <TOTAL>
- <LUT4>90</LUT4>
+ <LUT4>85</LUT4>
  <MULT>0</MULT>
  <BITS>12288</BITS>
  <BLOCKS>2</BLOCKS>

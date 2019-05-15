@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_InterpolatingFIR
--- VHDL created on Wed May 15 10:15:07 2019
+-- VHDL created on Wed May 15 14:31:15 2019
 
 
 library IEEE;
@@ -37,10 +37,10 @@ entity mp_txrx_InterpolatingFIR is
     port (
         xIn_v : in std_logic_vector(0 downto 0);  -- sfix1
         xIn_c : in std_logic_vector(7 downto 0);  -- sfix8
-        xIn_0 : in std_logic_vector(11 downto 0);  -- sfix12
+        xIn_0 : in std_logic_vector(1 downto 0);  -- sfix2
         xOut_v : out std_logic_vector(0 downto 0);  -- ufix1
         xOut_c : out std_logic_vector(7 downto 0);  -- ufix8
-        xOut_0 : out std_logic_vector(24 downto 0);  -- sfix25
+        xOut_0 : out std_logic_vector(14 downto 0);  -- sfix15
         clk : in std_logic;
         areset : in std_logic
     );
@@ -53,7 +53,7 @@ architecture normal of mp_txrx_InterpolatingFIR is
     
     signal GND_q : STD_LOGIC_VECTOR (0 downto 0);
     signal VCC_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal d_xIn_0_13_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal d_xIn_0_13_q : STD_LOGIC_VECTOR (1 downto 0);
     signal d_in0_m0_wi0_wo0_assign_id1_q_13_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_run_count : STD_LOGIC_VECTOR (7 downto 0);
     signal u0_m0_wo0_run_preEnaQ : STD_LOGIC_VECTOR (0 downto 0);
@@ -109,29 +109,29 @@ architecture normal of mp_txrx_InterpolatingFIR is
     attribute preserve of u0_m0_wo0_wi0_r0_wa7_i : signal is true;
     signal u0_m0_wo0_wi0_r0_wa3_1_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_memr0_reset0 : std_logic;
-    signal u0_m0_wo0_wi0_r0_memr0_ia : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr0_ia : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_wi0_r0_memr0_aa : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_memr0_ab : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr0_iq : STD_LOGIC_VECTOR (11 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr0_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr0_iq : STD_LOGIC_VECTOR (1 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr0_q : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_wi0_r0_memr1_reset0 : std_logic;
-    signal u0_m0_wo0_wi0_r0_memr1_ia : STD_LOGIC_VECTOR (23 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr1_ia : STD_LOGIC_VECTOR (3 downto 0);
     signal u0_m0_wo0_wi0_r0_memr1_aa : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_memr1_ab : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr1_iq : STD_LOGIC_VECTOR (23 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr1_q : STD_LOGIC_VECTOR (23 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr1_iq : STD_LOGIC_VECTOR (3 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr1_q : STD_LOGIC_VECTOR (3 downto 0);
     signal u0_m0_wo0_wi0_r0_memr3_reset0 : std_logic;
-    signal u0_m0_wo0_wi0_r0_memr3_ia : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr3_ia : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_wi0_r0_memr3_aa : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_memr3_ab : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr3_iq : STD_LOGIC_VECTOR (11 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr3_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr3_iq : STD_LOGIC_VECTOR (1 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr3_q : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_wi0_r0_memr6_reset0 : std_logic;
-    signal u0_m0_wo0_wi0_r0_memr6_ia : STD_LOGIC_VECTOR (23 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr6_ia : STD_LOGIC_VECTOR (3 downto 0);
     signal u0_m0_wo0_wi0_r0_memr6_aa : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_memr6_ab : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr6_iq : STD_LOGIC_VECTOR (23 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr6_q : STD_LOGIC_VECTOR (23 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr6_iq : STD_LOGIC_VECTOR (3 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr6_q : STD_LOGIC_VECTOR (3 downto 0);
     signal u0_m0_wo0_ca3_q : STD_LOGIC_VECTOR (5 downto 0);
     signal u0_m0_wo0_ca3_i : UNSIGNED (5 downto 0);
     attribute preserve of u0_m0_wo0_ca3_i : signal is true;
@@ -145,7 +145,7 @@ architecture normal of mp_txrx_InterpolatingFIR is
     signal u0_m0_wo0_symSuppress_0_seq_eq : std_logic;
     signal u0_m0_wo0_oseq_gated_reg_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_reset : std_logic;
-    type u0_m0_wo0_mtree_madd4_0_cma_a0type is array(NATURAL range <>) of SIGNED(11 downto 0);
+    type u0_m0_wo0_mtree_madd4_0_cma_a0type is array(NATURAL range <>) of SIGNED(1 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_a0 : u0_m0_wo0_mtree_madd4_0_cma_a0type(0 to 3);
     attribute preserve of u0_m0_wo0_mtree_madd4_0_cma_a0 : signal is true;
     signal u0_m0_wo0_mtree_madd4_0_cma_b0 : u0_m0_wo0_mtree_madd4_0_cma_a0type(0 to 3);
@@ -153,33 +153,33 @@ architecture normal of mp_txrx_InterpolatingFIR is
     type u0_m0_wo0_mtree_madd4_0_cma_c0type is array(NATURAL range <>) of SIGNED(10 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_c0 : u0_m0_wo0_mtree_madd4_0_cma_c0type(0 to 3);
     attribute preserve of u0_m0_wo0_mtree_madd4_0_cma_c0 : signal is true;
-    type u0_m0_wo0_mtree_madd4_0_cma_ltype is array(NATURAL range <>) of SIGNED(12 downto 0);
+    type u0_m0_wo0_mtree_madd4_0_cma_ltype is array(NATURAL range <>) of SIGNED(2 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_l : u0_m0_wo0_mtree_madd4_0_cma_ltype(0 to 3);
-    type u0_m0_wo0_mtree_madd4_0_cma_ptype is array(NATURAL range <>) of SIGNED(23 downto 0);
+    type u0_m0_wo0_mtree_madd4_0_cma_ptype is array(NATURAL range <>) of SIGNED(13 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_p : u0_m0_wo0_mtree_madd4_0_cma_ptype(0 to 3);
-    type u0_m0_wo0_mtree_madd4_0_cma_utype is array(NATURAL range <>) of SIGNED(25 downto 0);
+    type u0_m0_wo0_mtree_madd4_0_cma_utype is array(NATURAL range <>) of SIGNED(15 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_u : u0_m0_wo0_mtree_madd4_0_cma_utype(0 to 3);
     signal u0_m0_wo0_mtree_madd4_0_cma_w : u0_m0_wo0_mtree_madd4_0_cma_utype(0 to 1);
     signal u0_m0_wo0_mtree_madd4_0_cma_x : u0_m0_wo0_mtree_madd4_0_cma_utype(0 to 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_y : u0_m0_wo0_mtree_madd4_0_cma_utype(0 to 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_s : u0_m0_wo0_mtree_madd4_0_cma_utype(0 to 0);
-    signal u0_m0_wo0_mtree_madd4_0_cma_qq : STD_LOGIC_VECTOR (25 downto 0);
-    signal u0_m0_wo0_mtree_madd4_0_cma_q : STD_LOGIC_VECTOR (25 downto 0);
+    signal u0_m0_wo0_mtree_madd4_0_cma_qq : STD_LOGIC_VECTOR (15 downto 0);
+    signal u0_m0_wo0_mtree_madd4_0_cma_q : STD_LOGIC_VECTOR (15 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_ena0 : std_logic;
     signal u0_m0_wo0_mtree_madd4_0_cma_ena1 : std_logic;
     signal u0_m0_wo0_wi0_r0_ra2_count0_run_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_we3_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_wi0_r0_split1_b : STD_LOGIC_VECTOR (11 downto 0);
-    signal u0_m0_wo0_wi0_r0_split1_c : STD_LOGIC_VECTOR (11 downto 0);
-    signal u0_m0_wo0_wi0_r0_split6_b : STD_LOGIC_VECTOR (11 downto 0);
-    signal u0_m0_wo0_wi0_r0_split6_c : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_wi0_r0_split1_b : STD_LOGIC_VECTOR (1 downto 0);
+    signal u0_m0_wo0_wi0_r0_split1_c : STD_LOGIC_VECTOR (1 downto 0);
+    signal u0_m0_wo0_wi0_r0_split6_b : STD_LOGIC_VECTOR (1 downto 0);
+    signal u0_m0_wo0_wi0_r0_split6_c : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_mux_2_s : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_mtree_madd4_0_cma_mux_2_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_mtree_madd4_0_cma_mux_2_q : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_mtree_madd4_0_cma_mux_3_s : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_mtree_madd4_0_cma_mux_3_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal u0_m0_wo0_mtree_madd4_0_cma_mux_3_q : STD_LOGIC_VECTOR (1 downto 0);
     signal out0_m0_wo0_lineup_select_delay_0_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal u0_m0_wo0_wi0_r0_join1_q : STD_LOGIC_VECTOR (23 downto 0);
-    signal u0_m0_wo0_wi0_r0_join6_q : STD_LOGIC_VECTOR (23 downto 0);
+    signal u0_m0_wo0_wi0_r0_join1_q : STD_LOGIC_VECTOR (3 downto 0);
+    signal u0_m0_wo0_wi0_r0_join6_q : STD_LOGIC_VECTOR (3 downto 0);
     signal out0_m0_wo0_assign_id3_q : STD_LOGIC_VECTOR (0 downto 0);
 
 begin
@@ -343,7 +343,7 @@ begin
 
     -- d_xIn_0_13(DELAY,86)@10 + 3
     d_xIn_0_13 : dspba_delay
-    GENERIC MAP ( width => 12, depth => 3, reset_kind => "ASYNC" )
+    GENERIC MAP ( width => 2, depth => 3, reset_kind => "ASYNC" )
     PORT MAP ( xin => xIn_0, xout => d_xIn_0_13_q, clk => clk, aclr => areset );
 
     -- d_in0_m0_wi0_wo0_assign_id1_q_13(DELAY,87)@10 + 3
@@ -373,10 +373,10 @@ begin
     GENERIC MAP (
         ram_block_type => "MLAB",
         operation_mode => "DUAL_PORT",
-        width_a => 12,
+        width_a => 2,
         widthad_a => 1,
         numwords_a => 2,
-        width_b => 12,
+        width_b => 2,
         widthad_b => 1,
         numwords_b => 2,
         lpm_type => "altera_syncram",
@@ -404,7 +404,7 @@ begin
         address_b => u0_m0_wo0_wi0_r0_memr0_ab,
         q_b => u0_m0_wo0_wi0_r0_memr0_iq
     );
-    u0_m0_wo0_wi0_r0_memr0_q <= u0_m0_wo0_wi0_r0_memr0_iq(11 downto 0);
+    u0_m0_wo0_wi0_r0_memr0_q <= u0_m0_wo0_wi0_r0_memr0_iq(1 downto 0);
 
     -- u0_m0_wo0_wi0_r0_ra3_1(REG,22)@13
     u0_m0_wo0_wi0_r0_ra3_1_clkproc: PROCESS (clk, areset)
@@ -698,10 +698,10 @@ begin
     GENERIC MAP (
         ram_block_type => "MLAB",
         operation_mode => "DUAL_PORT",
-        width_a => 24,
+        width_a => 4,
         widthad_a => 1,
         numwords_a => 2,
-        width_b => 24,
+        width_b => 4,
         widthad_b => 1,
         numwords_b => 2,
         lpm_type => "altera_syncram",
@@ -729,11 +729,11 @@ begin
         address_b => u0_m0_wo0_wi0_r0_memr6_ab,
         q_b => u0_m0_wo0_wi0_r0_memr6_iq
     );
-    u0_m0_wo0_wi0_r0_memr6_q <= u0_m0_wo0_wi0_r0_memr6_iq(23 downto 0);
+    u0_m0_wo0_wi0_r0_memr6_q <= u0_m0_wo0_wi0_r0_memr6_iq(3 downto 0);
 
     -- u0_m0_wo0_wi0_r0_split6(BITSELECT,56)@13
-    u0_m0_wo0_wi0_r0_split6_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr6_q(11 downto 0));
-    u0_m0_wo0_wi0_r0_split6_c <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr6_q(23 downto 12));
+    u0_m0_wo0_wi0_r0_split6_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr6_q(1 downto 0));
+    u0_m0_wo0_wi0_r0_split6_c <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr6_q(3 downto 2));
 
     -- u0_m0_wo0_symSuppress_0_seq(SEQUENCE,68)@12 + 1
     u0_m0_wo0_symSuppress_0_seq_clkproc: PROCESS (clk, areset)
@@ -766,7 +766,7 @@ begin
     BEGIN
         CASE (u0_m0_wo0_mtree_madd4_0_cma_mux_3_s) IS
             WHEN "0" => u0_m0_wo0_mtree_madd4_0_cma_mux_3_q <= u0_m0_wo0_wi0_r0_split6_c;
-            WHEN "1" => u0_m0_wo0_mtree_madd4_0_cma_mux_3_q <= STD_LOGIC_VECTOR((11 downto 1 => GND_q(0)) & GND_q);
+            WHEN "1" => u0_m0_wo0_mtree_madd4_0_cma_mux_3_q <= STD_LOGIC_VECTOR((1 downto 1 => GND_q(0)) & GND_q);
             WHEN OTHERS => u0_m0_wo0_mtree_madd4_0_cma_mux_3_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -830,7 +830,7 @@ begin
     BEGIN
         CASE (u0_m0_wo0_mtree_madd4_0_cma_mux_2_s) IS
             WHEN "0" => u0_m0_wo0_mtree_madd4_0_cma_mux_2_q <= u0_m0_wo0_wi0_r0_split6_b;
-            WHEN "1" => u0_m0_wo0_mtree_madd4_0_cma_mux_2_q <= STD_LOGIC_VECTOR((11 downto 1 => GND_q(0)) & GND_q);
+            WHEN "1" => u0_m0_wo0_mtree_madd4_0_cma_mux_2_q <= STD_LOGIC_VECTOR((1 downto 1 => GND_q(0)) & GND_q);
             WHEN OTHERS => u0_m0_wo0_mtree_madd4_0_cma_mux_2_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -940,10 +940,10 @@ begin
     GENERIC MAP (
         ram_block_type => "MLAB",
         operation_mode => "DUAL_PORT",
-        width_a => 24,
+        width_a => 4,
         widthad_a => 1,
         numwords_a => 2,
-        width_b => 24,
+        width_b => 4,
         widthad_b => 1,
         numwords_b => 2,
         lpm_type => "altera_syncram",
@@ -971,11 +971,11 @@ begin
         address_b => u0_m0_wo0_wi0_r0_memr1_ab,
         q_b => u0_m0_wo0_wi0_r0_memr1_iq
     );
-    u0_m0_wo0_wi0_r0_memr1_q <= u0_m0_wo0_wi0_r0_memr1_iq(23 downto 0);
+    u0_m0_wo0_wi0_r0_memr1_q <= u0_m0_wo0_wi0_r0_memr1_iq(3 downto 0);
 
     -- u0_m0_wo0_wi0_r0_split1(BITSELECT,52)@13
-    u0_m0_wo0_wi0_r0_split1_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr1_q(11 downto 0));
-    u0_m0_wo0_wi0_r0_split1_c <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr1_q(23 downto 12));
+    u0_m0_wo0_wi0_r0_split1_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr1_q(1 downto 0));
+    u0_m0_wo0_wi0_r0_split1_c <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr1_q(3 downto 2));
 
     -- u0_m0_wo0_cm3(LOOKUP,67)@12 + 1
     u0_m0_wo0_cm3_clkproc: PROCESS (clk, areset)
@@ -1070,10 +1070,10 @@ begin
     GENERIC MAP (
         ram_block_type => "MLAB",
         operation_mode => "DUAL_PORT",
-        width_a => 12,
+        width_a => 2,
         widthad_a => 1,
         numwords_a => 2,
-        width_b => 12,
+        width_b => 2,
         widthad_b => 1,
         numwords_b => 2,
         lpm_type => "altera_syncram",
@@ -1101,7 +1101,7 @@ begin
         address_b => u0_m0_wo0_wi0_r0_memr3_ab,
         q_b => u0_m0_wo0_wi0_r0_memr3_iq
     );
-    u0_m0_wo0_wi0_r0_memr3_q <= u0_m0_wo0_wi0_r0_memr3_iq(11 downto 0);
+    u0_m0_wo0_wi0_r0_memr3_q <= u0_m0_wo0_wi0_r0_memr3_iq(1 downto 0);
 
     -- VCC(CONSTANT,1)@0
     VCC_q <= "1";
@@ -1110,18 +1110,18 @@ begin
     u0_m0_wo0_mtree_madd4_0_cma_reset <= areset;
     u0_m0_wo0_mtree_madd4_0_cma_ena0 <= '1';
     u0_m0_wo0_mtree_madd4_0_cma_ena1 <= u0_m0_wo0_mtree_madd4_0_cma_ena0;
-    u0_m0_wo0_mtree_madd4_0_cma_l(0) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(0),13) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(0),13);
-    u0_m0_wo0_mtree_madd4_0_cma_l(1) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(1),13) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(1),13);
-    u0_m0_wo0_mtree_madd4_0_cma_l(2) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(2),13) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(2),13);
-    u0_m0_wo0_mtree_madd4_0_cma_l(3) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(3),13) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(3),13);
+    u0_m0_wo0_mtree_madd4_0_cma_l(0) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(0),3) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(0),3);
+    u0_m0_wo0_mtree_madd4_0_cma_l(1) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(1),3) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(1),3);
+    u0_m0_wo0_mtree_madd4_0_cma_l(2) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(2),3) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(2),3);
+    u0_m0_wo0_mtree_madd4_0_cma_l(3) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_a0(3),3) + RESIZE(u0_m0_wo0_mtree_madd4_0_cma_b0(3),3);
     u0_m0_wo0_mtree_madd4_0_cma_p(0) <= u0_m0_wo0_mtree_madd4_0_cma_l(0) * u0_m0_wo0_mtree_madd4_0_cma_c0(0);
     u0_m0_wo0_mtree_madd4_0_cma_p(1) <= u0_m0_wo0_mtree_madd4_0_cma_l(1) * u0_m0_wo0_mtree_madd4_0_cma_c0(1);
     u0_m0_wo0_mtree_madd4_0_cma_p(2) <= u0_m0_wo0_mtree_madd4_0_cma_l(2) * u0_m0_wo0_mtree_madd4_0_cma_c0(2);
     u0_m0_wo0_mtree_madd4_0_cma_p(3) <= u0_m0_wo0_mtree_madd4_0_cma_l(3) * u0_m0_wo0_mtree_madd4_0_cma_c0(3);
-    u0_m0_wo0_mtree_madd4_0_cma_u(0) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(0),26);
-    u0_m0_wo0_mtree_madd4_0_cma_u(1) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(1),26);
-    u0_m0_wo0_mtree_madd4_0_cma_u(2) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(2),26);
-    u0_m0_wo0_mtree_madd4_0_cma_u(3) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(3),26);
+    u0_m0_wo0_mtree_madd4_0_cma_u(0) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(0),16);
+    u0_m0_wo0_mtree_madd4_0_cma_u(1) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(1),16);
+    u0_m0_wo0_mtree_madd4_0_cma_u(2) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(2),16);
+    u0_m0_wo0_mtree_madd4_0_cma_u(3) <= RESIZE(u0_m0_wo0_mtree_madd4_0_cma_p(3),16);
     u0_m0_wo0_mtree_madd4_0_cma_w(0) <= u0_m0_wo0_mtree_madd4_0_cma_u(0) + u0_m0_wo0_mtree_madd4_0_cma_u(1);
     u0_m0_wo0_mtree_madd4_0_cma_w(1) <= u0_m0_wo0_mtree_madd4_0_cma_u(2) + u0_m0_wo0_mtree_madd4_0_cma_u(3);
     u0_m0_wo0_mtree_madd4_0_cma_x(0) <= u0_m0_wo0_mtree_madd4_0_cma_w(0) + u0_m0_wo0_mtree_madd4_0_cma_w(1);
@@ -1134,14 +1134,14 @@ begin
             u0_m0_wo0_mtree_madd4_0_cma_c0 <= (others => (others => '0'));
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (u0_m0_wo0_mtree_madd4_0_cma_ena0 = '1') THEN
-                u0_m0_wo0_mtree_madd4_0_cma_a0(0) <= SIGNED(RESIZE(UNSIGNED(GND_q),12));
-                u0_m0_wo0_mtree_madd4_0_cma_a0(1) <= SIGNED(RESIZE(UNSIGNED(GND_q),12));
-                u0_m0_wo0_mtree_madd4_0_cma_a0(2) <= RESIZE(SIGNED(u0_m0_wo0_mtree_madd4_0_cma_mux_2_q),12);
-                u0_m0_wo0_mtree_madd4_0_cma_a0(3) <= RESIZE(SIGNED(u0_m0_wo0_mtree_madd4_0_cma_mux_3_q),12);
-                u0_m0_wo0_mtree_madd4_0_cma_b0(0) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_memr3_q),12);
-                u0_m0_wo0_mtree_madd4_0_cma_b0(1) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_split1_c),12);
-                u0_m0_wo0_mtree_madd4_0_cma_b0(2) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_split1_b),12);
-                u0_m0_wo0_mtree_madd4_0_cma_b0(3) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_memr0_q),12);
+                u0_m0_wo0_mtree_madd4_0_cma_a0(0) <= SIGNED(RESIZE(UNSIGNED(GND_q),2));
+                u0_m0_wo0_mtree_madd4_0_cma_a0(1) <= SIGNED(RESIZE(UNSIGNED(GND_q),2));
+                u0_m0_wo0_mtree_madd4_0_cma_a0(2) <= RESIZE(SIGNED(u0_m0_wo0_mtree_madd4_0_cma_mux_2_q),2);
+                u0_m0_wo0_mtree_madd4_0_cma_a0(3) <= RESIZE(SIGNED(u0_m0_wo0_mtree_madd4_0_cma_mux_3_q),2);
+                u0_m0_wo0_mtree_madd4_0_cma_b0(0) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_memr3_q),2);
+                u0_m0_wo0_mtree_madd4_0_cma_b0(1) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_split1_c),2);
+                u0_m0_wo0_mtree_madd4_0_cma_b0(2) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_split1_b),2);
+                u0_m0_wo0_mtree_madd4_0_cma_b0(3) <= RESIZE(SIGNED(u0_m0_wo0_wi0_r0_memr0_q),2);
                 u0_m0_wo0_mtree_madd4_0_cma_c0(0) <= RESIZE(SIGNED(u0_m0_wo0_cm3_q),11);
                 u0_m0_wo0_mtree_madd4_0_cma_c0(1) <= RESIZE(SIGNED(u0_m0_wo0_cm2_q),11);
                 u0_m0_wo0_mtree_madd4_0_cma_c0(2) <= RESIZE(SIGNED(u0_m0_wo0_cm1_q),11);
@@ -1160,9 +1160,9 @@ begin
         END IF;
     END PROCESS;
     u0_m0_wo0_mtree_madd4_0_cma_delay : dspba_delay
-    GENERIC MAP ( width => 26, depth => 0, reset_kind => "ASYNC" )
-    PORT MAP ( xin => STD_LOGIC_VECTOR(u0_m0_wo0_mtree_madd4_0_cma_s(0)(25 downto 0)), xout => u0_m0_wo0_mtree_madd4_0_cma_qq, clk => clk, aclr => areset );
-    u0_m0_wo0_mtree_madd4_0_cma_q <= STD_LOGIC_VECTOR(u0_m0_wo0_mtree_madd4_0_cma_qq(25 downto 0));
+    GENERIC MAP ( width => 16, depth => 0, reset_kind => "ASYNC" )
+    PORT MAP ( xin => STD_LOGIC_VECTOR(u0_m0_wo0_mtree_madd4_0_cma_s(0)(15 downto 0)), xout => u0_m0_wo0_mtree_madd4_0_cma_qq, clk => clk, aclr => areset );
+    u0_m0_wo0_mtree_madd4_0_cma_q <= STD_LOGIC_VECTOR(u0_m0_wo0_mtree_madd4_0_cma_qq(15 downto 0));
 
     -- GND(CONSTANT,0)@0
     GND_q <= "0";
@@ -1191,6 +1191,6 @@ begin
     -- xOut(PORTOUT,80)@15 + 1
     xOut_v <= out0_m0_wo0_assign_id3_q;
     xOut_c <= STD_LOGIC_VECTOR("0000000" & GND_q);
-    xOut_0 <= u0_m0_wo0_mtree_madd4_0_cma_q(24 downto 0);
+    xOut_0 <= u0_m0_wo0_mtree_madd4_0_cma_q(14 downto 0);
 
 END normal;

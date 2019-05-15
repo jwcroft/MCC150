@@ -14,11 +14,11 @@ source C:/git_projects/MCC150/./rtl/mp/mp_txrx_ChanView5.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_ChanView6.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_InterpolatingFIR.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Memory.add.tcl
+source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Pwr_extraction.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Scale.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Scale1.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Scale2_Q.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Scale3_I.add.tcl
-source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Scrambled_shit_subsystem.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_SingleRateFIR1_Q.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_SingleRateFIR_I.add.tcl
 source C:/git_projects/MCC150/./rtl/mp/mp_txrx_Symbol_Recovery.add.tcl

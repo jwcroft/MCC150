@@ -33,12 +33,12 @@ add wave -noupdate -format Logic /mp_txrx_InterpolatingFIR_atb/dut/clk
 add wave -noupdate -format Logic /mp_txrx_InterpolatingFIR_atb/dut/areset
 add wave -noupdate -format Logical /mp_txrx_InterpolatingFIR_atb/sim/xIn_v_stm
 add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/sim/xIn_c_stm 8 0 signed
-add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/sim/xIn_0_stm 12 0 signed
+add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/sim/xIn_0_stm 2 0 signed
 add wave -noupdate -divider {Output Ports}
 add wave -noupdate -format Logical /mp_txrx_InterpolatingFIR_atb/dut/xOut_v
 add wave -noupdate -format Logical /mp_txrx_InterpolatingFIR_atb/sim/xOut_v_stm
 add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/dut/xOut_c 8 0 unsigned
 add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/sim/xOut_c_stm 8 0 unsigned
-add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/dut/xOut_0 25 0 signed
-add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/sim/xOut_0_stm 25 0 signed
+add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/dut/xOut_0 15 0 signed
+add_fixpt_wave /mp_txrx_InterpolatingFIR_atb/sim/xOut_0_stm 15 0 signed
 TreeUpdate [SetDefaultTree]

@@ -14,7 +14,7 @@
     <port name='fromADC_Q' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_fromADC_Q' stm='mp/mp_txrx_SingleRateFIR1_Q_xIn.stm' highLevelName='fromADC_Q' highLevelIndex='1' vector='0' complex='0'/>
     <port name='toDAC_I' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_toDAC_I' stm='mp/mp_txrx_ChanView_c0.stm' highLevelName='toDAC_I' highLevelIndex='0' vector='0' complex='0'/>
     <port name='toDAC_Q' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_toDAC_Q' stm='mp/mp_txrx_ChanView_c0.stm' highLevelName='toDAC_Q' highLevelIndex='1' vector='0' complex='0'/>
-    <port name='sym_phase' clock='clk' reset='areset' width='28' dir='out' role='data' qsys_role='data_sym_phase' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='sym_phase' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='sym_phase' clock='clk' reset='areset' width='29' dir='out' role='data' qsys_role='data_sym_phase' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='sym_phase' highLevelIndex='2' vector='0' complex='0'/>
     <port name='BER' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_BER' stm='mp/mp_txrx_BER_Extraction_ChannelOut.stm' highLevelName='BER' highLevelIndex='3' vector='0' complex='0'/>
     <port name='bit_error' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_bit_error' stm='mp/mp_txrx_BER_Extraction_ChannelOut.stm' highLevelName='bit_error' highLevelIndex='4' vector='0' complex='0'/>
     <port name='sym_pwr' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_sym_pwr' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='sym_pwr' highLevelIndex='5' vector='0' complex='0'/>
@@ -24,6 +24,7 @@
     <port name='bit_o' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_bit_o' stm='mp/mp_txrx_ChanView4_c0.stm' highLevelName='bit_o' highLevelIndex='9' vector='0' complex='0'/>
     <port name='pow_rx' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_pow_rx' stm='mp/mp_txrx_ChanView5_c0.stm' highLevelName='pow_rx' highLevelIndex='10' vector='0' complex='0'/>
     <port name='pow_rx_preshift' clock='clk' reset='areset' width='25' dir='out' role='data' qsys_role='data_pow_rx_preshift' stm='mp/mp_txrx_ChanView6_c0.stm' highLevelName='pow_rx_preshift' highLevelIndex='11' vector='0' complex='0'/>
+    <port name='trigger' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_trigger' stm='mp/mp_txrx_Symbol_Recovery_ChannelOut.stm' highLevelName='trigger' highLevelIndex='12' vector='0' complex='0'/>
     <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
     <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
     <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
@@ -45,11 +46,11 @@
     <file path='mp/mp_txrx_InterpolatingFIR.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_Memory.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_Memory_DualMem.hex' base='rtl' type='data' usage='all'/>
+    <file path='mp/mp_txrx_Pwr_extraction.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_Scale.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_Scale1.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_Scale2_Q.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_Scale3_I.vhd' base='rtl' type='vhdl' usage='all'/>
-    <file path='mp/mp_txrx_Scrambled_shit_subsystem.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_SingleRateFIR1_Q.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='mp/mp_txrx_SingleRateFIR1_Q_rm.hex' base='rtl' type='data' usage='all'/>
     <file path='mp/mp_txrx_SingleRateFIR_I.vhd' base='rtl' type='vhdl' usage='all'/>

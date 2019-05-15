@@ -14,7 +14,7 @@ This help page relates to the specific instance 'mp_txrx_InterpolatingFIR' of th
  <TEXT>Created using DSP Builder for Intel(R) FPGAs - Advanced Blockset software</TEXT>
 </INFO>
 <INFO>
- <TEXT>Written on Wed May 15 10:15:07 2019
+ <TEXT>Written on Wed May 15 14:31:15 2019
 </TEXT>
 </INFO>
 <INFO>
@@ -27,7 +27,7 @@ This help page relates to the specific instance 'mp_txrx_InterpolatingFIR' of th
  <TEXT>Number of physical output buses: 1</TEXT>
 </INFO>
 <INFO>
- <TEXT>Calculated Bitwidth of output stage: 25</TEXT>
+ <TEXT>Calculated Bitwidth of output stage: 15</TEXT>
 </INFO>
 <INFO>
  <TEXT>Number of different phases: 1</TEXT>
@@ -91,7 +91,7 @@ This help page relates to the specific instance 'mp_txrx_InterpolatingFIR' of th
 </PORT>
 <PORT>
  <NAME>xIn_0</NAME>
- <WIDTH>12</WIDTH>
+ <WIDTH>2</WIDTH>
  <DIRECTION>in</DIRECTION>
  <DESCRIPTION>Data signal</DESCRIPTION>
 </PORT>
@@ -109,7 +109,7 @@ This help page relates to the specific instance 'mp_txrx_InterpolatingFIR' of th
 </PORT>
 <PORT>
  <NAME>xOut_0</NAME>
- <WIDTH>25</WIDTH>
+ <WIDTH>15</WIDTH>
  <DIRECTION>out</DIRECTION>
  <DESCRIPTION>Data signal</DESCRIPTION>
 </PORT>
@@ -135,7 +135,7 @@ This help page relates to the specific instance 'mp_txrx_InterpolatingFIR' of th
 </TIMING>
 <RESOURCES>
 <TOTAL>
- <LUT4>368</LUT4>
+ <LUT4>303</LUT4>
  <MULT>4</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>

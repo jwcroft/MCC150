@@ -18,9 +18,9 @@ memSize = 1024; % Size of memory holding bitstream.
 stepSize = 1/sampleRate;
 stopTime = 10e3*stepSize;
 
-detection_threshold = 150 + 2^11; %% Hardcoded???
+detection_threshold = 100; %% Hardcoded???
 
-memory_data = [0;1; randsrc(memSize-pilot_size,1,[-1 1])]; % BPSK
+memory_data = [0;1; randsrc(memSize-pilot_size,1,[0 1])]; % BPSK
 fir.coeffs = fi(rcosdesign(0.8,4,sampleRate/dataRate,'sqrt'), 1, wordLength-2); 
 
 

@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Memory
--- VHDL created on Wed May 15 10:15:08 2019
+-- VHDL created on Wed May 15 14:31:16 2019
 
 
 library IEEE;
@@ -32,7 +32,7 @@ entity mp_txrx_Memory_stm is
         in_4_dc1_stm : out std_logic_vector(7 downto 0);
         out_2_qv_stm : out std_logic_vector(0 downto 0);
         out_3_qc_stm : out std_logic_vector(7 downto 0);
-        out_1_m2_stm : out std_logic_vector(11 downto 0);
+        out_1_m2_stm : out std_logic_vector(1 downto 0);
         out_5_qv1_stm : out std_logic_vector(0 downto 0);
         out_6_qc1_stm : out std_logic_vector(7 downto 0);
         out_4_m1_stm : out std_logic_vector(11 downto 0);
@@ -191,7 +191,7 @@ architecture normal of mp_txrx_Memory_stm is
             variable out_3_qc_int_0 : Integer;
             variable out_3_qc_temp : std_logic_vector(7 downto 0);
             variable out_1_m2_int_0 : Integer;
-            variable out_1_m2_temp : std_logic_vector(11 downto 0);
+            variable out_1_m2_temp : std_logic_vector(1 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -216,7 +216,7 @@ architecture normal of mp_txrx_Memory_stm is
                     out_3_qc_temp(7 downto 0) := std_logic_vector(to_unsigned(out_3_qc_int_0, 8));
                     out_3_qc_stm <= out_3_qc_temp;
                     read(L, out_1_m2_int_0);
-                    out_1_m2_temp(11 downto 0) := std_logic_vector(to_unsigned(out_1_m2_int_0, 12));
+                    out_1_m2_temp(1 downto 0) := std_logic_vector(to_unsigned(out_1_m2_int_0, 2));
                     out_1_m2_stm <= out_1_m2_temp;
 
                     deallocate(L);
