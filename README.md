@@ -1,4 +1,2 @@
-# MCC150
-
+#MCC150
 This is a readme file.
-
