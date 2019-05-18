@@ -1,7 +1,9 @@
+% Digital QAM
+
 clf
 
-A = 1;
-K = 4; % no of bits
+A = 0.25;
+K = 2; % no of bits
 M = 2^K; % no of symbols.
 
 a = pi/4; % Tx phase offset
@@ -17,10 +19,10 @@ plot(si,'o')
 
 
 % Decision regions
-dr = 1.5*si*exp(i*2*pi*1/(2*M)); % Take constellation points and rotate by half a segment. Draw as lines.
-for k=1:M
-  plot([0 real(dr(k))], [0 imag(dr(k))], 'r--')
-end
+% dr = 1.5*si*exp(i*2*pi*1/(2*M)); % Take constellation points and rotate by half a segment. Draw as lines.
+% for k=1:M
+%   plot([0 real(dr(k))], [0 imag(dr(k))], 'r--')
+% end
 
 
 axis square; title('MPSK Constellation');
