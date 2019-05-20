@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx_Symbol_Recovery
--- VHDL created on Wed May 15 14:31:15 2019
+-- VHDL created on Mon May 20 17:18:10 2019
 
 
 library IEEE;
@@ -98,10 +98,10 @@ architecture normal of mp_txrx_Symbol_Recovery is
     signal Threshold_q : STD_LOGIC_VECTOR (64 downto 0);
     signal CmpGE_PreShift_0_q : STD_LOGIC_VECTOR (33 downto 0);
     signal CmpGE_PreShift_0_qint : STD_LOGIC_VECTOR (33 downto 0);
-    signal CmpLT_PreShift_1_q : STD_LOGIC_VECTOR (25 downto 0);
-    signal CmpLT_PreShift_1_qint : STD_LOGIC_VECTOR (25 downto 0);
-    signal CmpGE2_PreShift_1_q : STD_LOGIC_VECTOR (25 downto 0);
-    signal CmpGE2_PreShift_1_qint : STD_LOGIC_VECTOR (25 downto 0);
+    signal CmpLT_PreShift_1_q : STD_LOGIC_VECTOR (15 downto 0);
+    signal CmpLT_PreShift_1_qint : STD_LOGIC_VECTOR (15 downto 0);
+    signal CmpGE2_PreShift_1_q : STD_LOGIC_VECTOR (15 downto 0);
+    signal CmpGE2_PreShift_1_qint : STD_LOGIC_VECTOR (15 downto 0);
     signal Phase_correct_x_CnstZero_0_q : STD_LOGIC_VECTOR (13 downto 0);
     signal Phase_correct_x_XLtZero_00_qi : STD_LOGIC_VECTOR (0 downto 0);
     signal Phase_correct_x_XLtZero_00_q : STD_LOGIC_VECTOR (0 downto 0);
@@ -673,7 +673,7 @@ begin
     mp_txrx_Symbol_Recovery_SRlatch_Not_x_q <= not (GND_q);
 
     -- Threshold(CONSTANT,50)
-    Threshold_q <= "00000000000000000000000000000000000011001000000000000000000000000";
+    Threshold_q <= "00000000000000000000000000000000000001100100000000000000000000000";
 
     -- CmpGE_PreShift_0(BITSHIFT,51)@1
     CmpGE_PreShift_0_qint <= in_3_pow_in & "0000000000000000000000";
@@ -2421,28 +2421,28 @@ begin
     PORT MAP ( xin => Sub_q, xout => redist2_Sub_q_1_q, clk => clk, aclr => areset );
 
     -- Phase_decision_thresh_2_x(CONSTANT,45)
-    Phase_decision_thresh_2_x_q <= "111111111110";
+    Phase_decision_thresh_2_x_q <= "100110111000";
 
     -- CmpGE2_PreShift_1(BITSHIFT,53)@3
-    CmpGE2_PreShift_1_qint <= Phase_decision_thresh_2_x_q & "00000000000000";
-    CmpGE2_PreShift_1_q <= CmpGE2_PreShift_1_qint(25 downto 0);
+    CmpGE2_PreShift_1_qint <= Phase_decision_thresh_2_x_q & "0000";
+    CmpGE2_PreShift_1_q <= CmpGE2_PreShift_1_qint(15 downto 0);
 
     -- CmpGE2(COMPARE,33)@3
     CmpGE2_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((30 downto 29 => Sub_q(28)) & Sub_q));
-    CmpGE2_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((30 downto 26 => CmpGE2_PreShift_1_q(25)) & CmpGE2_PreShift_1_q));
+    CmpGE2_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((30 downto 16 => CmpGE2_PreShift_1_q(15)) & CmpGE2_PreShift_1_q));
     CmpGE2_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE2_a) - SIGNED(CmpGE2_b));
     CmpGE2_n(0) <= not (CmpGE2_o(30));
 
     -- Phase_decision_thresh_1_x(CONSTANT,44)
-    Phase_decision_thresh_1_x_q <= "000000000010";
+    Phase_decision_thresh_1_x_q <= "011001001000";
 
     -- CmpLT_PreShift_1(BITSHIFT,52)@3
-    CmpLT_PreShift_1_qint <= Phase_decision_thresh_1_x_q & "00000000000000";
-    CmpLT_PreShift_1_q <= CmpLT_PreShift_1_qint(25 downto 0);
+    CmpLT_PreShift_1_qint <= Phase_decision_thresh_1_x_q & "0000";
+    CmpLT_PreShift_1_q <= CmpLT_PreShift_1_qint(15 downto 0);
 
     -- CmpLT(COMPARE,36)@3
     CmpLT_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((30 downto 29 => Sub_q(28)) & Sub_q));
-    CmpLT_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((30 downto 26 => CmpLT_PreShift_1_q(25)) & CmpLT_PreShift_1_q));
+    CmpLT_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((30 downto 16 => CmpLT_PreShift_1_q(15)) & CmpLT_PreShift_1_q));
     CmpLT_o <= STD_LOGIC_VECTOR(SIGNED(CmpLT_a) - SIGNED(CmpLT_b));
     CmpLT_c(0) <= CmpLT_o(30);
 

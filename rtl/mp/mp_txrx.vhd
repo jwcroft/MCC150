@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from mp_txrx
--- VHDL created on Wed May 15 14:31:15 2019
+-- VHDL created on Mon May 20 17:18:10 2019
 
 
 library IEEE;
@@ -445,7 +445,7 @@ begin
         h_areset => h_areset
     );
 
-    -- bus_selector(SELECTOR,28)
+    -- bus_selector(SELECTOR,29)
     bus_selector_clkproc: PROCESS (clk, h_areset)
     BEGIN
         IF (h_areset = '1') THEN
@@ -465,15 +465,15 @@ begin
         END IF;
     END PROCESS;
 
-    -- mp_txrx_readDelayed(DELAY,54)
+    -- mp_txrx_readDelayed(DELAY,55)
     mp_txrx_readDelayed : dspba_delay
     GENERIC MAP ( width => 1, depth => 4, reset_kind => "ASYNC" )
     PORT MAP ( xin => busIn_read, xout => mp_txrx_readDelayed_q, clk => clk, aclr => h_areset );
 
-    -- mp_txrx_readDataValid(LOGICAL,55)
+    -- mp_txrx_readDataValid(LOGICAL,56)
     mp_txrx_readDataValid_q <= bus_selector_v or mp_txrx_readDelayed_q;
 
-    -- busOut(BUSOUT,27)
+    -- busOut(BUSOUT,28)
     busOut_readdatavalid <= mp_txrx_readDataValid_q;
     busOut_readdata <= bus_selector_q;
     busOut_waitrequest <= GND_q;
@@ -611,13 +611,13 @@ begin
         areset => areset
     );
 
-    -- toDAC_I(GPOUT,32)
+    -- toDAC_I(GPOUT,33)
     toDAC_I <= ChanView_c0_o;
 
-    -- toDAC_Q(GPOUT,33)
+    -- toDAC_Q(GPOUT,34)
     toDAC_Q <= ChanView_c0_o;
 
-    -- sym_phase(GPOUT,34)
+    -- sym_phase(GPOUT,35)
     sym_phase <= Symbol_Recovery_x_out_4_phase;
 
     -- BER_Extraction_x(BLACKBOX,6)
@@ -634,13 +634,13 @@ begin
         areset => areset
     );
 
-    -- BER(GPOUT,35)
+    -- BER(GPOUT,36)
     BER <= BER_Extraction_x_out_1_BER;
 
-    -- bit_error(GPOUT,36)
+    -- bit_error(GPOUT,37)
     bit_error <= BER_Extraction_x_out_4_bit_error;
 
-    -- sym_pwr(GPOUT,37)
+    -- sym_pwr(GPOUT,38)
     sym_pwr <= Symbol_Recovery_x_out_6_sym_pwr;
 
     -- ChanView1(BLACKBOX,8)
@@ -654,7 +654,7 @@ begin
         areset => areset
     );
 
-    -- BBI(GPOUT,38)
+    -- BBI(GPOUT,39)
     BBI <= ChanView1_c0_o;
 
     -- ChanView2(BLACKBOX,9)
@@ -668,7 +668,7 @@ begin
         areset => areset
     );
 
-    -- BBQ(GPOUT,39)
+    -- BBQ(GPOUT,40)
     BBQ <= ChanView2_c0_o;
 
     -- ChanView3(BLACKBOX,10)
@@ -682,24 +682,24 @@ begin
         areset => areset
     );
 
-    -- mem_o(GPOUT,40)
+    -- mem_o(GPOUT,41)
     mem_o <= ChanView3_c0_o;
 
     -- ChanView4(BLACKBOX,11)
     theChanView4 : mp_txrx_ChanView4
     PORT MAP (
         xIn_0 => Symbol_Recovery_x_out_1_bits,
-        xIn_v => Memory_out_5_qv1,
+        xIn_v => VCC_q,
         xIn_c => Memory_out_6_qc1,
         c0_o => ChanView4_c0_o,
         clk => clk,
         areset => areset
     );
 
-    -- bit_o(GPOUT,41)
+    -- bit_o(GPOUT,42)
     bit_o <= ChanView4_c0_o;
 
-    -- pow_rx(GPOUT,42)
+    -- pow_rx(GPOUT,43)
     pow_rx <= ChanView5_c0_o;
 
     -- ChanView6(BLACKBOX,13)
@@ -713,10 +713,10 @@ begin
         areset => areset
     );
 
-    -- pow_rx_preshift(GPOUT,43)
+    -- pow_rx_preshift(GPOUT,44)
     pow_rx_preshift <= ChanView6_c0_o;
 
-    -- trigger(GPOUT,44)
+    -- trigger(GPOUT,45)
     trigger <= Symbol_Recovery_x_out_5_trigger;
 
 END normal;

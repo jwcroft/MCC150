@@ -139,12 +139,32 @@
         <wire name="(3 qv)"/>
         <wire name="(4 bit_error)"/>
       </block>
+      <block name="&quot;Bus&#xA;Creator&quot;">
+        <param name="0">[/mp_txrx/Scale/scaleWireData]</param>
+        <param name="1">[/mp_txrx/Scale/wireValid]</param>
+        <param name="2">[/mp_txrx/Scale/wireChannel]</param>
+        <param name="blockType">aggregatePackBlock</param>
+        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (3 -1 0 0 1 0))</param>
+        <wire name="aggregateWireOut"/>
+      </block>
+      <block name="&quot;Bus&#xA;Selector&quot;">
+        <param name="aggregateUnpackPortIn">[/mp_txrx/"Bus
+Creator"/aggregateWireOut]</param>
+        <param name="blockType">aggregateUnpackBlock</param>
+        <param name="simulinkExtraCacheKeys">((3 -1 0 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4))</param>
+        <wire name="0"/>
+        <wire name="1"/>
+        <wire name="2"/>
+      </block>
       <block name="ChanView">
         <param name="blockType">chanviewBlock</param>
         <param name="chanviewInputCount">1</param>
-        <param name="chanviewPortData">[/mp_txrx/Scale/scaleWireData]</param>
-        <param name="portChannel">[/mp_txrx/Scale/wireChannel]</param>
-        <param name="portValid">[/mp_txrx/Scale/wireValid]</param>
+        <param name="chanviewPortData">[/mp_txrx/"Bus
+Selector"/0]</param>
+        <param name="portChannel">[/mp_txrx/"Bus
+Selector"/2]</param>
+        <param name="portValid">[/mp_txrx/"Bus
+Selector"/1]</param>
         <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0) (1 1 0 ^4) (1 8 0 ^4) (1 12 0 0 1 0))</param>
         <param name="simulinkPath">"mp/txrx/ChanView"</param>
         <wire name="0"/>
@@ -184,7 +204,7 @@
         <param name="chanviewInputCount">1</param>
         <param name="chanviewPortData">[/mp_txrx/"Symbol Recovery"/(1 bits)]</param>
         <param name="portChannel">[/mp_txrx/Memory/(6 qc1)]</param>
-        <param name="portValid">[/mp_txrx/Memory/(5 qv1)]</param>
+        <param name="portValid">[/mp_txrx/Valid1/primWireOut]</param>
         <param name="simulinkExtraCacheKeys">((1 1 0 ^4) (1 1 0 ^4) (1 8 0 ^4) (1 1 0 ^4))</param>
         <param name="simulinkPath">"mp/txrx/ChanView4"</param>
         <wire name="0"/>
@@ -396,6 +416,13 @@
         <wire name="(6 sym_pwr)"/>
       </block>
       <block name="Valid">
+        <param name="blockType">constBlock</param>
+        <param name="constType">(typeUFixed 1 0)</param>
+        <param name="constValue">1</param>
+        <param name="simulinkExtraCacheKeys">((1 1 0 ^4))</param>
+        <wire name="primWireOut"/>
+      </block>
+      <block name="Valid1">
         <param name="blockType">constBlock</param>
         <param name="constType">(typeUFixed 1 0)</param>
         <param name="constValue">1</param>
@@ -658,7 +685,7 @@
       </block>
       <block name="DualMem">
         <param name="blockType">dualMemBlock</param>
-        <param name="dualMemData">(0 1 0 0 0 1 1 1 0 1 1 1 0 0 1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 0 1 1 0 0 1 0 ^5 1 1 0 1 0 ^4 1 ^4 0 1 1 1 0 0 1 0 ^4 1 0 ^4 1 1 0 1 1 0 0 1 1 0 0 1 ^5 0 0 1 0 1 ^7 0 ^4 1 0 1 0 0 0 1 0 ^7 1 1 1 0 1 0 ^4 1 ^10 0 ^6 1 1 1 0 1 0 0 1 0 1 1 1 0 1 ^5 0 0 0 1 0 1 1 0 0 1 1 0 1 0 1 1 0 0 1 0 1 0 0 0 1 0 0 1 0 0 1 1 0 1 0 1 1 0 0 0 1 ^5 0 ^6 1 1 0 ^4 1 0 0 1 1 0 1 1 0 1 1 1 0 ^7 1 1 0 1 ^4 0 ^5 1 0 1 0 1 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 0 0 0 1 0 ^5 1 0 0 0 1 0 1 0 0 1 ^4 0 ^4 1 ^4 0 1 1 0 1 1 0 0 1 0 ^9 1 0 1 1 1 0 0 1 0 1 0 0 1 0 1 1 1 0 1 0 1 1 1 0 ^4 1 ^4 0 1 0 1 ^6 0 ^4 1 0 1 ^4 0 ^5 1 1 0 0 1 1 1 0 1 1 0 0 1 0 ^7 1 0 0 1 1 1 0 0 1 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 0 0 0 1 0 0 1 0 0 1 0 0 1 1 0 1 0 1 0 ^4 1 0 0 1 0 0 1 1 0 ^4 1 0 0 1 1 1 0 ^4 1 ^8 0 1 ^8 0 1 0 1 1 0 1 1 1 0 0 1 0 0 1 0 0 0 1 ^8 0 0 0 1 0 1 0 0 1 0 0 1 0 0 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 0 1 1 1 0 1 0 ^5 1 ^4 0 1 1 0 ^7 1 1 0 0 0 1 0 0 1 1 0 0 1 1 0 1 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 0 1 1 0 ^4 1 0 0 1 ^4 0 0 1 ^6 0 0 1 0 0 1 ^4 0 1 0 1 1 0 0 1 0 ^4 1 1 0 1 0 1 0 1 1 0 1 ^6 0 1 0 1 0 0 1 0 0 0 1 1 1 0 ^7 1 0 0 1 1 1 0 0 0 1 0 0 0 1 1 0 1 1 0 1 0 1 ^5 0 1 0 0 0 1 0 0 1 0 1 0 0 0 1 1 0 0 1 ^6 0 ^5 1 0 0 0 1 1 0 1 0 1 0 1 0 1 1 0 0 0 1 ^4 0 1 1 0 1 0 0 1 0 ^5 1 0 1 1 0 0 1 ^4 0 1 0 0 0 1 0 1 1 0 1 1 1 0 0 1 0 1 0 0 1 0 1 0 0 1 0 ^5 1 0 1 1 0 1 0 1 0 1 1 1 0 0 1 1 0 0 1 1 0 ^5 1 0 1 0 0 0 1 1 0 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 1 0 1 ^7 0 1 0 1 0 1 ^5 0 0 0 1 0 1 ^4 0 0 0 1 1 1 0 0 1 1 0 0 1 1 0 1 0 0 0 1 1 0 0 1 1 0 1 0 1 ^5 0 1 ^5 0 1 0 1 0 1 0 1 1 0 1 1 1 0 1 0 1 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 ^9 0 0 1 1 0 ^4 1 1 0 0 1 1 1 0 0 1 0 0 0 1 ^5 0 0 0 1 1 0 1 0 0 0 1 0 0 1 0 0 1 1 0 0 0 1 0 1 0 1 ^6 0 0 0 1 0 0 1 0 0 0 1 0 ^5)</param>
+        <param name="dualMemData">(0 1 1 1 0 1 ^5 0 0 0 1 1 1 0 0 0 1 0 1 1 0 1 1 1 0 ^4 1 1 1 0 0 1 0 1 0 0 0 1 0 0 0 1 0 0 1 1 0 1 ^4 0 ^6 1 ^4 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 1 0 0 1 0 0 1 0 0 0 1 ^4 0 1 1 0 1 0 0 0 1 0 1 0 0 1 0 0 1 0 0 0 1 ^8 0 1 0 ^4 1 0 0 1 0 1 1 0 0 1 ^7 0 1 0 ^5 1 0 ^10 1 1 1 0 1 0 0 0 1 0 1 1 0 0 1 1 0 0 1 1 0 ^4 1 0 1 1 0 0 1 ^5 0 0 0 1 0 1 1 0 ^4 1 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 0 0 0 1 0 0 1 1 0 0 0 1 0 1 0 1 0 0 1 ^13 0 0 1 1 0 0 1 0 1 0 1 1 0 1 0 1 1 0 1 ^6 0 0 1 1 1 0 1 0 0 0 1 1 0 1 0 0 1 0 1 1 1 0 0 0 1 1 0 1 0 0 1 0 1 0 0 0 1 1 0 0 0 1 1 0 1 ^4 0 ^5 1 0 0 0 1 0 1 0 1 0 1 0 1 0 ^6 1 1 1 0 1 1 1 0 0 0 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 1 0 ^6 1 ^6 0 0 1 1 0 0 1 0 0 1 0 1 0 1 ^5 0 0 1 0 0 1 0 0 0 1 1 1 0 0 1 ^4 0 0 1 ^5 0 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 ^4 1 1 1 0 0 0 1 1 0 ^4 1 1 0 0 0 1 1 1 0 1 0 ^4 1 0 ^4 1 0 0 1 0 1 0 ^4 1 1 1 0 0 1 1 0 1 1 0 0 0 1 1 0 0 1 0 1 1 1 0 1 0 0 1 0 1 0 0 1 1 1 0 1 0 ^4 1 1 0 1 1 0 0 1 1 0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 ^5 0 1 0 1 0 1 1 1 0 1 0 0 0 1 1 0 0 1 0 1 1 1 0 0 0 1 0 1 0 1 0 1 0 1 0 1 ^4 0 1 1 1 0 1 0 0 1 1 1 0 1 0 0 1 0 1 0 0 0 1 1 1 0 0 0 1 1 1 0 0 1 1 0 1 0 1 1 1 0 1 0 1 0 1 0 0 1 1 1 0 1 0 1 ^4 0 1 ^4 0 1 1 1 0 0 1 1 0 1 0 1 1 1 0 0 0 1 1 1 0 ^5 1 0 1 1 0 1 1 0 0 1 0 1 ^8 0 1 1 1 0 0 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 ^5 0 0 1 0 1 1 0 1 1 1 0 1 ^5 0 0 1 0 0 0 1 0 ^4 1 0 0 1 1 1 0 0 1 0 0 0 1 0 1 0 0 0 1 1 0 1 1 0 ^4 1 1 1 0 1 1 0 0 0 1 1 1 0 1 0 1 ^4 0 1 0 ^5 1 0 1 0 0 0 1 ^7 0 0 1 0 0 1 0 ^4 1 1 0 0 1 ^6 0 1 ^4 0 1 1 0 1 ^4 0 0 1 1 1 0 0 1 ^4 0 1 1 0 ^6 1 1 0 0 1 1 0 1 0 ^4 1 0 0 1 0 1 1 0 0 0 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 1 ^4 0 1 0 ^5 1 ^4 0 ^5 1 0 ^4 1 0 ^5 1 1 1 0 1 0 1 0 0 1 ^6 0 0 1 1 0 1 1 0 0 0 1 0 1 0 1 ^4 0 0 1 ^7 0 1 0 0 1 1 0 1 ^4 0 1 1 0 0 1 1 0 ^8)</param>
         <param name="dualMemPortAddr1">[/mp_txrx_Memory/Counter1_PostCast_primWireOut/primWireOut]</param>
         <param name="dualMemPortAddr2">[/mp_txrx_Memory/Counter_PostCast_primWireOut/primWireOut]</param>
         <param name="dualMemPortData1">[/mp_txrx_Memory/Const2/primWireOut]</param>
@@ -976,7 +1003,7 @@
         <param name="0">[/"mp_txrx_Symbol Recovery"/Sub/primWireOut]</param>
         <param name="1">[/"mp_txrx_Symbol Recovery"/"Phase decision thresh 2"/primWireOut]</param>
         <param name="blockType">cmpGEBlock</param>
-        <param name="simulinkExtraCacheKeys">((1 29 14 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4))</param>
+        <param name="simulinkExtraCacheKeys">((1 29 14 0 1 0) (1 12 10 0 1 0) (1 1 0 ^4))</param>
         <wire name="primWireOut"/>
       </block>
       <block name="CmpGE2_PostCast_primWireOut">
@@ -997,7 +1024,7 @@
         <param name="0">[/"mp_txrx_Symbol Recovery"/Sub/primWireOut]</param>
         <param name="1">[/"mp_txrx_Symbol Recovery"/"Phase decision thresh 1"/primWireOut]</param>
         <param name="blockType">cmpLTBlock</param>
-        <param name="simulinkExtraCacheKeys">((1 29 14 0 1 0) (1 12 0 0 1 0) (1 1 0 ^4))</param>
+        <param name="simulinkExtraCacheKeys">((1 29 14 0 1 0) (1 12 10 0 1 0) (1 1 0 ^4))</param>
         <wire name="primWireOut"/>
       </block>
       <block name="CmpLT_PostCast_primWireOut">
@@ -1061,16 +1088,16 @@ Meas1"/primWireOut]</param>
       </block>
       <block name="&quot;Phase decision thresh 1&quot;">
         <param name="blockType">constBlock</param>
-        <param name="constType">(typeSFixed 12 0)</param>
+        <param name="constType">(typeSFixed 2 10)</param>
         <param name="constValue">0x1.921fb54442d18p+0</param>
-        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0))</param>
+        <param name="simulinkExtraCacheKeys">((1 12 10 0 1 0))</param>
         <wire name="primWireOut"/>
       </block>
       <block name="&quot;Phase decision thresh 2&quot;">
         <param name="blockType">constBlock</param>
-        <param name="constType">(typeSFixed 12 0)</param>
+        <param name="constType">(typeSFixed 2 10)</param>
         <param name="constValue">-0x1.921fb54442d18p+0</param>
-        <param name="simulinkExtraCacheKeys">((1 12 0 0 1 0))</param>
+        <param name="simulinkExtraCacheKeys">((1 12 10 0 1 0))</param>
         <wire name="primWireOut"/>
       </block>
       <block name="&quot;Phase detect&quot;">
@@ -1129,7 +1156,7 @@ Meas"/primWireOut]</param>
       <block name="Threshold">
         <param name="blockType">constBlock</param>
         <param name="constType">(typeSFixed 43 22)</param>
-        <param name="constValue">100</param>
+        <param name="constValue">50</param>
         <param name="simulinkExtraCacheKeys">((1 65 22 0 1 0))</param>
         <wire name="primWireOut"/>
       </block>
