@@ -1,7 +1,7 @@
 clf
 
 A = 1;
-K = 4; % no of bits
+K = 3; % no of bits
 M = 2^K; % no of symbols.
 
 a = pi/4; % Tx phase offset
