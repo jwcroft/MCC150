@@ -3,6 +3,8 @@
 K = 1; % no of bits
 M = 2^K; % no of symbols 
 
-phaseOffset = -pi/4;
+phaseOffset = pi;
 
 sampleRate = 100;
+
+detectionThreshold = 0.5; % Power [W] of signal needed to trigger the sampler/demapper.
