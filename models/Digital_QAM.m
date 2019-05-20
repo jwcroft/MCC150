@@ -9,7 +9,7 @@ M = 2^K; % no of symbols.
 a = pi/4; % Tx phase offset
 
 % Constellation
-si = A*exp(i*2*pi*(((1:M)-1)/M) + i*a)
+si = (1)*exp(i*2*pi*(1) + i*a)
 
 % Circle
 t = linspace(0, 1, 100);
