@@ -1,7 +1,7 @@
 % Macro Project MCC150
 
 %===========================%
-% Modulation format: BPSK
+% Modulation format: 8-PSK
 % Data rate: 1MBaud
 % Sample rate (clock rate): 40MHz
 % Word Length: 12 bit
@@ -21,7 +21,7 @@ stopTime = 10e3*stepSize;
 detection_threshold = 100; %% Hardcoded???
 
 memory_data = [0;1; randsrc(memSize-pilot_size,1,[0 1])]; % BPSK
-fir.coeffs = fi(rcosdesign(0.8,4,sampleRate/dataRate,'sqrt'), 1, wordLength-2); 
+fir.coeffs = fi(rcosdesign(0.8,4,3*sampleRate/dataRate,'sqrt'), 1, wordLength-2); 
 
 mapper_LUT_I = [1 0.70710678 0.70710678 0 -0.70710678 0 -1 -0.70710678];
 mapper_LUT_Q = [0 0.70710678 -0.70710678 -1 0.70710678 1 0 -0.70710678];
