@@ -22,7 +22,7 @@
 		<param name="dualMemMediumLargeThreshold" value="-1" />
 		<param name="useSeparateQuartusDirectory" value="false" />
 		<param name="createTrace" value="false" />
-		<param name="hardwareDestinationDirectory" value="../rtl" />
+		<param name="hardwareDestinationDirectory" value="./rtl" />
 		<param name="clockFrequency" value="clockRate/1e6" />
 		<param name="quartusWorkDirectory" value="../rtl" />
 		<param name="errorOnChanMismatch" value="true" />

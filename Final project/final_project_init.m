@@ -27,6 +27,8 @@ fir.coeffs = fi(rcosdesign(0.8,5,3*sampleRate/dataRate,'sqrt'), 1, wordLength-2)
 barker = [1 1 1 -1 1];
 barker_fir = fi(conv(rcosdesign(0.8,5,3*sampleRate/dataRate,'sqrt'),upsample(barker,3*sampleRate/dataRate)));
 
+moving_avg_fir = fi(ones(1,100)/100);
+
 mapper_LUT_I = [1 0.70710678 0.70710678 0 -0.70710678 0 -1 -0.70710678];
 mapper_LUT_Q = [0 0.70710678 -0.70710678 -1 0.70710678 1 0 -0.70710678];
 
