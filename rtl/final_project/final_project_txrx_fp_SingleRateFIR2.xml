@@ -3,7 +3,7 @@
 <MODEL>
 <NAME>final_project/txrx_fp/SingleRateFIR2</NAME>
 <BUILD_YEAR>2018</BUILD_YEAR>
-<LATENCY block='lastTStep'>4</LATENCY>
+<LATENCY block='lastTStep'>3</LATENCY>
 <DOCPATH>file:///C:/intelFPGA/18.0/quartus/dspba/Docs/Help/</DOCPATH>
 <DESCRIPTION>
 This help page relates to the specific instance 'final_project_txrx_fp_SingleRateFIR2' of the FIRS block
@@ -14,7 +14,7 @@ This help page relates to the specific instance 'final_project_txrx_fp_SingleRat
  <TEXT>Created using DSP Builder for Intel(R) FPGAs - Advanced Blockset software</TEXT>
 </INFO>
 <INFO>
- <TEXT>Written on Wed May 22 16:40:59 2019
+ <TEXT>Written on Thu May 23 17:04:06 2019
 </TEXT>
 </INFO>
 <INFO>
@@ -27,7 +27,7 @@ This help page relates to the specific instance 'final_project_txrx_fp_SingleRat
  <TEXT>Number of physical output buses: 1</TEXT>
 </INFO>
 <INFO>
- <TEXT>Calculated Bitwidth of output stage: 48</TEXT>
+ <TEXT>Calculated Bitwidth of output stage: 47</TEXT>
 </INFO>
 <INFO>
  <TEXT>Number of different phases: 1</TEXT>
@@ -39,7 +39,7 @@ This help page relates to the specific instance 'final_project_txrx_fp_SingleRat
  <TEXT>Filter Utilization : 1/1 (100.00%) </TEXT>
 </INFO>
 <INFO>
- <TEXT>Tap Utilization : 50/50 (100.00%) </TEXT>
+ <TEXT>Tap Utilization : 25/25 (100.00%) </TEXT>
 </INFO>
 <PARAMETER>
  <NAME>System Clock </NAME>
@@ -58,7 +58,7 @@ This help page relates to the specific instance 'final_project_txrx_fp_SingleRat
 </PARAMETER>
 <PARAMETER>
  <NAME>Filter Length </NAME>
- <VALUE> 100 </VALUE>
+ <VALUE> 50 </VALUE>
  <DESCRIPTION> Number of coefficients</DESCRIPTION>
 </PARAMETER>
 <PARAMETER>
@@ -128,7 +128,7 @@ This help page relates to the specific instance 'final_project_txrx_fp_SingleRat
 </PORT>
 <PORT>
  <NAME>xOut_0</NAME>
- <WIDTH>48</WIDTH>
+ <WIDTH>47</WIDTH>
  <DIRECTION>out</DIRECTION>
  <DESCRIPTION>Data signal</DESCRIPTION>
 </PORT>

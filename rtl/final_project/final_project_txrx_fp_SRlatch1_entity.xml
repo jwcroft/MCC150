@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='final_project_txrx_fp_SRlatch1' floating-point-script-prefix='final_project_txrx_fp_SRlatch1_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>
