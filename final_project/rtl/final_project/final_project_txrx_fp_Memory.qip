@@ -1,0 +1,15 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'final_project_txrx_fp_Memory'
+
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_Memory.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_Memory.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_Memory.vhd
+set_global_assignment -name VHDL_FILE ./rtl/final_project/final_project_txrx_fp_Memory.vhd
+set_global_assignment -name HEX_FILE ./rtl/final_project/final_project_txrx_fp_Memory_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/final_project/final_project_txrx_fp_Memory_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/final_project/final_project_txrx_fp_Memory_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/final_project/final_project_txrx_fp_Memory_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/final_project/final_project_txrx_fp_Memory_DualMem.hex

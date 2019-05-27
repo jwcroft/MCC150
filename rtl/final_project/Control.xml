@@ -11,6 +11,22 @@ This help page relates to the specific instance 'Control' of the CONTROL block
 <BLOCKTYPE>CONTROL</BLOCKTYPE>
 <RESOURCES>
 <FUNIT>
+ <FUNAME>final_project/txrx_fp</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>2</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project/txrx_fp/8-PSK Mapper</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>66</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
  <FUNAME>final_project/txrx_fp/ChanView</FUNAME>
  <FUTYPE>CHANVIEW</FUTYPE>
  <LUT4>20</LUT4>
@@ -51,6 +67,14 @@ This help page relates to the specific instance 'Control' of the CONTROL block
  <BLOCKS>0</BLOCKS>
 </FUNIT>
 <FUNIT>
+ <FUNAME>final_project/txrx_fp/Decode symbols into bitstream</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>603</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
  <FUNAME>final_project/txrx_fp/InterpolatingFIR</FUNAME>
  <FUTYPE>FIRI</FUTYPE>
  <LUT4>304</LUT4>
@@ -62,6 +86,30 @@ This help page relates to the specific instance 'Control' of the CONTROL block
  <FUNAME>final_project/txrx_fp/InterpolatingFIR1</FUNAME>
  <FUTYPE>FIRI</FUTYPE>
  <LUT4>304</LUT4>
+ <MULT>6</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project/txrx_fp/Memory</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>76</LUT4>
+ <MULT>0</MULT>
+ <BITS>1024</BITS>
+ <BLOCKS>1</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project/txrx_fp/Phase extraction and synchronization</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>2279</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project/txrx_fp/Power extraction</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>53</LUT4>
  <MULT>6</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>
@@ -183,6 +231,22 @@ This help page relates to the specific instance 'Control' of the CONTROL block
  <FUTYPE>FIRS</FUTYPE>
  <LUT4>14</LUT4>
  <MULT>32</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project/txrx_fp/Symbol recovery</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>650</LUT4>
+ <MULT>2</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project/txrx_fp/Symbol sample adaptation</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>215</LUT4>
+ <MULT>0</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>
 </FUNIT>

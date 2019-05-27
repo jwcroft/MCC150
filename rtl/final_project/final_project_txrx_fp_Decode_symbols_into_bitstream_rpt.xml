@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<island simulinkPath='final_project/txrx_fp/Decode symbols into bitstream' topLevelEntity='final_project_txrx_fp_Decode_symbols_into_bitstream'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_v' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_1_v' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='v' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_c' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_2_c' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='c' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_symbols_x' clock='clk' reset='areset' width='30' dir='in' role='data' qsys_role='data_in_3_symbols_x' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='symbols
+' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_packet_trigger' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_4_packet_trigger' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='packet_trigger' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='in_5_memory_bitstream' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_5_memory_bitstream' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='memory_bitstream' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='out_1_v_bits' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_out_1_v_bits' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='v_bits' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_qc' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_out_2_qc' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='qc' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_bits' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_3_bits' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='bits' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_4_out4' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_4_out4' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='out4' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_5_out5' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_5_out5' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='out5' highLevelIndex='5' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

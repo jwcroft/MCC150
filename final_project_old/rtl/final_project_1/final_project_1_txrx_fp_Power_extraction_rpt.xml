@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<island simulinkPath='final_project_1/txrx_fp/Power extraction' topLevelEntity='final_project_1_txrx_fp_Power_extraction'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_7_v' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_7_v' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='v' highLevelIndex='7' vector='0' complex='0'/>
+    <port name='in_8_c' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_8_c' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='c' highLevelIndex='8' vector='0' complex='0'/>
+    <port name='in_1_left_I' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_1_left_I' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='left_I' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_left_Q' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_2_left_Q' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='left_Q' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_main_I' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_3_main_I' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='main_I' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_main_Q' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_4_main_Q' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='main_Q' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='in_5_right_I' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_5_right_I' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='right_I' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='in_6_right_Q' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_in_6_right_Q' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelIn.stm' highLevelName='right_Q' highLevelIndex='6' vector='0' complex='0'/>
+    <port name='out_1_qv' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_out_1_qv' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelOut.stm' highLevelName='qv' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_qc' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_out_2_qc' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelOut.stm' highLevelName='qc' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_left_power' clock='clk' reset='areset' width='25' dir='out' role='data' qsys_role='data_out_3_left_power' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelOut.stm' highLevelName='left_power' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_4_main_power' clock='clk' reset='areset' width='25' dir='out' role='data' qsys_role='data_out_4_main_power' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelOut.stm' highLevelName='main_power' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_5_right_power' clock='clk' reset='areset' width='25' dir='out' role='data' qsys_role='data_out_5_right_power' stm='final_project_1/final_project_1_txrx_fp_Power_extraction_ChannelOut.stm' highLevelName='right_power' highLevelIndex='5' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

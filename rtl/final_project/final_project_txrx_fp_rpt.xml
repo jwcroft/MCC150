@@ -1,0 +1,60 @@
+<?xml version='1.0'?>
+<island simulinkPath='final_project/txrx_fp' topLevelEntity='final_project_txrx_fp'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='ADC_I' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_ADC_I' stm='final_project/final_project_txrx_fp_SingleRateFIR_I_xIn.stm' highLevelName='ADC_I' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='ADC_Q' clock='clk' reset='areset' width='12' dir='in' role='data' qsys_role='data_ADC_Q' stm='final_project/final_project_txrx_fp_SingleRateFIR_Q_xIn.stm' highLevelName='ADC_Q' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='Reset' clock='clk' reset='areset' width='64' dir='in' role='data' qsys_role='data_Reset' stm='' highLevelName='Reset' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='DAC_I' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_DAC_I' stm='final_project/final_project_txrx_fp_ChanView_c0.stm' highLevelName='DAC_I' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='DAC_Q' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_DAC_Q' stm='final_project/final_project_txrx_fp_ChanView1_c0.stm' highLevelName='DAC_Q' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='mem_o' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_mem_o' stm='final_project/final_project_txrx_fp_ChanView3_c0.stm' highLevelName='mem_o' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='BBI' clock='clk' reset='areset' width='28' dir='out' role='data' qsys_role='data_BBI' stm='final_project/final_project_txrx_fp_ChanView2_c0.stm' highLevelName='BBI' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='BBQ' clock='clk' reset='areset' width='28' dir='out' role='data' qsys_role='data_BBQ' stm='final_project/final_project_txrx_fp_ChanView4_c0.stm' highLevelName='BBQ' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='rx_bits' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_rx_bits' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='rx_bits' highLevelIndex='6' vector='0' complex='0'/>
+    <port name='mem_read_bits' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_mem_read_bits' stm='final_project/final_project_txrx_fp_Memory_ChannelOut1.stm' highLevelName='mem_read_bits' highLevelIndex='7' vector='0' complex='0'/>
+    <port name='sym_phase' clock='clk' reset='areset' width='30' dir='out' role='data' qsys_role='data_sym_phase' stm='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm' highLevelName='sym_phase' highLevelIndex='8' vector='0' complex='0'/>
+    <port name='left_power' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_left_power' stm='final_project/final_project_txrx_fp_Scale3_I1_qOut.stm' highLevelName='left_power' highLevelIndex='9' vector='0' complex='0'/>
+    <port name='main_power' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_main_power' stm='final_project/final_project_txrx_fp_Scale3_I2_qOut.stm' highLevelName='main_power' highLevelIndex='10' vector='0' complex='0'/>
+    <port name='right_power' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_right_power' stm='final_project/final_project_txrx_fp_Scale3_I3_qOut.stm' highLevelName='right_power' highLevelIndex='11' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='final_project/final_project_txrx_fp.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='dspba/backend/Libraries/vhdl/base/dspba_library_package.vhd' base='quartus' type='vhdl' usage='all'/>
+    <file path='dspba/backend/Libraries/vhdl/base/dspba_library.vhd' base='quartus' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_8_PSK_Mapper.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_ChanView.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_ChanView1.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_ChanView2.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_ChanView3.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_ChanView4.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_InterpolatingFIR.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_InterpolatingFIR1.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Memory.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Memory_DualMem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Power_extraction.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale1.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale2_Q.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I1.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I2.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I3.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I4.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I5.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Scale3_I6.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_SingleRateFIR.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_SingleRateFIR1.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_SingleRateFIR2.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_SingleRateFIR_I.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_SingleRateFIR_Q.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Symbol_recovery.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/final_project_txrx_fp_Symbol_sample_adaptation.vhd' base='rtl' type='vhdl' usage='all'/>
+
+</island>

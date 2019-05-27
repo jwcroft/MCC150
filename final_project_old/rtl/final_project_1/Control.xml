@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/intelFPGA/18.0/quartus/dspba/Blocksets/BaseBlocks/modelip.xsl"?>
+<MODEL>
+<NAME>final_project_1/Control</NAME>
+<BUILD_YEAR>2018</BUILD_YEAR>
+<DOCPATH>file:///C:/intelFPGA/18.0/quartus/dspba/Docs/Help/</DOCPATH>
+<DESCRIPTION>
+This help page relates to the specific instance 'Control' of the CONTROL block
+</DESCRIPTION>
+<HELP>file:///C:/intelFPGA/18.0/quartus/dspba/Docs/Help/CONTROL_help.html</HELP>
+<BLOCKTYPE>CONTROL</BLOCKTYPE>
+<MEMORYMAPS path="final_project_1">
+  <REGS numregs="31" desc="FIR Coefficient Registers" origin="final_project_1_txrx_fp_SingleRateFIR_I" clashes="false" rwmode="Read/Write" bitwidth="10" fracwidth="10" privatespace="false">
+    <REG numregparts="1" desc="FIR Coefficient Register 0" clashes="false" double_init="-0.000977" sint_init="-1">
+      <REGPART part_init="-1" part_double_init="-0.000977" clashes="false" width="10" msb="9" lsb="0" addr="1024"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 1" clashes="false" double_init="-0.002930" sint_init="-3">
+      <REGPART part_init="-3" part_double_init="-0.002930" clashes="false" width="10" msb="9" lsb="0" addr="1025"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 2" clashes="false" double_init="-0.004883" sint_init="-5">
+      <REGPART part_init="-5" part_double_init="-0.004883" clashes="false" width="10" msb="9" lsb="0" addr="1026"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 3" clashes="false" double_init="-0.006836" sint_init="-7">
+      <REGPART part_init="-7" part_double_init="-0.006836" clashes="false" width="10" msb="9" lsb="0" addr="1027"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 4" clashes="false" double_init="-0.006836" sint_init="-7">
+      <REGPART part_init="-7" part_double_init="-0.006836" clashes="false" width="10" msb="9" lsb="0" addr="1028"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 5" clashes="false" double_init="-0.005859" sint_init="-6">
+      <REGPART part_init="-6" part_double_init="-0.005859" clashes="false" width="10" msb="9" lsb="0" addr="1029"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 6" clashes="false" double_init="-0.002930" sint_init="-3">
+      <REGPART part_init="-3" part_double_init="-0.002930" clashes="false" width="10" msb="9" lsb="0" addr="1030"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 7" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="10" msb="9" lsb="0" addr="1031"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 8" clashes="false" double_init="0.003906" sint_init="4">
+      <REGPART part_init="4" part_double_init="0.003906" clashes="false" width="10" msb="9" lsb="0" addr="1032"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 9" clashes="false" double_init="0.006836" sint_init="7">
+      <REGPART part_init="7" part_double_init="0.006836" clashes="false" width="10" msb="9" lsb="0" addr="1033"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 10" clashes="false" double_init="0.008789" sint_init="9">
+      <REGPART part_init="9" part_double_init="0.008789" clashes="false" width="10" msb="9" lsb="0" addr="1034"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 11" clashes="false" double_init="0.008789" sint_init="9">
+      <REGPART part_init="9" part_double_init="0.008789" clashes="false" width="10" msb="9" lsb="0" addr="1035"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 12" clashes="false" double_init="0.005859" sint_init="6">
+      <REGPART part_init="6" part_double_init="0.005859" clashes="false" width="10" msb="9" lsb="0" addr="1036"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 13" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="10" msb="9" lsb="0" addr="1037"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 14" clashes="false" double_init="-0.007813" sint_init="-8">
+      <REGPART part_init="-8" part_double_init="-0.007813" clashes="false" width="10" msb="9" lsb="0" addr="1038"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 15" clashes="false" double_init="-0.017578" sint_init="-18">
+      <REGPART part_init="-18" part_double_init="-0.017578" clashes="false" width="10" msb="9" lsb="0" addr="1039"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 16" clashes="false" double_init="-0.025391" sint_init="-26">
+      <REGPART part_init="-26" part_double_init="-0.025391" clashes="false" width="10" msb="9" lsb="0" addr="1040"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 17" clashes="false" double_init="-0.031250" sint_init="-32">
+      <REGPART part_init="-32" part_double_init="-0.031250" clashes="false" width="10" msb="9" lsb="0" addr="1041"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 18" clashes="false" double_init="-0.031250" sint_init="-32">
+      <REGPART part_init="-32" part_double_init="-0.031250" clashes="false" width="10" msb="9" lsb="0" addr="1042"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 19" clashes="false" double_init="-0.024414" sint_init="-25">
+      <REGPART part_init="-25" part_double_init="-0.024414" clashes="false" width="10" msb="9" lsb="0" addr="1043"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 20" clashes="false" double_init="-0.008789" sint_init="-9">
+      <REGPART part_init="-9" part_double_init="-0.008789" clashes="false" width="10" msb="9" lsb="0" addr="1044"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 21" clashes="false" double_init="0.016602" sint_init="17">
+      <REGPART part_init="17" part_double_init="0.016602" clashes="false" width="10" msb="9" lsb="0" addr="1045"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 22" clashes="false" double_init="0.050781" sint_init="52">
+      <REGPART part_init="52" part_double_init="0.050781" clashes="false" width="10" msb="9" lsb="0" addr="1046"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 23" clashes="false" double_init="0.093750" sint_init="96">
+      <REGPART part_init="96" part_double_init="0.093750" clashes="false" width="10" msb="9" lsb="0" addr="1047"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 24" clashes="false" double_init="0.142578" sint_init="146">
+      <REGPART part_init="146" part_double_init="0.142578" clashes="false" width="10" msb="9" lsb="0" addr="1048"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 25" clashes="false" double_init="0.194336" sint_init="199">
+      <REGPART part_init="199" part_double_init="0.194336" clashes="false" width="10" msb="9" lsb="0" addr="1049"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 26" clashes="false" double_init="0.243164" sint_init="249">
+      <REGPART part_init="249" part_double_init="0.243164" clashes="false" width="10" msb="9" lsb="0" addr="1050"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 27" clashes="false" double_init="0.287109" sint_init="294">
+      <REGPART part_init="294" part_double_init="0.287109" clashes="false" width="10" msb="9" lsb="0" addr="1051"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 28" clashes="false" double_init="0.322266" sint_init="330">
+      <REGPART part_init="330" part_double_init="0.322266" clashes="false" width="10" msb="9" lsb="0" addr="1052"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 29" clashes="false" double_init="0.343750" sint_init="352">
+      <REGPART part_init="352" part_double_init="0.343750" clashes="false" width="10" msb="9" lsb="0" addr="1053"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 30" clashes="false" double_init="0.351563" sint_init="360">
+      <REGPART part_init="360" part_double_init="0.351563" clashes="false" width="10" msb="9" lsb="0" addr="1054"/>
+    </REG>
+  </REGS>
+  <REGS numregs="31" desc="FIR Coefficient Registers" origin="final_project_1_txrx_fp_SingleRateFIR_Q" clashes="false" rwmode="Read/Write" bitwidth="10" fracwidth="10" privatespace="false">
+    <REG numregparts="1" desc="FIR Coefficient Register 0" clashes="false" double_init="-0.000977" sint_init="-1">
+      <REGPART part_init="-1" part_double_init="-0.000977" clashes="false" width="10" msb="9" lsb="0" addr="512"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 1" clashes="false" double_init="-0.002930" sint_init="-3">
+      <REGPART part_init="-3" part_double_init="-0.002930" clashes="false" width="10" msb="9" lsb="0" addr="513"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 2" clashes="false" double_init="-0.004883" sint_init="-5">
+      <REGPART part_init="-5" part_double_init="-0.004883" clashes="false" width="10" msb="9" lsb="0" addr="514"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 3" clashes="false" double_init="-0.006836" sint_init="-7">
+      <REGPART part_init="-7" part_double_init="-0.006836" clashes="false" width="10" msb="9" lsb="0" addr="515"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 4" clashes="false" double_init="-0.006836" sint_init="-7">
+      <REGPART part_init="-7" part_double_init="-0.006836" clashes="false" width="10" msb="9" lsb="0" addr="516"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 5" clashes="false" double_init="-0.005859" sint_init="-6">
+      <REGPART part_init="-6" part_double_init="-0.005859" clashes="false" width="10" msb="9" lsb="0" addr="517"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 6" clashes="false" double_init="-0.002930" sint_init="-3">
+      <REGPART part_init="-3" part_double_init="-0.002930" clashes="false" width="10" msb="9" lsb="0" addr="518"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 7" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="10" msb="9" lsb="0" addr="519"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 8" clashes="false" double_init="0.003906" sint_init="4">
+      <REGPART part_init="4" part_double_init="0.003906" clashes="false" width="10" msb="9" lsb="0" addr="520"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 9" clashes="false" double_init="0.006836" sint_init="7">
+      <REGPART part_init="7" part_double_init="0.006836" clashes="false" width="10" msb="9" lsb="0" addr="521"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 10" clashes="false" double_init="0.008789" sint_init="9">
+      <REGPART part_init="9" part_double_init="0.008789" clashes="false" width="10" msb="9" lsb="0" addr="522"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 11" clashes="false" double_init="0.008789" sint_init="9">
+      <REGPART part_init="9" part_double_init="0.008789" clashes="false" width="10" msb="9" lsb="0" addr="523"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 12" clashes="false" double_init="0.005859" sint_init="6">
+      <REGPART part_init="6" part_double_init="0.005859" clashes="false" width="10" msb="9" lsb="0" addr="524"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 13" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="10" msb="9" lsb="0" addr="525"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 14" clashes="false" double_init="-0.007813" sint_init="-8">
+      <REGPART part_init="-8" part_double_init="-0.007813" clashes="false" width="10" msb="9" lsb="0" addr="526"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 15" clashes="false" double_init="-0.017578" sint_init="-18">
+      <REGPART part_init="-18" part_double_init="-0.017578" clashes="false" width="10" msb="9" lsb="0" addr="527"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 16" clashes="false" double_init="-0.025391" sint_init="-26">
+      <REGPART part_init="-26" part_double_init="-0.025391" clashes="false" width="10" msb="9" lsb="0" addr="528"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 17" clashes="false" double_init="-0.031250" sint_init="-32">
+      <REGPART part_init="-32" part_double_init="-0.031250" clashes="false" width="10" msb="9" lsb="0" addr="529"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 18" clashes="false" double_init="-0.031250" sint_init="-32">
+      <REGPART part_init="-32" part_double_init="-0.031250" clashes="false" width="10" msb="9" lsb="0" addr="530"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 19" clashes="false" double_init="-0.024414" sint_init="-25">
+      <REGPART part_init="-25" part_double_init="-0.024414" clashes="false" width="10" msb="9" lsb="0" addr="531"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 20" clashes="false" double_init="-0.008789" sint_init="-9">
+      <REGPART part_init="-9" part_double_init="-0.008789" clashes="false" width="10" msb="9" lsb="0" addr="532"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 21" clashes="false" double_init="0.016602" sint_init="17">
+      <REGPART part_init="17" part_double_init="0.016602" clashes="false" width="10" msb="9" lsb="0" addr="533"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 22" clashes="false" double_init="0.050781" sint_init="52">
+      <REGPART part_init="52" part_double_init="0.050781" clashes="false" width="10" msb="9" lsb="0" addr="534"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 23" clashes="false" double_init="0.093750" sint_init="96">
+      <REGPART part_init="96" part_double_init="0.093750" clashes="false" width="10" msb="9" lsb="0" addr="535"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 24" clashes="false" double_init="0.142578" sint_init="146">
+      <REGPART part_init="146" part_double_init="0.142578" clashes="false" width="10" msb="9" lsb="0" addr="536"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 25" clashes="false" double_init="0.194336" sint_init="199">
+      <REGPART part_init="199" part_double_init="0.194336" clashes="false" width="10" msb="9" lsb="0" addr="537"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 26" clashes="false" double_init="0.243164" sint_init="249">
+      <REGPART part_init="249" part_double_init="0.243164" clashes="false" width="10" msb="9" lsb="0" addr="538"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 27" clashes="false" double_init="0.287109" sint_init="294">
+      <REGPART part_init="294" part_double_init="0.287109" clashes="false" width="10" msb="9" lsb="0" addr="539"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 28" clashes="false" double_init="0.322266" sint_init="330">
+      <REGPART part_init="330" part_double_init="0.322266" clashes="false" width="10" msb="9" lsb="0" addr="540"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 29" clashes="false" double_init="0.343750" sint_init="352">
+      <REGPART part_init="352" part_double_init="0.343750" clashes="false" width="10" msb="9" lsb="0" addr="541"/>
+    </REG>
+    <REG numregparts="1" desc="FIR Coefficient Register 30" clashes="false" double_init="0.351563" sint_init="360">
+      <REGPART part_init="360" part_double_init="0.351563" clashes="false" width="10" msb="9" lsb="0" addr="542"/>
+    </REG>
+  </REGS>
+</MEMORYMAPS>
+<RESOURCES>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>36</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/8-PSK Mapper</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>66</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/ChanView</FUNAME>
+ <FUTYPE>CHANVIEW</FUTYPE>
+ <LUT4>20</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/ChanView1</FUNAME>
+ <FUTYPE>CHANVIEW</FUTYPE>
+ <LUT4>20</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/ChanView2</FUNAME>
+ <FUTYPE>CHANVIEW</FUTYPE>
+ <LUT4>36</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/ChanView3</FUNAME>
+ <FUTYPE>CHANVIEW</FUTYPE>
+ <LUT4>10</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/ChanView4</FUNAME>
+ <FUTYPE>CHANVIEW</FUTYPE>
+ <LUT4>36</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/InterpolatingFIR</FUNAME>
+ <FUTYPE>FIRI</FUTYPE>
+ <LUT4>304</LUT4>
+ <MULT>6</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/InterpolatingFIR1</FUNAME>
+ <FUTYPE>FIRI</FUTYPE>
+ <LUT4>304</LUT4>
+ <MULT>6</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Memory</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>76</LUT4>
+ <MULT>0</MULT>
+ <BITS>1024</BITS>
+ <BLOCKS>1</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Power extraction</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>53</LUT4>
+ <MULT>6</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>87</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale1</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>87</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale2_Q</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>87</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>87</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I1</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>90</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I2</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>90</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I3</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>90</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I4</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>105</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I5</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>105</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Scale3_I6</FUNAME>
+ <FUTYPE>SCALE</FUTYPE>
+ <LUT4>105</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/SingleRateFIR</FUNAME>
+ <FUTYPE>FIRS</FUTYPE>
+ <LUT4>11</LUT4>
+ <MULT>26</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/SingleRateFIR1</FUNAME>
+ <FUTYPE>FIRS</FUTYPE>
+ <LUT4>11</LUT4>
+ <MULT>26</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/SingleRateFIR2</FUNAME>
+ <FUTYPE>FIRS</FUTYPE>
+ <LUT4>11</LUT4>
+ <MULT>26</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/SingleRateFIR_I</FUNAME>
+ <FUTYPE>FIRS</FUTYPE>
+ <LUT4>280</LUT4>
+ <MULT>32</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/SingleRateFIR_Q</FUNAME>
+ <FUTYPE>FIRS</FUTYPE>
+ <LUT4>280</LUT4>
+ <MULT>32</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Symbol recovery</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>650</LUT4>
+ <MULT>2</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>final_project_1/txrx_fp/Symbol sample adaptation</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>210</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+</RESOURCES>
+</MODEL>

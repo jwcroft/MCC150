@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<island simulinkPath='final_project/txrx_fp/SRlatch' topLevelEntity='final_project_txrx_fp_SRlatch'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_s' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_1_s' stm='' highLevelName='s' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_r' clock='clk' reset='areset' width='2' dir='in' role='data' qsys_role='data_in_2_r' stm='' highLevelName='r' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_1_q' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_1_q' stm='' highLevelName='q' highLevelIndex='1' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>
