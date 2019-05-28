@@ -69,7 +69,7 @@ This help page relates to the specific instance 'Control' of the CONTROL block
 <FUNIT>
  <FUNAME>final_project/txrx_fp/Decode symbols into bitstream</FUNAME>
  <FUTYPE>SYNTH</FUTYPE>
- <LUT4>603</LUT4>
+ <LUT4>211</LUT4>
  <MULT>0</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>
@@ -101,10 +101,10 @@ This help page relates to the specific instance 'Control' of the CONTROL block
 <FUNIT>
  <FUNAME>final_project/txrx_fp/Phase extraction and synchronization</FUNAME>
  <FUTYPE>SYNTH</FUTYPE>
- <LUT4>2279</LUT4>
- <MULT>0</MULT>
- <BITS>0</BITS>
- <BLOCKS>0</BLOCKS>
+ <LUT4>18549</LUT4>
+ <MULT>140</MULT>
+ <BITS>634368</BITS>
+ <BLOCKS>74</BLOCKS>
 </FUNIT>
 <FUNIT>
  <FUNAME>final_project/txrx_fp/Power extraction</FUNAME>
@@ -237,7 +237,7 @@ This help page relates to the specific instance 'Control' of the CONTROL block
 <FUNIT>
  <FUNAME>final_project/txrx_fp/Symbol recovery</FUNAME>
  <FUTYPE>SYNTH</FUTYPE>
- <LUT4>650</LUT4>
+ <LUT4>688</LUT4>
  <MULT>2</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>

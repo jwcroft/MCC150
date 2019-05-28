@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Symbol_recovery
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:06 2019
 
 
 library IEEE;
@@ -45,6 +45,7 @@ component final_project_txrx_fp_Symbol_recovery is
         out_6_right_I : out std_logic_vector(11 downto 0);  -- sfix12
         out_7_right_Q : out std_logic_vector(11 downto 0);  -- sfix12
         out_9_packet_trigger : out std_logic_vector(0 downto 0);  -- ufix1
+        out_10_instant_power : out std_logic_vector(24 downto 0);  -- sfix25
         clk : in std_logic;
         areset : in std_logic
     );
@@ -67,6 +68,7 @@ component final_project_txrx_fp_Symbol_recovery_stm is
         out_6_right_I_stm : out std_logic_vector(11 downto 0);
         out_7_right_Q_stm : out std_logic_vector(11 downto 0);
         out_9_packet_trigger_stm : out std_logic_vector(0 downto 0);
+        out_10_instant_power_stm : out std_logic_vector(24 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -87,6 +89,7 @@ signal out_5_main_Q_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal out_6_right_I_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal out_7_right_Q_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal out_9_packet_trigger_stm : STD_LOGIC_VECTOR (0 downto 0);
+signal out_10_instant_power_stm : STD_LOGIC_VECTOR (24 downto 0);
 signal in_3_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal in_5_c_dut : STD_LOGIC_VECTOR (7 downto 0);
 signal in_1_in_I_dut : STD_LOGIC_VECTOR (11 downto 0);
@@ -102,6 +105,7 @@ signal out_5_main_Q_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal out_6_right_I_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal out_7_right_Q_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal out_9_packet_trigger_dut : STD_LOGIC_VECTOR (0 downto 0);
+signal out_10_instant_power_dut : STD_LOGIC_VECTOR (24 downto 0);
         signal clk : std_logic;
         signal areset : std_logic;
 
@@ -114,7 +118,7 @@ END PROCESS;
 
 
 -- Channelized data out check
-checkChannelOut : process (clk, areset, out_1_left_I_dut, out_1_left_I_stm, out_2_left_Q_dut, out_2_left_Q_stm, out_4_main_I_dut, out_4_main_I_stm, out_5_main_Q_dut, out_5_main_Q_stm, out_6_right_I_dut, out_6_right_I_stm, out_7_right_Q_dut, out_7_right_Q_stm, out_9_packet_trigger_dut, out_9_packet_trigger_stm)
+checkChannelOut : process (clk, areset, out_1_left_I_dut, out_1_left_I_stm, out_2_left_Q_dut, out_2_left_Q_stm, out_4_main_I_dut, out_4_main_I_stm, out_5_main_Q_dut, out_5_main_Q_stm, out_6_right_I_dut, out_6_right_I_stm, out_7_right_Q_dut, out_7_right_Q_stm, out_9_packet_trigger_dut, out_9_packet_trigger_stm, out_10_instant_power_dut, out_10_instant_power_stm)
 variable mismatch_out_3_qv : BOOLEAN := FALSE;
 variable mismatch_out_8_qc : BOOLEAN := FALSE;
 variable mismatch_out_1_left_I : BOOLEAN := FALSE;
@@ -124,6 +128,7 @@ variable mismatch_out_5_main_Q : BOOLEAN := FALSE;
 variable mismatch_out_6_right_I : BOOLEAN := FALSE;
 variable mismatch_out_7_right_Q : BOOLEAN := FALSE;
 variable mismatch_out_9_packet_trigger : BOOLEAN := FALSE;
+variable mismatch_out_10_instant_power : BOOLEAN := FALSE;
 variable ok : BOOLEAN := TRUE;
 begin
     IF ((areset = '1')) THEN
@@ -139,6 +144,7 @@ begin
         mismatch_out_6_right_I := FALSE;
         mismatch_out_7_right_Q := FALSE;
         mismatch_out_9_packet_trigger := FALSE;
+        mismatch_out_10_instant_power := FALSE;
         IF ( (out_3_qv_dut /= out_3_qv_stm)) THEN
             mismatch_out_3_qv := TRUE;
             report "mismatch in out_3_qv signal" severity Failure;
@@ -176,8 +182,12 @@ begin
                 mismatch_out_9_packet_trigger := TRUE;
                 report "mismatch in out_9_packet_trigger signal" severity Warning;
             END IF;
+            IF ( (out_10_instant_power_dut /= out_10_instant_power_stm)) THEN
+                mismatch_out_10_instant_power := TRUE;
+                report "mismatch in out_10_instant_power signal" severity Warning;
+            END IF;
         END IF;
-        IF (mismatch_out_3_qv = TRUE or mismatch_out_8_qc = TRUE or mismatch_out_1_left_I = TRUE or mismatch_out_2_left_Q = TRUE or mismatch_out_4_main_I = TRUE or mismatch_out_5_main_Q = TRUE or mismatch_out_6_right_I = TRUE or mismatch_out_7_right_Q = TRUE or mismatch_out_9_packet_trigger = TRUE) THEN
+        IF (mismatch_out_3_qv = TRUE or mismatch_out_8_qc = TRUE or mismatch_out_1_left_I = TRUE or mismatch_out_2_left_Q = TRUE or mismatch_out_4_main_I = TRUE or mismatch_out_5_main_Q = TRUE or mismatch_out_6_right_I = TRUE or mismatch_out_7_right_Q = TRUE or mismatch_out_9_packet_trigger = TRUE or mismatch_out_10_instant_power = TRUE) THEN
             ok := FALSE;
         END IF;
         IF (ok = FALSE) THEN
@@ -203,6 +213,7 @@ dut : final_project_txrx_fp_Symbol_recovery port map (
     out_6_right_I_dut,
     out_7_right_Q_dut,
     out_9_packet_trigger_dut,
+    out_10_instant_power_dut,
         clk,
         areset
 );
@@ -223,6 +234,7 @@ sim : final_project_txrx_fp_Symbol_recovery_stm port map (
     out_6_right_I_stm,
     out_7_right_Q_stm,
     out_9_packet_trigger_stm,
+    out_10_instant_power_stm,
         clk,
         areset
 );

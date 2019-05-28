@@ -51,12 +51,18 @@ add wave -noupdate -format Logical /final_project_txrx_fp_atb/dut/rx_bits
 add wave -noupdate -format Logical /final_project_txrx_fp_atb/sim/rx_bits_stm
 add wave -noupdate -format Logical /final_project_txrx_fp_atb/dut/mem_read_bits
 add wave -noupdate -format Logical /final_project_txrx_fp_atb/sim/mem_read_bits_stm
-add_fixpt_wave /final_project_txrx_fp_atb/dut/sym_phase 30 14 signed
-add_fixpt_wave /final_project_txrx_fp_atb/sim/sym_phase_stm 30 14 signed
+add_fixpt_wave /final_project_txrx_fp_atb/dut/sym_phase 18 14 signed
+add_fixpt_wave /final_project_txrx_fp_atb/sim/sym_phase_stm 18 14 signed
 add_fixpt_wave /final_project_txrx_fp_atb/dut/left_power 12 0 signed
 add_fixpt_wave /final_project_txrx_fp_atb/sim/left_power_stm 12 0 signed
 add_fixpt_wave /final_project_txrx_fp_atb/dut/main_power 12 0 signed
 add_fixpt_wave /final_project_txrx_fp_atb/sim/main_power_stm 12 0 signed
 add_fixpt_wave /final_project_txrx_fp_atb/dut/right_power 12 0 signed
 add_fixpt_wave /final_project_txrx_fp_atb/sim/right_power_stm 12 0 signed
+add_fixpt_wave /final_project_txrx_fp_atb/dut/instant_power_x 25 0 signed
+add_fixpt_wave /final_project_txrx_fp_atb/sim/instant_power_x_stm 25 0 signed
+add_fixpt_wave /final_project_txrx_fp_atb/dut/corrected_phase_1 18 14 signed
+add_fixpt_wave /final_project_txrx_fp_atb/sim/corrected_phase_1_stm 18 14 signed
+add wave -noupdate -format Logical /final_project_txrx_fp_atb/dut/offset_phase
+add wave -noupdate -format Logical /final_project_txrx_fp_atb/sim/offset_phase_stm
 TreeUpdate [SetDefaultTree]

@@ -113,6 +113,12 @@ vcom -quiet $base_dir/final_project/final_project_txrx_fp_InterpolatingFIR.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_InterpolatingFIR1.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Memory.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Phase_extraction_and_synchronization.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_addBloA0Z4004ki026142iyc5.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA0Zof03p06o303d0doz.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA1Zof03p06o303d0doz.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA2Zof03p06o303d0doz.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_subBloA0Z0k614004ki02975u.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA0Z40i0k614004kii5u.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Power_extraction.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Scale.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Scale1.vhd
@@ -183,6 +189,15 @@ if {$vcomfailed == 0} {
             }
             if { [catch {exa mismatch_right_power} mismatch] == 0 && $mismatch } {
                 report_mismatch right_power $cyclenum
+            }
+            if { [catch {exa mismatch_instant_power_x} mismatch] == 0 && $mismatch } {
+                report_mismatch instant_power_x $cyclenum
+            }
+            if { [catch {exa mismatch_corrected_phase_1} mismatch] == 0 && $mismatch } {
+                report_mismatch corrected_phase_1 $cyclenum
+            }
+            if { [catch {exa mismatch_offset_phase} mismatch] == 0 && $mismatch } {
+                report_mismatch offset_phase $cyclenum
             }
         } else {
             puts "Signal mismatch detected at $my_tb";

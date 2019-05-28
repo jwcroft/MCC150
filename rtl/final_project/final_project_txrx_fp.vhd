@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -45,10 +45,13 @@ entity final_project_txrx_fp is
         BBQ : out std_logic_vector(27 downto 0);  -- sfix28_en10
         rx_bits : out std_logic_vector(0 downto 0);  -- ufix1
         mem_read_bits : out std_logic_vector(0 downto 0);  -- ufix1
-        sym_phase : out std_logic_vector(29 downto 0);  -- sfix30_en14
+        sym_phase : out std_logic_vector(17 downto 0);  -- sfix18_en14
         left_power : out std_logic_vector(11 downto 0);  -- sfix12
         main_power : out std_logic_vector(11 downto 0);  -- sfix12
         right_power : out std_logic_vector(11 downto 0);  -- sfix12
+        instant_power_x : out std_logic_vector(24 downto 0);  -- sfix25
+        corrected_phase_1 : out std_logic_vector(17 downto 0);  -- sfix18_en14
+        offset_phase : out std_logic_vector(0 downto 0);  -- ufix1
         clk : in std_logic;
         areset : in std_logic
     );
@@ -138,7 +141,7 @@ architecture normal of final_project_txrx_fp is
         port (
             in_1_v : in std_logic_vector(0 downto 0);  -- Fixed Point
             in_2_c : in std_logic_vector(7 downto 0);  -- Fixed Point
-            in_3_symbols_x : in std_logic_vector(29 downto 0);  -- Fixed Point
+            in_3_symbols_x : in std_logic_vector(17 downto 0);  -- Fixed Point
             in_4_packet_trigger : in std_logic_vector(0 downto 0);  -- Fixed Point
             in_5_memory_bitstream : in std_logic_vector(0 downto 0);  -- Fixed Point
             out_1_v_bits : out std_logic_vector(0 downto 0);  -- Fixed Point
@@ -213,8 +216,10 @@ architecture normal of final_project_txrx_fp is
             in_11_sample_update : in std_logic_vector(0 downto 0);  -- Fixed Point
             out_1_v_sym_update : out std_logic_vector(0 downto 0);  -- Fixed Point
             out_2_qc : out std_logic_vector(7 downto 0);  -- Fixed Point
-            out_3_symbols_phase_x : out std_logic_vector(29 downto 0);  -- Fixed Point
+            out_3_symbols_phase_x : out std_logic_vector(17 downto 0);  -- Fixed Point
             out_4_packet_trigger_through : out std_logic_vector(0 downto 0);  -- Fixed Point
+            out_5_corrected_phase : out std_logic_vector(17 downto 0);  -- Fixed Point
+            out_6_offset_phase : out std_logic_vector(0 downto 0);  -- Fixed Point
             clk : in std_logic;
             areset : in std_logic
         );
@@ -479,6 +484,7 @@ architecture normal of final_project_txrx_fp is
             out_7_right_Q : out std_logic_vector(11 downto 0);  -- Fixed Point
             out_8_qc : out std_logic_vector(7 downto 0);  -- Fixed Point
             out_9_packet_trigger : out std_logic_vector(0 downto 0);  -- Fixed Point
+            out_10_instant_power : out std_logic_vector(24 downto 0);  -- Fixed Point
             clk : in std_logic;
             areset : in std_logic
         );
@@ -526,8 +532,10 @@ architecture normal of final_project_txrx_fp is
     signal Memory_out_4_mem_rx : STD_LOGIC_VECTOR (0 downto 0);
     signal Phase_extraction_and_synchronization_x_out_1_v_sym_update : STD_LOGIC_VECTOR (0 downto 0);
     signal Phase_extraction_and_synchronization_x_out_2_qc : STD_LOGIC_VECTOR (7 downto 0);
-    signal Phase_extraction_and_synchronization_x_out_3_symbols_phase_x : STD_LOGIC_VECTOR (29 downto 0);
+    signal Phase_extraction_and_synchronization_x_out_3_symbols_phase_x : STD_LOGIC_VECTOR (17 downto 0);
     signal Phase_extraction_and_synchronization_x_out_4_packet_trigger_through : STD_LOGIC_VECTOR (0 downto 0);
+    signal Phase_extraction_and_synchronization_x_out_5_corrected_phase : STD_LOGIC_VECTOR (17 downto 0);
+    signal Phase_extraction_and_synchronization_x_out_6_offset_phase : STD_LOGIC_VECTOR (0 downto 0);
     signal Power_extraction_x_out_1_qv : STD_LOGIC_VECTOR (0 downto 0);
     signal Power_extraction_x_out_2_qc : STD_LOGIC_VECTOR (7 downto 0);
     signal Power_extraction_x_out_3_left_power : STD_LOGIC_VECTOR (24 downto 0);
@@ -581,6 +589,7 @@ architecture normal of final_project_txrx_fp is
     signal Symbol_recovery_x_out_7_right_Q : STD_LOGIC_VECTOR (11 downto 0);
     signal Symbol_recovery_x_out_8_qc : STD_LOGIC_VECTOR (7 downto 0);
     signal Symbol_recovery_x_out_9_packet_trigger : STD_LOGIC_VECTOR (0 downto 0);
+    signal Symbol_recovery_x_out_10_instant_power : STD_LOGIC_VECTOR (24 downto 0);
     signal Symbol_sample_adaptation_x_out_1_v_sample_update : STD_LOGIC_VECTOR (0 downto 0);
     signal Symbol_sample_adaptation_x_out_3_sample_crement : STD_LOGIC_VECTOR (1 downto 0);
     signal Symbol_sample_adaptation_x_out_4_sym_sample : STD_LOGIC_VECTOR (1 downto 0);
@@ -812,6 +821,7 @@ begin
         out_7_right_Q => Symbol_recovery_x_out_7_right_Q,
         out_8_qc => Symbol_recovery_x_out_8_qc,
         out_9_packet_trigger => Symbol_recovery_x_out_9_packet_trigger,
+        out_10_instant_power => Symbol_recovery_x_out_10_instant_power,
         clk => clk,
         areset => areset
     );
@@ -834,6 +844,8 @@ begin
         out_2_qc => Phase_extraction_and_synchronization_x_out_2_qc,
         out_3_symbols_phase_x => Phase_extraction_and_synchronization_x_out_3_symbols_phase_x,
         out_4_packet_trigger_through => Phase_extraction_and_synchronization_x_out_4_packet_trigger_through,
+        out_5_corrected_phase => Phase_extraction_and_synchronization_x_out_5_corrected_phase,
+        out_6_offset_phase => Phase_extraction_and_synchronization_x_out_6_offset_phase,
         clk => clk,
         areset => areset
     );
@@ -1025,5 +1037,14 @@ begin
 
     -- right_power(GPOUT,48)
     right_power <= Scale3_I3_qOut_0;
+
+    -- instant_power_x(GPOUT,49)
+    instant_power_x <= Symbol_recovery_x_out_10_instant_power;
+
+    -- corrected_phase_1(GPOUT,50)
+    corrected_phase_1 <= Phase_extraction_and_synchronization_x_out_5_corrected_phase;
+
+    -- offset_phase(GPOUT,51)
+    offset_phase <= Phase_extraction_and_synchronization_x_out_6_offset_phase;
 
 END normal;

@@ -8,7 +8,7 @@
  <TEXT>Created using DSP Builder for Intel(R) FPGAs - Advanced Blockset software</TEXT>
 </INFO>
 <INFO>
- <TEXT>Written on Mon May 27 20:44:42 2019
+ <TEXT>Written on Tue May 28 19:39:04 2019
 </TEXT>
 </INFO>
 <PORTS>
@@ -99,6 +99,12 @@
 <PORT>
  <NAME>out_9_packet_trigger</NAME>
  <WIDTH>1</WIDTH>
+ <DIRECTION>out</DIRECTION>
+ <DESCRIPTION>Data signal</DESCRIPTION>
+</PORT>
+<PORT>
+ <NAME>out_10_instant_power</NAME>
+ <WIDTH>25</WIDTH>
  <DIRECTION>out</DIRECTION>
  <DESCRIPTION>Data signal</DESCRIPTION>
 </PORT>
@@ -766,12 +772,12 @@
 <FUNIT>
  <FUNAME>Not2</FUNAME>
  <FUTYPE>LOGICAL</FUTYPE>
- <LUT4>1</LUT4>
+ <LUT4>0</LUT4>
  <MULT>0</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>
  <SHOWINRESOURCEVIEWER>1</SHOWINRESOURCEVIEWER>
- <LATENCY>1</LATENCY>
+ <LATENCY>0</LATENCY>
 </FUNIT>
 <FUNIT>
  <FUNAME>Sequence_rsrvd_fix</FUNAME>
@@ -794,7 +800,17 @@
  <LATENCY>2</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist0_CmpEQ_q_2</FUNAME>
+ <FUNAME>redist0_Mult3_Add1_Mult4_merged_cma_q_3</FUNAME>
+ <FUTYPE>DELAY</FUTYPE>
+ <LUT4>38</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+ <SHOWINRESOURCEVIEWER>1</SHOWINRESOURCEVIEWER>
+ <LATENCY>3</LATENCY>
+</FUNIT>
+<FUNIT>
+ <FUNAME>redist1_Not_rsrvd_fix_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -804,7 +820,17 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist1_ChannelIn_in_5_c_5</FUNAME>
+ <FUNAME>redist2_CmpEQ_q_2</FUNAME>
+ <FUTYPE>DELAY</FUTYPE>
+ <LUT4>1</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+ <SHOWINRESOURCEVIEWER>1</SHOWINRESOURCEVIEWER>
+ <LATENCY>1</LATENCY>
+</FUNIT>
+<FUNIT>
+ <FUNAME>redist3_ChannelIn_in_5_c_5</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>16</LUT4>
  <MULT>0</MULT>
@@ -814,7 +840,7 @@
  <LATENCY>4</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist2_And_rsrvd_fix_q_1</FUNAME>
+ <FUNAME>redist4_And_rsrvd_fix_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -824,7 +850,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1</FUNAME>
+ <FUNAME>redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>2</LUT4>
  <MULT>0</MULT>
@@ -834,7 +860,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1</FUNAME>
+ <FUNAME>redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -844,7 +870,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1</FUNAME>
+ <FUNAME>redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -854,7 +880,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4</FUNAME>
+ <FUNAME>redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>18</LUT4>
  <MULT>0</MULT>
@@ -864,7 +890,7 @@
  <LATENCY>3</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4</FUNAME>
+ <FUNAME>redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>18</LUT4>
  <MULT>0</MULT>
@@ -874,7 +900,7 @@
  <LATENCY>3</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1</FUNAME>
+ <FUNAME>redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -884,7 +910,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3</FUNAME>
+ <FUNAME>redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -894,7 +920,7 @@
  <LATENCY>2</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4</FUNAME>
+ <FUNAME>redist12_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>1</LUT4>
  <MULT>0</MULT>
@@ -904,7 +930,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist11_Demux1_2_mux_x_q_1</FUNAME>
+ <FUNAME>redist13_Demux1_2_mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -914,7 +940,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist12_Demux1_1_mux_x_q_1</FUNAME>
+ <FUNAME>redist14_Demux1_1_mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -924,7 +950,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist13_Demux1_0_mux_x_q_1</FUNAME>
+ <FUNAME>redist15_Demux1_0_mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -934,7 +960,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist14_Demux_2_mux_x_q_1</FUNAME>
+ <FUNAME>redist16_Demux_2_mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -944,7 +970,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist15_Demux_1_mux_x_q_1</FUNAME>
+ <FUNAME>redist17_Demux_1_mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -954,7 +980,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist16_Demux_0_mux_x_q_1</FUNAME>
+ <FUNAME>redist18_Demux_0_mux_x_q_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -964,7 +990,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist17_Convert_sel_x_b_1</FUNAME>
+ <FUNAME>redist19_Convert_sel_x_b_1</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>2</LUT4>
  <MULT>0</MULT>
@@ -974,7 +1000,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist1_ChannelIn_in_5_c_5_outputreg</FUNAME>
+ <FUNAME>redist3_ChannelIn_in_5_c_5_outputreg</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>4</LUT4>
  <MULT>0</MULT>
@@ -984,7 +1010,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg</FUNAME>
+ <FUNAME>redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -994,7 +1020,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <FUNIT>
- <FUNAME>redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg</FUNAME>
+ <FUNAME>redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg</FUNAME>
  <FUTYPE>DELAY</FUTYPE>
  <LUT4>6</LUT4>
  <MULT>0</MULT>
@@ -1004,7 +1030,7 @@
  <LATENCY>1</LATENCY>
 </FUNIT>
 <TOTAL>
- <LUT4>650</LUT4>
+ <LUT4>688</LUT4>
  <MULT>2</MULT>
  <BITS>0</BITS>
  <BLOCKS>0</BLOCKS>

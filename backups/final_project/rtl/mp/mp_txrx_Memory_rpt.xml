@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<island simulinkPath='mp/txrx/Memory' topLevelEntity='mp_txrx_Memory'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_dv' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_1_dv' stm='mp/mp_txrx_Memory_ChannelIn.stm' highLevelName='dv' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_dc' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_2_dc' stm='mp/mp_txrx_Memory_ChannelIn.stm' highLevelName='dc' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_trigger' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_3_trigger' stm='mp/mp_txrx_Memory_ChannelIn1.stm' highLevelName='trigger' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_dc1' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_4_dc1' stm='mp/mp_txrx_Memory_ChannelIn1.stm' highLevelName='dc1' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_2_qv' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_out_2_qv' stm='mp/mp_txrx_Memory_ChannelOut.stm' highLevelName='qv' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_qc' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_out_3_qc' stm='mp/mp_txrx_Memory_ChannelOut.stm' highLevelName='qc' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_1_m2' clock='clk' reset='areset' width='2' dir='out' role='data' qsys_role='data_out_1_m2' stm='mp/mp_txrx_Memory_ChannelOut.stm' highLevelName='m2' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_5_qv1' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_out_5_qv1' stm='mp/mp_txrx_Memory_ChannelOut1.stm' highLevelName='qv1' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='out_6_qc1' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_out_6_qc1' stm='mp/mp_txrx_Memory_ChannelOut1.stm' highLevelName='qc1' highLevelIndex='6' vector='0' complex='0'/>
+    <port name='out_4_m1' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_out_4_m1' stm='mp/mp_txrx_Memory_ChannelOut1.stm' highLevelName='m1' highLevelIndex='4' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

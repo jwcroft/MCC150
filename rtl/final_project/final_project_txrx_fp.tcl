@@ -55,6 +55,9 @@ set_instance_assignment -name VIRTUAL_PIN ON -to sym_phase
 set_instance_assignment -name VIRTUAL_PIN ON -to left_power
 set_instance_assignment -name VIRTUAL_PIN ON -to main_power
 set_instance_assignment -name VIRTUAL_PIN ON -to right_power
+set_instance_assignment -name VIRTUAL_PIN ON -to instant_power_x
+set_instance_assignment -name VIRTUAL_PIN ON -to corrected_phase_1
+set_instance_assignment -name VIRTUAL_PIN ON -to offset_phase
 
 source "C:/git_projects/MCC150/./rtl/final_project/final_project_txrx_fp_fpc.add.tcl"
 

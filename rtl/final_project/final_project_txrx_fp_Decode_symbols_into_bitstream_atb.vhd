@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Decode_symbols_into_bitstream
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -32,7 +32,7 @@ component final_project_txrx_fp_Decode_symbols_into_bitstream is
     port (
         in_1_v : in std_logic_vector(0 downto 0);  -- ufix1
         in_2_c : in std_logic_vector(7 downto 0);  -- ufix8
-        in_3_symbols_x : in std_logic_vector(29 downto 0);  -- sfix30_en14
+        in_3_symbols_x : in std_logic_vector(17 downto 0);  -- sfix18_en14
         in_4_packet_trigger : in std_logic_vector(0 downto 0);  -- ufix1
         in_5_memory_bitstream : in std_logic_vector(0 downto 0);  -- ufix1
         out_1_v_bits : out std_logic_vector(0 downto 0);  -- ufix1
@@ -49,7 +49,7 @@ component final_project_txrx_fp_Decode_symbols_into_bitstream_stm is
     port (
         in_1_v_stm : out std_logic_vector(0 downto 0);
         in_2_c_stm : out std_logic_vector(7 downto 0);
-        in_3_symbols_x_stm : out std_logic_vector(29 downto 0);
+        in_3_symbols_x_stm : out std_logic_vector(17 downto 0);
         in_4_packet_trigger_stm : out std_logic_vector(0 downto 0);
         in_5_memory_bitstream_stm : out std_logic_vector(0 downto 0);
         out_1_v_bits_stm : out std_logic_vector(0 downto 0);
@@ -64,7 +64,7 @@ end component;
 
 signal in_1_v_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal in_2_c_stm : STD_LOGIC_VECTOR (7 downto 0);
-signal in_3_symbols_x_stm : STD_LOGIC_VECTOR (29 downto 0);
+signal in_3_symbols_x_stm : STD_LOGIC_VECTOR (17 downto 0);
 signal in_4_packet_trigger_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal in_5_memory_bitstream_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_1_v_bits_stm : STD_LOGIC_VECTOR (0 downto 0);
@@ -74,7 +74,7 @@ signal out_4_out4_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_5_out5_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal in_1_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal in_2_c_dut : STD_LOGIC_VECTOR (7 downto 0);
-signal in_3_symbols_x_dut : STD_LOGIC_VECTOR (29 downto 0);
+signal in_3_symbols_x_dut : STD_LOGIC_VECTOR (17 downto 0);
 signal in_4_packet_trigger_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal in_5_memory_bitstream_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_1_v_bits_dut : STD_LOGIC_VECTOR (0 downto 0);

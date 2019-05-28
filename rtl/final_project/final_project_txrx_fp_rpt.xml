@@ -12,10 +12,15 @@
     <port name='BBQ' clock='clk' reset='areset' width='28' dir='out' role='data' qsys_role='data_BBQ' stm='final_project/final_project_txrx_fp_ChanView4_c0.stm' highLevelName='BBQ' highLevelIndex='5' vector='0' complex='0'/>
     <port name='rx_bits' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_rx_bits' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelOut.stm' highLevelName='rx_bits' highLevelIndex='6' vector='0' complex='0'/>
     <port name='mem_read_bits' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_mem_read_bits' stm='final_project/final_project_txrx_fp_Memory_ChannelOut1.stm' highLevelName='mem_read_bits' highLevelIndex='7' vector='0' complex='0'/>
-    <port name='sym_phase' clock='clk' reset='areset' width='30' dir='out' role='data' qsys_role='data_sym_phase' stm='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm' highLevelName='sym_phase' highLevelIndex='8' vector='0' complex='0'/>
+    <port name='sym_phase' clock='clk' reset='areset' width='18' dir='out' role='data' qsys_role='data_sym_phase' stm='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm' highLevelName='sym_phase' highLevelIndex='8' vector='0' complex='0'/>
     <port name='left_power' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_left_power' stm='final_project/final_project_txrx_fp_Scale3_I1_qOut.stm' highLevelName='left_power' highLevelIndex='9' vector='0' complex='0'/>
     <port name='main_power' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_main_power' stm='final_project/final_project_txrx_fp_Scale3_I2_qOut.stm' highLevelName='main_power' highLevelIndex='10' vector='0' complex='0'/>
     <port name='right_power' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_right_power' stm='final_project/final_project_txrx_fp_Scale3_I3_qOut.stm' highLevelName='right_power' highLevelIndex='11' vector='0' complex='0'/>
+    <port name='instant_power_x' clock='clk' reset='areset' width='25' dir='out' role='data' qsys_role='data_instant_power_x' stm='final_project/final_project_txrx_fp_Symbol_recovery_ChannelOut.stm' highLevelName='instant_power
+' highLevelIndex='12' vector='0' complex='0'/>
+    <port name='corrected_phase_1' clock='clk' reset='areset' width='18' dir='out' role='data' qsys_role='data_corrected_phase_1' stm='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm' highLevelName='corrected_phase
+1' highLevelIndex='13' vector='0' complex='0'/>
+    <port name='offset_phase' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_offset_phase' stm='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm' highLevelName='offset_phase' highLevelIndex='14' vector='0' complex='0'/>
     <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
     <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
     <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
@@ -38,6 +43,49 @@
     <file path='final_project/final_project_txrx_fp_Memory.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='final_project/final_project_txrx_fp_Memory_DualMem.hex' base='rtl' type='data' usage='all'/>
     <file path='final_project/final_project_txrx_fp_Phase_extraction_and_synchronization.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_addBloA0Z4004ki026142iyc5.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA0Zof03p06o303d0doz.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA1Zof03p06o303d0doz.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA2Zof03p06o303d0doz.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_subBloA0Z0k614004ki02975u.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA0Z40i0k614004kii5u.vhd' base='rtl' type='vhdl' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA0Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA1Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA2Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA3Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA4Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA5Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA6Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA7Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA8Zan2Tables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA0ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA1ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA2ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA3ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA4ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA5ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA6ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA7ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA8ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA9ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA10ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA11ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA12ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA13ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA14ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA15ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA16ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA17ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA18ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA19ZinvTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA0ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA1ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA2ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA3ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA4ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA5ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA6ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
+    <file path='final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA7ZrseTables_lutmem.hex' base='rtl' type='data' usage='all'/>
     <file path='final_project/final_project_txrx_fp_Power_extraction.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='final_project/final_project_txrx_fp_Scale.vhd' base='rtl' type='vhdl' usage='all'/>
     <file path='final_project/final_project_txrx_fp_Scale1.vhd' base='rtl' type='vhdl' usage='all'/>

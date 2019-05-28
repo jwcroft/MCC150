@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Decode_symbols_into_bitstream
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -28,7 +28,7 @@ entity final_project_txrx_fp_Decode_symbols_into_bitstream_stm is
     port (
         in_1_v_stm : out std_logic_vector(0 downto 0);
         in_2_c_stm : out std_logic_vector(7 downto 0);
-        in_3_symbols_x_stm : out std_logic_vector(29 downto 0);
+        in_3_symbols_x_stm : out std_logic_vector(17 downto 0);
         in_4_packet_trigger_stm : out std_logic_vector(0 downto 0);
         in_5_memory_bitstream_stm : out std_logic_vector(0 downto 0);
         out_1_v_bits_stm : out std_logic_vector(0 downto 0);
@@ -105,7 +105,7 @@ architecture normal of final_project_txrx_fp_Decode_symbols_into_bitstream_stm i
             variable in_2_c_int_0 : Integer;
             variable in_2_c_temp : std_logic_vector(7 downto 0);
             variable in_3_symbols_x_int_0 : Integer;
-            variable in_3_symbols_x_temp : std_logic_vector(29 downto 0);
+            variable in_3_symbols_x_temp : std_logic_vector(17 downto 0);
             variable in_4_packet_trigger_int_0 : Integer;
             variable in_4_packet_trigger_temp : std_logic_vector(0 downto 0);
             variable in_5_memory_bitstream_int_0 : Integer;
@@ -136,7 +136,7 @@ architecture normal of final_project_txrx_fp_Decode_symbols_into_bitstream_stm i
                     in_2_c_temp(7 downto 0) := std_logic_vector(to_unsigned(in_2_c_int_0, 8));
                     in_2_c_stm <= in_2_c_temp;
                     read(L, in_3_symbols_x_int_0);
-                    in_3_symbols_x_temp(29 downto 0) := std_logic_vector(to_unsigned(in_3_symbols_x_int_0, 30));
+                    in_3_symbols_x_temp(17 downto 0) := std_logic_vector(to_unsigned(in_3_symbols_x_int_0, 18));
                     in_3_symbols_x_stm <= in_3_symbols_x_temp;
                     read(L, in_4_packet_trigger_int_0);
                     in_4_packet_trigger_temp(0 downto 0) := std_logic_vector(to_unsigned(in_4_packet_trigger_int_0, 1));

@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -40,10 +40,13 @@ component final_project_txrx_fp is
         BBQ : out std_logic_vector(27 downto 0);  -- sfix28_en10
         rx_bits : out std_logic_vector(0 downto 0);  -- ufix1
         mem_read_bits : out std_logic_vector(0 downto 0);  -- ufix1
-        sym_phase : out std_logic_vector(29 downto 0);  -- sfix30_en14
+        sym_phase : out std_logic_vector(17 downto 0);  -- sfix18_en14
         left_power : out std_logic_vector(11 downto 0);  -- sfix12
         main_power : out std_logic_vector(11 downto 0);  -- sfix12
         right_power : out std_logic_vector(11 downto 0);  -- sfix12
+        instant_power_x : out std_logic_vector(24 downto 0);  -- sfix25
+        corrected_phase_1 : out std_logic_vector(17 downto 0);  -- sfix18_en14
+        offset_phase : out std_logic_vector(0 downto 0);  -- ufix1
         clk : in std_logic;
         areset : in std_logic
     );
@@ -61,10 +64,13 @@ component final_project_txrx_fp_stm is
         BBQ_stm : out std_logic_vector(27 downto 0);
         rx_bits_stm : out std_logic_vector(0 downto 0);
         mem_read_bits_stm : out std_logic_vector(0 downto 0);
-        sym_phase_stm : out std_logic_vector(29 downto 0);
+        sym_phase_stm : out std_logic_vector(17 downto 0);
         left_power_stm : out std_logic_vector(11 downto 0);
         main_power_stm : out std_logic_vector(11 downto 0);
         right_power_stm : out std_logic_vector(11 downto 0);
+        instant_power_x_stm : out std_logic_vector(24 downto 0);
+        corrected_phase_1_stm : out std_logic_vector(17 downto 0);
+        offset_phase_stm : out std_logic_vector(0 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -80,10 +86,13 @@ signal BBI_stm : STD_LOGIC_VECTOR (27 downto 0);
 signal BBQ_stm : STD_LOGIC_VECTOR (27 downto 0);
 signal rx_bits_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal mem_read_bits_stm : STD_LOGIC_VECTOR (0 downto 0);
-signal sym_phase_stm : STD_LOGIC_VECTOR (29 downto 0);
+signal sym_phase_stm : STD_LOGIC_VECTOR (17 downto 0);
 signal left_power_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal main_power_stm : STD_LOGIC_VECTOR (11 downto 0);
 signal right_power_stm : STD_LOGIC_VECTOR (11 downto 0);
+signal instant_power_x_stm : STD_LOGIC_VECTOR (24 downto 0);
+signal corrected_phase_1_stm : STD_LOGIC_VECTOR (17 downto 0);
+signal offset_phase_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal ADC_I_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal ADC_Q_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal Reset_dut : STD_LOGIC_VECTOR (63 downto 0);
@@ -94,10 +103,13 @@ signal BBI_dut : STD_LOGIC_VECTOR (27 downto 0);
 signal BBQ_dut : STD_LOGIC_VECTOR (27 downto 0);
 signal rx_bits_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal mem_read_bits_dut : STD_LOGIC_VECTOR (0 downto 0);
-signal sym_phase_dut : STD_LOGIC_VECTOR (29 downto 0);
+signal sym_phase_dut : STD_LOGIC_VECTOR (17 downto 0);
 signal left_power_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal main_power_dut : STD_LOGIC_VECTOR (11 downto 0);
 signal right_power_dut : STD_LOGIC_VECTOR (11 downto 0);
+signal instant_power_x_dut : STD_LOGIC_VECTOR (24 downto 0);
+signal corrected_phase_1_dut : STD_LOGIC_VECTOR (17 downto 0);
+signal offset_phase_dut : STD_LOGIC_VECTOR (0 downto 0);
         signal clk : std_logic;
         signal areset : std_logic;
 
@@ -378,6 +390,75 @@ begin
 END PROCESS;
 
 
+-- General Purpose data out check
+checkinstant_power_x : process (clk, areset)
+variable mismatch_instant_power_x : BOOLEAN := FALSE;
+variable ok : BOOLEAN := TRUE;
+begin
+    IF (areset = '1') THEN
+        -- do nothing during reset
+    ELSIF (clk'EVENT AND clk = '0') THEN -- falling clock edge to avoid transitions
+        ok := TRUE;
+        mismatch_instant_power_x := FALSE;
+        IF ( (abs(signed(instant_power_x_dut) - signed(instant_power_x_stm)) > 3)) THEN
+            mismatch_instant_power_x := TRUE;
+            report "Mismatch on device output pin instant_power_x" severity Warning;
+        END IF;
+        IF (mismatch_instant_power_x) THEN
+            ok := FALSE;
+        END IF;
+        assert (ok)
+        report "mismatch in general purpose signal. Check the status of any associated valid signals." severity Warning;
+    END IF;
+END PROCESS;
+
+
+-- General Purpose data out check
+checkcorrected_phase_1 : process (clk, areset)
+variable mismatch_corrected_phase_1 : BOOLEAN := FALSE;
+variable ok : BOOLEAN := TRUE;
+begin
+    IF (areset = '1') THEN
+        -- do nothing during reset
+    ELSIF (clk'EVENT AND clk = '0') THEN -- falling clock edge to avoid transitions
+        ok := TRUE;
+        mismatch_corrected_phase_1 := FALSE;
+        IF ( (abs(signed(corrected_phase_1_dut) - signed(corrected_phase_1_stm)) > 3)) THEN
+            mismatch_corrected_phase_1 := TRUE;
+            report "Mismatch on device output pin corrected_phase_1" severity Warning;
+        END IF;
+        IF (mismatch_corrected_phase_1) THEN
+            ok := FALSE;
+        END IF;
+        assert (ok)
+        report "mismatch in general purpose signal. Check the status of any associated valid signals." severity Warning;
+    END IF;
+END PROCESS;
+
+
+-- General Purpose data out check
+checkoffset_phase : process (clk, areset)
+variable mismatch_offset_phase : BOOLEAN := FALSE;
+variable ok : BOOLEAN := TRUE;
+begin
+    IF (areset = '1') THEN
+        -- do nothing during reset
+    ELSIF (clk'EVENT AND clk = '0') THEN -- falling clock edge to avoid transitions
+        ok := TRUE;
+        mismatch_offset_phase := FALSE;
+        IF ( (offset_phase_dut /= offset_phase_stm)) THEN
+            mismatch_offset_phase := TRUE;
+            report "Mismatch on device output pin offset_phase" severity Warning;
+        END IF;
+        IF (mismatch_offset_phase) THEN
+            ok := FALSE;
+        END IF;
+        assert (ok)
+        report "mismatch in general purpose signal. Check the status of any associated valid signals." severity Warning;
+    END IF;
+END PROCESS;
+
+
 dut : final_project_txrx_fp port map (
     ADC_I_stm,
     ADC_Q_stm,
@@ -393,6 +474,9 @@ dut : final_project_txrx_fp port map (
     left_power_dut,
     main_power_dut,
     right_power_dut,
+    instant_power_x_dut,
+    corrected_phase_1_dut,
+    offset_phase_dut,
         clk,
         areset
 );
@@ -412,6 +496,9 @@ sim : final_project_txrx_fp_stm port map (
     left_power_stm,
     main_power_stm,
     right_power_stm,
+    instant_power_x_stm,
+    corrected_phase_1_stm,
+    offset_phase_stm,
         clk,
         areset
 );

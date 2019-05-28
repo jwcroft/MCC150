@@ -56,4 +56,6 @@ add_fixpt_wave /final_project_txrx_fp_Symbol_recovery_atb/dut/out_7_right_Q 12 0
 add_fixpt_wave /final_project_txrx_fp_Symbol_recovery_atb/sim/out_7_right_Q_stm 12 0 signed
 add wave -noupdate -format Logical /final_project_txrx_fp_Symbol_recovery_atb/dut/out_9_packet_trigger
 add wave -noupdate -format Logical /final_project_txrx_fp_Symbol_recovery_atb/sim/out_9_packet_trigger_stm
+add_fixpt_wave /final_project_txrx_fp_Symbol_recovery_atb/dut/out_10_instant_power 25 0 signed
+add_fixpt_wave /final_project_txrx_fp_Symbol_recovery_atb/sim/out_10_instant_power_stm 25 0 signed
 TreeUpdate [SetDefaultTree]

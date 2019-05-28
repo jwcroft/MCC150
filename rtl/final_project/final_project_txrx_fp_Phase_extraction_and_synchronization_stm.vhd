@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Phase_extraction_and_synchronization
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -39,8 +39,10 @@ entity final_project_txrx_fp_Phase_extraction_and_synchronization_stm is
         in_11_sample_update_stm : out std_logic_vector(0 downto 0);
         out_1_v_sym_update_stm : out std_logic_vector(0 downto 0);
         out_2_qc_stm : out std_logic_vector(7 downto 0);
-        out_3_symbols_phase_x_stm : out std_logic_vector(29 downto 0);
+        out_3_symbols_phase_x_stm : out std_logic_vector(17 downto 0);
         out_4_packet_trigger_through_stm : out std_logic_vector(0 downto 0);
+        out_5_corrected_phase_stm : out std_logic_vector(17 downto 0);
+        out_6_offset_phase_stm : out std_logic_vector(0 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -206,9 +208,13 @@ architecture normal of final_project_txrx_fp_Phase_extraction_and_synchronizatio
             variable out_2_qc_int_0 : Integer;
             variable out_2_qc_temp : std_logic_vector(7 downto 0);
             variable out_3_symbols_phase_x_int_0 : Integer;
-            variable out_3_symbols_phase_x_temp : std_logic_vector(29 downto 0);
+            variable out_3_symbols_phase_x_temp : std_logic_vector(17 downto 0);
             variable out_4_packet_trigger_through_int_0 : Integer;
             variable out_4_packet_trigger_through_temp : std_logic_vector(0 downto 0);
+            variable out_5_corrected_phase_int_0 : Integer;
+            variable out_5_corrected_phase_temp : std_logic_vector(17 downto 0);
+            variable out_6_offset_phase_int_0 : Integer;
+            variable out_6_offset_phase_temp : std_logic_vector(0 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -216,6 +222,8 @@ architecture normal of final_project_txrx_fp_Phase_extraction_and_synchronizatio
             out_2_qc_stm <= (others => '0');
             out_3_symbols_phase_x_stm <= (others => '0');
             out_4_packet_trigger_through_stm <= (others => '0');
+            out_5_corrected_phase_stm <= (others => '0');
+            out_6_offset_phase_stm <= (others => '0');
 
             wait for 201 ps; -- wait delay
             
@@ -234,11 +242,17 @@ architecture normal of final_project_txrx_fp_Phase_extraction_and_synchronizatio
                     out_2_qc_temp(7 downto 0) := std_logic_vector(to_unsigned(out_2_qc_int_0, 8));
                     out_2_qc_stm <= out_2_qc_temp;
                     read(L, out_3_symbols_phase_x_int_0);
-                    out_3_symbols_phase_x_temp(29 downto 0) := std_logic_vector(to_unsigned(out_3_symbols_phase_x_int_0, 30));
+                    out_3_symbols_phase_x_temp(17 downto 0) := std_logic_vector(to_unsigned(out_3_symbols_phase_x_int_0, 18));
                     out_3_symbols_phase_x_stm <= out_3_symbols_phase_x_temp;
                     read(L, out_4_packet_trigger_through_int_0);
                     out_4_packet_trigger_through_temp(0 downto 0) := std_logic_vector(to_unsigned(out_4_packet_trigger_through_int_0, 1));
                     out_4_packet_trigger_through_stm <= out_4_packet_trigger_through_temp;
+                    read(L, out_5_corrected_phase_int_0);
+                    out_5_corrected_phase_temp(17 downto 0) := std_logic_vector(to_unsigned(out_5_corrected_phase_int_0, 18));
+                    out_5_corrected_phase_stm <= out_5_corrected_phase_temp;
+                    read(L, out_6_offset_phase_int_0);
+                    out_6_offset_phase_temp(0 downto 0) := std_logic_vector(to_unsigned(out_6_offset_phase_int_0, 1));
+                    out_6_offset_phase_stm <= out_6_offset_phase_temp;
 
                     deallocate(L);
                 END IF;

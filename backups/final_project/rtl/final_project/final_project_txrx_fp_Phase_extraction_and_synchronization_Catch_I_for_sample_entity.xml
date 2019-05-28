@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='final_project_txrx_fp_Phase_extraction_and_synchronization_Catch_I_for_sample' floating-point-script-prefix='final_project_txrx_fp_Phase_extraction_and_synchronization_Catch_I_for_sample_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>

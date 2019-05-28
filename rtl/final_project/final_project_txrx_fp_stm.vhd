@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -36,10 +36,13 @@ entity final_project_txrx_fp_stm is
         BBQ_stm : out std_logic_vector(27 downto 0);
         rx_bits_stm : out std_logic_vector(0 downto 0);
         mem_read_bits_stm : out std_logic_vector(0 downto 0);
-        sym_phase_stm : out std_logic_vector(29 downto 0);
+        sym_phase_stm : out std_logic_vector(17 downto 0);
         left_power_stm : out std_logic_vector(11 downto 0);
         main_power_stm : out std_logic_vector(11 downto 0);
         right_power_stm : out std_logic_vector(11 downto 0);
+        instant_power_x_stm : out std_logic_vector(24 downto 0);
+        corrected_phase_1_stm : out std_logic_vector(17 downto 0);
+        offset_phase_stm : out std_logic_vector(0 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -63,6 +66,9 @@ architecture normal of final_project_txrx_fp_stm is
     signal clk_left_power_stm_sig_stop : std_logic := '0';
     signal clk_main_power_stm_sig_stop : std_logic := '0';
     signal clk_right_power_stm_sig_stop : std_logic := '0';
+    signal clk_instant_power_x_stm_sig_stop : std_logic := '0';
+    signal clk_corrected_phase_1_stm_sig_stop : std_logic := '0';
+    signal clk_offset_phase_stm_sig_stop : std_logic := '0';
 
     function str_to_stdvec(inp: string) return std_logic_vector is
         variable temp: std_logic_vector(inp'range) := (others => 'X');
@@ -462,7 +468,7 @@ architecture normal of final_project_txrx_fp_stm is
             variable dummy_int : Integer;
             file data_file_ChannelOut : text open read_mode is "final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm";
             variable out_3_symbols_phase_x_int_0 : Integer;
-            variable out_3_symbols_phase_x_temp : std_logic_vector(29 downto 0);
+            variable out_3_symbols_phase_x_temp : std_logic_vector(17 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -482,8 +488,10 @@ architecture normal of final_project_txrx_fp_stm is
                     read(L, dummy_int);
                     read(L, dummy_int);
                     read(L, out_3_symbols_phase_x_int_0);
-                    out_3_symbols_phase_x_temp(29 downto 0) := std_logic_vector(to_unsigned(out_3_symbols_phase_x_int_0, 30));
+                    out_3_symbols_phase_x_temp(17 downto 0) := std_logic_vector(to_unsigned(out_3_symbols_phase_x_int_0, 18));
                     sym_phase_stm <= out_3_symbols_phase_x_temp;
+                    read(L, dummy_int);
+                    read(L, dummy_int);
                     read(L, dummy_int);
 
                     deallocate(L);
@@ -615,8 +623,138 @@ architecture normal of final_project_txrx_fp_stm is
                 end loop;
             wait;
         END PROCESS;
+        -- Generating stimulus for instant_power_x
+        instant_power_x_stm_init_p: process
 
-    clk_stm_sig_stop <= clk_ADC_I_stm_sig_stop OR clk_ADC_Q_stm_sig_stop OR clk_DAC_I_stm_sig_stop OR clk_DAC_Q_stm_sig_stop OR clk_mem_o_stm_sig_stop OR clk_BBI_stm_sig_stop OR clk_BBQ_stm_sig_stop OR clk_rx_bits_stm_sig_stop OR clk_mem_read_bits_stm_sig_stop OR clk_sym_phase_stm_sig_stop OR clk_left_power_stm_sig_stop OR clk_main_power_stm_sig_stop OR clk_right_power_stm_sig_stop OR '0';
+            variable L : line;
+            variable dummy_int : Integer;
+            file data_file_ChannelOut : text open read_mode is "final_project/final_project_txrx_fp_Symbol_recovery_ChannelOut.stm";
+            variable out_10_instant_power_int_0 : Integer;
+            variable out_10_instant_power_temp : std_logic_vector(24 downto 0);
+
+        begin
+            -- initialize all outputs to 0
+            instant_power_x_stm <= (others => '0');
+
+            wait for 201 ps; -- wait delay
+            
+            while true loop
+            
+                -- (ports connected to instant_power_x)
+                IF (endfile(data_file_ChannelOut)) THEN
+                    clk_instant_power_x_stm_sig_stop <= '1';
+                    wait;
+                ELSE
+                    readline(data_file_ChannelOut, L);
+                    
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, out_10_instant_power_int_0);
+                    out_10_instant_power_temp(24 downto 0) := std_logic_vector(to_unsigned(out_10_instant_power_int_0, 25));
+                    instant_power_x_stm <= out_10_instant_power_temp;
+
+                    deallocate(L);
+                END IF;
+                -- -- wait for rising edge to pass (assert signals just after rising edge)
+                wait until clk_stm_sig'EVENT and clk_stm_sig = '1';
+                wait for 1 ps; -- wait delay
+                
+                end loop;
+            wait;
+        END PROCESS;
+        -- Generating stimulus for corrected_phase_1
+        corrected_phase_1_stm_init_p: process
+
+            variable L : line;
+            variable dummy_int : Integer;
+            file data_file_ChannelOut : text open read_mode is "final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm";
+            variable out_5_corrected_phase_int_0 : Integer;
+            variable out_5_corrected_phase_temp : std_logic_vector(17 downto 0);
+
+        begin
+            -- initialize all outputs to 0
+            corrected_phase_1_stm <= (others => '0');
+
+            wait for 201 ps; -- wait delay
+            
+            while true loop
+            
+                -- (ports connected to corrected_phase_1)
+                IF (endfile(data_file_ChannelOut)) THEN
+                    clk_corrected_phase_1_stm_sig_stop <= '1';
+                    wait;
+                ELSE
+                    readline(data_file_ChannelOut, L);
+                    
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, out_5_corrected_phase_int_0);
+                    out_5_corrected_phase_temp(17 downto 0) := std_logic_vector(to_unsigned(out_5_corrected_phase_int_0, 18));
+                    corrected_phase_1_stm <= out_5_corrected_phase_temp;
+                    read(L, dummy_int);
+
+                    deallocate(L);
+                END IF;
+                -- -- wait for rising edge to pass (assert signals just after rising edge)
+                wait until clk_stm_sig'EVENT and clk_stm_sig = '1';
+                wait for 1 ps; -- wait delay
+                
+                end loop;
+            wait;
+        END PROCESS;
+        -- Generating stimulus for offset_phase
+        offset_phase_stm_init_p: process
+
+            variable L : line;
+            variable dummy_int : Integer;
+            file data_file_ChannelOut : text open read_mode is "final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_ChannelOut.stm";
+            variable out_6_offset_phase_int_0 : Integer;
+            variable out_6_offset_phase_temp : std_logic_vector(0 downto 0);
+
+        begin
+            -- initialize all outputs to 0
+            offset_phase_stm <= (others => '0');
+
+            wait for 201 ps; -- wait delay
+            
+            while true loop
+            
+                -- (ports connected to offset_phase)
+                IF (endfile(data_file_ChannelOut)) THEN
+                    clk_offset_phase_stm_sig_stop <= '1';
+                    wait;
+                ELSE
+                    readline(data_file_ChannelOut, L);
+                    
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, dummy_int);
+                    read(L, out_6_offset_phase_int_0);
+                    out_6_offset_phase_temp(0 downto 0) := std_logic_vector(to_unsigned(out_6_offset_phase_int_0, 1));
+                    offset_phase_stm <= out_6_offset_phase_temp;
+
+                    deallocate(L);
+                END IF;
+                -- -- wait for rising edge to pass (assert signals just after rising edge)
+                wait until clk_stm_sig'EVENT and clk_stm_sig = '1';
+                wait for 1 ps; -- wait delay
+                
+                end loop;
+            wait;
+        END PROCESS;
+
+    clk_stm_sig_stop <= clk_ADC_I_stm_sig_stop OR clk_ADC_Q_stm_sig_stop OR clk_DAC_I_stm_sig_stop OR clk_DAC_Q_stm_sig_stop OR clk_mem_o_stm_sig_stop OR clk_BBI_stm_sig_stop OR clk_BBQ_stm_sig_stop OR clk_rx_bits_stm_sig_stop OR clk_mem_read_bits_stm_sig_stop OR clk_sym_phase_stm_sig_stop OR clk_left_power_stm_sig_stop OR clk_main_power_stm_sig_stop OR clk_right_power_stm_sig_stop OR clk_instant_power_x_stm_sig_stop OR clk_corrected_phase_1_stm_sig_stop OR clk_offset_phase_stm_sig_stop OR '0';
 
 
     END normal;

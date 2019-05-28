@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Symbol_recovery
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -50,6 +50,7 @@ entity final_project_txrx_fp_Symbol_recovery is
         out_6_right_I : out std_logic_vector(11 downto 0);  -- sfix12
         out_7_right_Q : out std_logic_vector(11 downto 0);  -- sfix12
         out_9_packet_trigger : out std_logic_vector(0 downto 0);  -- ufix1
+        out_10_instant_power : out std_logic_vector(24 downto 0);  -- sfix25
         clk : in std_logic;
         areset : in std_logic
     );
@@ -166,7 +167,7 @@ architecture normal of final_project_txrx_fp_Symbol_recovery is
     signal CmpGE_b : STD_LOGIC_VECTOR (26 downto 0);
     signal CmpGE_o : STD_LOGIC_VECTOR (26 downto 0);
     signal CmpGE_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal Const3_q : STD_LOGIC_VECTOR (18 downto 0);
+    signal Const3_q : STD_LOGIC_VECTOR (24 downto 0);
     signal Const5_q : STD_LOGIC_VECTOR (1 downto 0);
     signal Counter_q : STD_LOGIC_VECTOR (1 downto 0);
     signal Counter_i : UNSIGNED (1 downto 0);
@@ -176,7 +177,6 @@ architecture normal of final_project_txrx_fp_Symbol_recovery is
     attribute preserve of Counter_eq : signal is true;
     signal Not_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Not1_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal Not2_qi : STD_LOGIC_VECTOR (0 downto 0);
     signal Not2_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Sequence_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Sequence_rsrvd_fix_eq : std_logic;
@@ -198,27 +198,29 @@ architecture normal of final_project_txrx_fp_Symbol_recovery is
     signal Mult3_Add1_Mult4_merged_cma_q : STD_LOGIC_VECTOR (24 downto 0);
     signal Mult3_Add1_Mult4_merged_cma_ena0 : std_logic;
     signal Mult3_Add1_Mult4_merged_cma_ena1 : std_logic;
-    signal redist0_CmpEQ_q_2_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist1_ChannelIn_in_5_c_5_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal redist2_And_rsrvd_fix_q_1_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q : STD_LOGIC_VECTOR (3 downto 0);
-    signal redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal redist11_Demux1_2_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist12_Demux1_1_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist13_Demux1_0_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist14_Demux_2_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist15_Demux_1_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist16_Demux_0_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist17_Convert_sel_x_b_1_q : STD_LOGIC_VECTOR (3 downto 0);
-    signal redist1_ChannelIn_in_5_c_5_outputreg_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q : STD_LOGIC_VECTOR (11 downto 0);
-    signal redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist0_Mult3_Add1_Mult4_merged_cma_q_3_q : STD_LOGIC_VECTOR (24 downto 0);
+    signal redist1_Not_rsrvd_fix_q_1_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist2_CmpEQ_q_2_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist3_ChannelIn_in_5_c_5_q : STD_LOGIC_VECTOR (7 downto 0);
+    signal redist4_And_rsrvd_fix_q_1_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q : STD_LOGIC_VECTOR (3 downto 0);
+    signal redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist12_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal redist13_Demux1_2_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist14_Demux1_1_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist15_Demux1_0_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist16_Demux_2_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist17_Demux_1_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist18_Demux_0_mux_x_q_1_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist19_Convert_sel_x_b_1_q : STD_LOGIC_VECTOR (3 downto 0);
+    signal redist3_ChannelIn_in_5_c_5_outputreg_q : STD_LOGIC_VECTOR (7 downto 0);
+    signal redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q : STD_LOGIC_VECTOR (11 downto 0);
+    signal redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q : STD_LOGIC_VECTOR (11 downto 0);
 
 begin
 
@@ -226,26 +228,17 @@ begin
     -- VCC(CONSTANT,1)
     VCC_q <= "1";
 
-    -- GND(CONSTANT,0)
-    GND_q <= "0";
-
-    -- final_project_txrx_fp_Symbol_recovery_SRlatch_Not_x(LOGICAL,23)@2
-    final_project_txrx_fp_Symbol_recovery_SRlatch_Not_x_q <= not (GND_q);
-
-    -- Const3(CONSTANT,103)
-    Const3_q <= "1111010000100100000";
-
-    -- redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1(DELAY,125)
-    redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1 : dspba_delay
+    -- redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1(DELAY,127)
+    redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q, xout => redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q, xout => redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x(MUX,29)@0
     final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_s <= in_3_v;
-    final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_combproc: PROCESS (final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_s, redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q, in_1_in_I)
+    final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_combproc: PROCESS (final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_s, redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q, in_1_in_I)
     BEGIN
         CASE (final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_s) IS
-            WHEN "0" => final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q <= redist5_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q;
+            WHEN "0" => final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q <= redist7_final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q_1_q;
             WHEN "1" => final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q <= in_1_in_I;
             WHEN OTHERS => final_project_txrx_fp_Symbol_recovery_Signal_buffer_I_tap0_Mux_x_q <= (others => '0');
         END CASE;
@@ -416,23 +409,23 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist17_Convert_sel_x_b_1(DELAY,137)
-    redist17_Convert_sel_x_b_1 : dspba_delay
+    -- redist19_Convert_sel_x_b_1(DELAY,139)
+    redist19_Convert_sel_x_b_1 : dspba_delay
     GENERIC MAP ( width => 4, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Convert_sel_x_b, xout => redist17_Convert_sel_x_b_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Convert_sel_x_b, xout => redist19_Convert_sel_x_b_1_q, clk => clk, aclr => areset );
 
-    -- redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1(DELAY,123)
-    redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1 : dspba_delay
+    -- redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1(DELAY,125)
+    redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 4, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q, xout => redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q, xout => redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x(MUX,89)@0
     final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_s <= in_6_v_sample_update;
-    final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_combproc: PROCESS (final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_s, redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q, redist17_Convert_sel_x_b_1_q)
+    final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_combproc: PROCESS (final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_s, redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q, redist19_Convert_sel_x_b_1_q)
     BEGIN
         CASE (final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_s) IS
-            WHEN "0" => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q <= redist3_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q;
-            WHEN "1" => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q <= redist17_Convert_sel_x_b_1_q;
+            WHEN "0" => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q <= redist5_final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q_1_q;
+            WHEN "1" => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q <= redist19_Convert_sel_x_b_1_q;
             WHEN OTHERS => final_project_txrx_fp_Symbol_recovery_latch_0L_Mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -471,17 +464,17 @@ begin
         END CASE;
     END PROCESS;
 
-    -- redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1(DELAY,124)
-    redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1 : dspba_delay
+    -- redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1(DELAY,126)
+    redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q, xout => redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q, xout => redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x(MUX,53)@0
     final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_s <= in_3_v;
-    final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_combproc: PROCESS (final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_s, redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q, in_2_in_Q)
+    final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_combproc: PROCESS (final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_s, redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q, in_2_in_Q)
     BEGIN
         CASE (final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_s) IS
-            WHEN "0" => final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q <= redist4_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q;
+            WHEN "0" => final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q <= redist6_final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q_1_q;
             WHEN "1" => final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q <= in_2_in_Q;
             WHEN OTHERS => final_project_txrx_fp_Symbol_recovery_Signal_buffer_Q_tap0_Mux_x_q <= (others => '0');
         END CASE;
@@ -673,6 +666,9 @@ begin
         END CASE;
     END PROCESS;
 
+    -- GND(CONSTANT,0)
+    GND_q <= "0";
+
     -- Mult3_Add1_Mult4_merged_cma(CHAINMULTADD,119)@0 + 2
     Mult3_Add1_Mult4_merged_cma_reset <= areset;
     Mult3_Add1_Mult4_merged_cma_ena0 <= '1';
@@ -713,53 +709,66 @@ begin
     PORT MAP ( xin => STD_LOGIC_VECTOR(Mult3_Add1_Mult4_merged_cma_s(0)(24 downto 0)), xout => Mult3_Add1_Mult4_merged_cma_qq, clk => clk, aclr => areset );
     Mult3_Add1_Mult4_merged_cma_q <= STD_LOGIC_VECTOR(Mult3_Add1_Mult4_merged_cma_qq(24 downto 0));
 
+    -- redist0_Mult3_Add1_Mult4_merged_cma_q_3(DELAY,120)
+    redist0_Mult3_Add1_Mult4_merged_cma_q_3 : dspba_delay
+    GENERIC MAP ( width => 25, depth => 3, reset_kind => "ASYNC" )
+    PORT MAP ( xin => Mult3_Add1_Mult4_merged_cma_q, xout => redist0_Mult3_Add1_Mult4_merged_cma_q_3_q, clk => clk, aclr => areset );
+
+    -- final_project_txrx_fp_Symbol_recovery_SRlatch_Not_x(LOGICAL,23)@2
+    final_project_txrx_fp_Symbol_recovery_SRlatch_Not_x_q <= not (GND_q);
+
+    -- Const3(CONSTANT,103)
+    Const3_q <= "0000000110000110101000000";
+
     -- CmpGE(COMPARE,100)@2
     CmpGE_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((26 downto 25 => Mult3_Add1_Mult4_merged_cma_q(24)) & Mult3_Add1_Mult4_merged_cma_q));
-    CmpGE_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR("00000000" & Const3_q));
+    CmpGE_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((26 downto 25 => Const3_q(24)) & Const3_q));
     CmpGE_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE_a) - SIGNED(CmpGE_b));
     CmpGE_n(0) <= not (CmpGE_o(26));
 
     -- final_project_txrx_fp_Symbol_recovery_SRlatch_Or_x(LOGICAL,24)@2
-    final_project_txrx_fp_Symbol_recovery_SRlatch_Or_x_q <= redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q or CmpGE_n;
+    final_project_txrx_fp_Symbol_recovery_SRlatch_Or_x_q <= redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q or CmpGE_n;
 
     -- final_project_txrx_fp_Symbol_recovery_SRlatch_And_x(LOGICAL,22)@2
     final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q <= final_project_txrx_fp_Symbol_recovery_SRlatch_Or_x_q and final_project_txrx_fp_Symbol_recovery_SRlatch_Not_x_q;
 
-    -- redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1(DELAY,128)
-    redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1 : dspba_delay
+    -- redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1(DELAY,130)
+    redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q, xout => redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q, xout => redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q, clk => clk, aclr => areset );
 
-    -- redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3(DELAY,129)
-    redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3 : dspba_delay
+    -- redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3(DELAY,131)
+    redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3 : dspba_delay
     GENERIC MAP ( width => 1, depth => 2, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist8_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q, xout => redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_1_q, xout => redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q, clk => clk, aclr => areset );
 
-    -- redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4(DELAY,130)
-    redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4 : dspba_delay
+    -- redist12_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4(DELAY,132)
+    redist12_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q, xout => redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q, xout => redist12_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4_q, clk => clk, aclr => areset );
 
-    -- redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4(DELAY,126)
-    redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4 : dspba_delay
+    -- redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4(DELAY,128)
+    redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4 : dspba_delay
     GENERIC MAP ( width => 12, depth => 3, reset_kind => "ASYNC" )
-    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q, xout => redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q, xout => redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_q, clk => clk, aclr => areset );
 
-    -- redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg(DELAY,139)
-    redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg : dspba_delay
+    -- redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg(DELAY,141)
+    redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_q, xout => redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_q, xout => redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q, clk => clk, aclr => areset );
 
-    -- redist11_Demux1_2_mux_x_q_1(DELAY,131)
-    redist11_Demux1_2_mux_x_q_1 : dspba_delay
+    -- redist13_Demux1_2_mux_x_q_1(DELAY,133)
+    redist13_Demux1_2_mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Demux1_2_mux_x_q, xout => redist11_Demux1_2_mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Demux1_2_mux_x_q, xout => redist13_Demux1_2_mux_x_q_1_q, clk => clk, aclr => areset );
 
-    -- Not2(LOGICAL,111)@1 + 1
-    Not2_qi <= not (Not_rsrvd_fix_q);
-    Not2_delay : dspba_delay
+    -- redist1_Not_rsrvd_fix_q_1(DELAY,121)
+    redist1_Not_rsrvd_fix_q_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Not2_qi, xout => Not2_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Not_rsrvd_fix_q, xout => redist1_Not_rsrvd_fix_q_1_q, clk => clk, aclr => areset );
+
+    -- Not2(LOGICAL,111)@2
+    Not2_q <= not (redist1_Not_rsrvd_fix_q_1_q);
 
     -- Sequence_rsrvd_fix(SEQUENCE,115)@1 + 1
     Sequence_rsrvd_fix_clkproc: PROCESS (clk, areset)
@@ -792,10 +801,10 @@ begin
     -- And_rsrvd_fix(LOGICAL,93)@2
     And_rsrvd_fix_q <= Not_rsrvd_fix_q and Not2_q;
 
-    -- redist2_And_rsrvd_fix_q_1(DELAY,122)
-    redist2_And_rsrvd_fix_q_1 : dspba_delay
+    -- redist4_And_rsrvd_fix_q_1(DELAY,124)
+    redist4_And_rsrvd_fix_q_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => And_rsrvd_fix_q, xout => redist2_And_rsrvd_fix_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => And_rsrvd_fix_q, xout => redist4_And_rsrvd_fix_q_1_q, clk => clk, aclr => areset );
 
     -- Counter(COUNTER,106)@2 + 1
     -- low=0, high=2, step=1, init=0
@@ -828,7 +837,7 @@ begin
             Demux1_2_decoder_x_q <= "0";
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (Counter_q(1 downto 0) = "10") THEN
-                Demux1_2_decoder_x_q <= redist2_And_rsrvd_fix_q_1_q;
+                Demux1_2_decoder_x_q <= redist4_And_rsrvd_fix_q_1_q;
             ELSE
                 Demux1_2_decoder_x_q <= "0";
             END IF;
@@ -837,22 +846,22 @@ begin
 
     -- Demux1_2_mux_x(MUX,21)@4
     Demux1_2_mux_x_s <= Demux1_2_decoder_x_q;
-    Demux1_2_mux_x_combproc: PROCESS (Demux1_2_mux_x_s, redist11_Demux1_2_mux_x_q_1_q, redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q)
+    Demux1_2_mux_x_combproc: PROCESS (Demux1_2_mux_x_s, redist13_Demux1_2_mux_x_q_1_q, redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q)
     BEGIN
         CASE (Demux1_2_mux_x_s) IS
-            WHEN "0" => Demux1_2_mux_x_q <= redist11_Demux1_2_mux_x_q_1_q;
-            WHEN "1" => Demux1_2_mux_x_q <= redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q;
+            WHEN "0" => Demux1_2_mux_x_q <= redist13_Demux1_2_mux_x_q_1_q;
+            WHEN "1" => Demux1_2_mux_x_q <= redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q;
             WHEN OTHERS => Demux1_2_mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
 
-    -- redist0_CmpEQ_q_2(DELAY,120)
-    redist0_CmpEQ_q_2 : dspba_delay
+    -- redist2_CmpEQ_q_2(DELAY,122)
+    redist2_CmpEQ_q_2 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => CmpEQ_q, xout => redist0_CmpEQ_q_2_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => CmpEQ_q, xout => redist2_CmpEQ_q_2_q, clk => clk, aclr => areset );
 
     -- Not1(LOGICAL,110)@4
-    Not1_q <= not (redist0_CmpEQ_q_2_q);
+    Not1_q <= not (redist2_CmpEQ_q_2_q);
 
     -- Const5(CONSTANT,104)
     Const5_q <= "01";
@@ -881,20 +890,20 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4(DELAY,127)
-    redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4 : dspba_delay
+    -- redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4(DELAY,129)
+    redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4 : dspba_delay
     GENERIC MAP ( width => 12, depth => 3, reset_kind => "ASYNC" )
-    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q, xout => redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q, xout => redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_q, clk => clk, aclr => areset );
 
-    -- redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg(DELAY,140)
-    redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg : dspba_delay
+    -- redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg(DELAY,142)
+    redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_q, xout => redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_q, xout => redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q, clk => clk, aclr => areset );
 
-    -- redist14_Demux_2_mux_x_q_1(DELAY,134)
-    redist14_Demux_2_mux_x_q_1 : dspba_delay
+    -- redist16_Demux_2_mux_x_q_1(DELAY,136)
+    redist16_Demux_2_mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Demux_2_mux_x_q, xout => redist14_Demux_2_mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Demux_2_mux_x_q, xout => redist16_Demux_2_mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- Demux_2_decoder_x(DECODE,10)@3 + 1
     Demux_2_decoder_x_clkproc: PROCESS (clk, areset)
@@ -903,7 +912,7 @@ begin
             Demux_2_decoder_x_q <= "0";
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (Counter_q(1 downto 0) = "10") THEN
-                Demux_2_decoder_x_q <= redist2_And_rsrvd_fix_q_1_q;
+                Demux_2_decoder_x_q <= redist4_And_rsrvd_fix_q_1_q;
             ELSE
                 Demux_2_decoder_x_q <= "0";
             END IF;
@@ -912,11 +921,11 @@ begin
 
     -- Demux_2_mux_x(MUX,12)@4
     Demux_2_mux_x_s <= Demux_2_decoder_x_q;
-    Demux_2_mux_x_combproc: PROCESS (Demux_2_mux_x_s, redist14_Demux_2_mux_x_q_1_q, redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q)
+    Demux_2_mux_x_combproc: PROCESS (Demux_2_mux_x_s, redist16_Demux_2_mux_x_q_1_q, redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q)
     BEGIN
         CASE (Demux_2_mux_x_s) IS
-            WHEN "0" => Demux_2_mux_x_q <= redist14_Demux_2_mux_x_q_1_q;
-            WHEN "1" => Demux_2_mux_x_q <= redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q;
+            WHEN "0" => Demux_2_mux_x_q <= redist16_Demux_2_mux_x_q_1_q;
+            WHEN "1" => Demux_2_mux_x_q <= redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q;
             WHEN OTHERS => Demux_2_mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -936,10 +945,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist12_Demux1_1_mux_x_q_1(DELAY,132)
-    redist12_Demux1_1_mux_x_q_1 : dspba_delay
+    -- redist14_Demux1_1_mux_x_q_1(DELAY,134)
+    redist14_Demux1_1_mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Demux1_1_mux_x_q, xout => redist12_Demux1_1_mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Demux1_1_mux_x_q, xout => redist14_Demux1_1_mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- Demux1_1_decoder_x(DECODE,16)@3 + 1
     Demux1_1_decoder_x_clkproc: PROCESS (clk, areset)
@@ -948,7 +957,7 @@ begin
             Demux1_1_decoder_x_q <= "0";
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (Counter_q(1 downto 0) = "01") THEN
-                Demux1_1_decoder_x_q <= redist2_And_rsrvd_fix_q_1_q;
+                Demux1_1_decoder_x_q <= redist4_And_rsrvd_fix_q_1_q;
             ELSE
                 Demux1_1_decoder_x_q <= "0";
             END IF;
@@ -957,11 +966,11 @@ begin
 
     -- Demux1_1_mux_x(MUX,18)@4
     Demux1_1_mux_x_s <= Demux1_1_decoder_x_q;
-    Demux1_1_mux_x_combproc: PROCESS (Demux1_1_mux_x_s, redist12_Demux1_1_mux_x_q_1_q, redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q)
+    Demux1_1_mux_x_combproc: PROCESS (Demux1_1_mux_x_s, redist14_Demux1_1_mux_x_q_1_q, redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q)
     BEGIN
         CASE (Demux1_1_mux_x_s) IS
-            WHEN "0" => Demux1_1_mux_x_q <= redist12_Demux1_1_mux_x_q_1_q;
-            WHEN "1" => Demux1_1_mux_x_q <= redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q;
+            WHEN "0" => Demux1_1_mux_x_q <= redist14_Demux1_1_mux_x_q_1_q;
+            WHEN "1" => Demux1_1_mux_x_q <= redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q;
             WHEN OTHERS => Demux1_1_mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -981,10 +990,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist15_Demux_1_mux_x_q_1(DELAY,135)
-    redist15_Demux_1_mux_x_q_1 : dspba_delay
+    -- redist17_Demux_1_mux_x_q_1(DELAY,137)
+    redist17_Demux_1_mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Demux_1_mux_x_q, xout => redist15_Demux_1_mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Demux_1_mux_x_q, xout => redist17_Demux_1_mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- Demux_1_decoder_x(DECODE,7)@3 + 1
     Demux_1_decoder_x_clkproc: PROCESS (clk, areset)
@@ -993,7 +1002,7 @@ begin
             Demux_1_decoder_x_q <= "0";
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (Counter_q(1 downto 0) = "01") THEN
-                Demux_1_decoder_x_q <= redist2_And_rsrvd_fix_q_1_q;
+                Demux_1_decoder_x_q <= redist4_And_rsrvd_fix_q_1_q;
             ELSE
                 Demux_1_decoder_x_q <= "0";
             END IF;
@@ -1002,11 +1011,11 @@ begin
 
     -- Demux_1_mux_x(MUX,9)@4
     Demux_1_mux_x_s <= Demux_1_decoder_x_q;
-    Demux_1_mux_x_combproc: PROCESS (Demux_1_mux_x_s, redist15_Demux_1_mux_x_q_1_q, redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q)
+    Demux_1_mux_x_combproc: PROCESS (Demux_1_mux_x_s, redist17_Demux_1_mux_x_q_1_q, redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q)
     BEGIN
         CASE (Demux_1_mux_x_s) IS
-            WHEN "0" => Demux_1_mux_x_q <= redist15_Demux_1_mux_x_q_1_q;
-            WHEN "1" => Demux_1_mux_x_q <= redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q;
+            WHEN "0" => Demux_1_mux_x_q <= redist17_Demux_1_mux_x_q_1_q;
+            WHEN "1" => Demux_1_mux_x_q <= redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q;
             WHEN OTHERS => Demux_1_mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -1026,10 +1035,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist13_Demux1_0_mux_x_q_1(DELAY,133)
-    redist13_Demux1_0_mux_x_q_1 : dspba_delay
+    -- redist15_Demux1_0_mux_x_q_1(DELAY,135)
+    redist15_Demux1_0_mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Demux1_0_mux_x_q, xout => redist13_Demux1_0_mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Demux1_0_mux_x_q, xout => redist15_Demux1_0_mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- Demux1_0_decoder_x(DECODE,13)@3 + 1
     Demux1_0_decoder_x_clkproc: PROCESS (clk, areset)
@@ -1038,7 +1047,7 @@ begin
             Demux1_0_decoder_x_q <= "0";
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (Counter_q(1 downto 0) = "00") THEN
-                Demux1_0_decoder_x_q <= redist2_And_rsrvd_fix_q_1_q;
+                Demux1_0_decoder_x_q <= redist4_And_rsrvd_fix_q_1_q;
             ELSE
                 Demux1_0_decoder_x_q <= "0";
             END IF;
@@ -1047,11 +1056,11 @@ begin
 
     -- Demux1_0_mux_x(MUX,15)@4
     Demux1_0_mux_x_s <= Demux1_0_decoder_x_q;
-    Demux1_0_mux_x_combproc: PROCESS (Demux1_0_mux_x_s, redist13_Demux1_0_mux_x_q_1_q, redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q)
+    Demux1_0_mux_x_combproc: PROCESS (Demux1_0_mux_x_s, redist15_Demux1_0_mux_x_q_1_q, redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q)
     BEGIN
         CASE (Demux1_0_mux_x_s) IS
-            WHEN "0" => Demux1_0_mux_x_q <= redist13_Demux1_0_mux_x_q_1_q;
-            WHEN "1" => Demux1_0_mux_x_q <= redist6_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q;
+            WHEN "0" => Demux1_0_mux_x_q <= redist15_Demux1_0_mux_x_q_1_q;
+            WHEN "1" => Demux1_0_mux_x_q <= redist8_final_project_txrx_fp_Symbol_recovery_Sampler_Q_Mux_x_q_4_outputreg_q;
             WHEN OTHERS => Demux1_0_mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -1071,10 +1080,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist16_Demux_0_mux_x_q_1(DELAY,136)
-    redist16_Demux_0_mux_x_q_1 : dspba_delay
+    -- redist18_Demux_0_mux_x_q_1(DELAY,138)
+    redist18_Demux_0_mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 12, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => Demux_0_mux_x_q, xout => redist16_Demux_0_mux_x_q_1_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => Demux_0_mux_x_q, xout => redist18_Demux_0_mux_x_q_1_q, clk => clk, aclr => areset );
 
     -- Demux_0_decoder_x(DECODE,4)@3 + 1
     Demux_0_decoder_x_clkproc: PROCESS (clk, areset)
@@ -1083,7 +1092,7 @@ begin
             Demux_0_decoder_x_q <= "0";
         ELSIF (clk'EVENT AND clk = '1') THEN
             IF (Counter_q(1 downto 0) = "00") THEN
-                Demux_0_decoder_x_q <= redist2_And_rsrvd_fix_q_1_q;
+                Demux_0_decoder_x_q <= redist4_And_rsrvd_fix_q_1_q;
             ELSE
                 Demux_0_decoder_x_q <= "0";
             END IF;
@@ -1092,11 +1101,11 @@ begin
 
     -- Demux_0_mux_x(MUX,6)@4
     Demux_0_mux_x_s <= Demux_0_decoder_x_q;
-    Demux_0_mux_x_combproc: PROCESS (Demux_0_mux_x_s, redist16_Demux_0_mux_x_q_1_q, redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q)
+    Demux_0_mux_x_combproc: PROCESS (Demux_0_mux_x_s, redist18_Demux_0_mux_x_q_1_q, redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q)
     BEGIN
         CASE (Demux_0_mux_x_s) IS
-            WHEN "0" => Demux_0_mux_x_q <= redist16_Demux_0_mux_x_q_1_q;
-            WHEN "1" => Demux_0_mux_x_q <= redist7_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q;
+            WHEN "0" => Demux_0_mux_x_q <= redist18_Demux_0_mux_x_q_1_q;
+            WHEN "1" => Demux_0_mux_x_q <= redist9_final_project_txrx_fp_Symbol_recovery_Sampler_I_Mux_x_q_4_outputreg_q;
             WHEN OTHERS => Demux_0_mux_x_q <= (others => '0');
         END CASE;
     END PROCESS;
@@ -1116,31 +1125,32 @@ begin
         END IF;
     END PROCESS;
 
-    -- redist1_ChannelIn_in_5_c_5(DELAY,121)
-    redist1_ChannelIn_in_5_c_5 : dspba_delay
+    -- redist3_ChannelIn_in_5_c_5(DELAY,123)
+    redist3_ChannelIn_in_5_c_5 : dspba_delay
     GENERIC MAP ( width => 8, depth => 4, reset_kind => "ASYNC" )
-    PORT MAP ( xin => in_5_c, xout => redist1_ChannelIn_in_5_c_5_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => in_5_c, xout => redist3_ChannelIn_in_5_c_5_q, clk => clk, aclr => areset );
 
-    -- redist1_ChannelIn_in_5_c_5_outputreg(DELAY,138)
-    redist1_ChannelIn_in_5_c_5_outputreg : dspba_delay
+    -- redist3_ChannelIn_in_5_c_5_outputreg(DELAY,140)
+    redist3_ChannelIn_in_5_c_5_outputreg : dspba_delay
     GENERIC MAP ( width => 8, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => redist1_ChannelIn_in_5_c_5_q, xout => redist1_ChannelIn_in_5_c_5_outputreg_q, clk => clk, aclr => areset );
+    PORT MAP ( xin => redist3_ChannelIn_in_5_c_5_q, xout => redist3_ChannelIn_in_5_c_5_outputreg_q, clk => clk, aclr => areset );
 
     -- And2(LOGICAL,95)@4 + 1
-    And2_qi <= And1_q and redist9_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q;
+    And2_qi <= And1_q and redist11_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_3_q;
     And2_delay : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
     PORT MAP ( xin => And2_qi, xout => And2_q, clk => clk, aclr => areset );
 
     -- ChannelOut(PORTOUT,97)@5 + 1
     out_3_qv <= And2_q;
-    out_8_qc <= redist1_ChannelIn_in_5_c_5_outputreg_q;
+    out_8_qc <= redist3_ChannelIn_in_5_c_5_outputreg_q;
     out_1_left_I <= final_project_txrx_fp_Symbol_recovery_c0_I_Mux_x_q;
     out_2_left_Q <= final_project_txrx_fp_Symbol_recovery_c0_Q_Mux_x_q;
     out_4_main_I <= final_project_txrx_fp_Symbol_recovery_c1_I_Mux_x_q;
     out_5_main_Q <= final_project_txrx_fp_Symbol_recovery_c1_Q_Mux_x_q;
     out_6_right_I <= final_project_txrx_fp_Symbol_recovery_c2_I_Mux_x_q;
     out_7_right_Q <= final_project_txrx_fp_Symbol_recovery_c2_Q_Mux_x_q;
-    out_9_packet_trigger <= redist10_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4_q;
+    out_9_packet_trigger <= redist12_final_project_txrx_fp_Symbol_recovery_SRlatch_And_x_q_4_q;
+    out_10_instant_power <= redist0_Mult3_Add1_Mult4_merged_cma_q_3_q;
 
 END normal;

@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Phase_extraction_and_synchronization
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:05 2019
 
 
 library IEEE;
@@ -43,8 +43,10 @@ component final_project_txrx_fp_Phase_extraction_and_synchronization is
         in_11_sample_update : in std_logic_vector(0 downto 0);  -- ufix1
         out_1_v_sym_update : out std_logic_vector(0 downto 0);  -- ufix1
         out_2_qc : out std_logic_vector(7 downto 0);  -- ufix8
-        out_3_symbols_phase_x : out std_logic_vector(29 downto 0);  -- sfix30_en14
+        out_3_symbols_phase_x : out std_logic_vector(17 downto 0);  -- sfix18_en14
         out_4_packet_trigger_through : out std_logic_vector(0 downto 0);  -- ufix1
+        out_5_corrected_phase : out std_logic_vector(17 downto 0);  -- sfix18_en14
+        out_6_offset_phase : out std_logic_vector(0 downto 0);  -- ufix1
         clk : in std_logic;
         areset : in std_logic
     );
@@ -65,8 +67,10 @@ component final_project_txrx_fp_Phase_extraction_and_synchronization_stm is
         in_11_sample_update_stm : out std_logic_vector(0 downto 0);
         out_1_v_sym_update_stm : out std_logic_vector(0 downto 0);
         out_2_qc_stm : out std_logic_vector(7 downto 0);
-        out_3_symbols_phase_x_stm : out std_logic_vector(29 downto 0);
+        out_3_symbols_phase_x_stm : out std_logic_vector(17 downto 0);
         out_4_packet_trigger_through_stm : out std_logic_vector(0 downto 0);
+        out_5_corrected_phase_stm : out std_logic_vector(17 downto 0);
+        out_6_offset_phase_stm : out std_logic_vector(0 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -85,8 +89,10 @@ signal in_8_sym_sample_stm : STD_LOGIC_VECTOR (1 downto 0);
 signal in_11_sample_update_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_1_v_sym_update_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal out_2_qc_stm : STD_LOGIC_VECTOR (7 downto 0);
-signal out_3_symbols_phase_x_stm : STD_LOGIC_VECTOR (29 downto 0);
+signal out_3_symbols_phase_x_stm : STD_LOGIC_VECTOR (17 downto 0);
 signal out_4_packet_trigger_through_stm : STD_LOGIC_VECTOR (0 downto 0);
+signal out_5_corrected_phase_stm : STD_LOGIC_VECTOR (17 downto 0);
+signal out_6_offset_phase_stm : STD_LOGIC_VECTOR (0 downto 0);
 signal in_9_v_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal in_10_c_dut : STD_LOGIC_VECTOR (7 downto 0);
 signal in_1_left_I_dut : STD_LOGIC_VECTOR (11 downto 0);
@@ -100,8 +106,10 @@ signal in_8_sym_sample_dut : STD_LOGIC_VECTOR (1 downto 0);
 signal in_11_sample_update_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_1_v_sym_update_dut : STD_LOGIC_VECTOR (0 downto 0);
 signal out_2_qc_dut : STD_LOGIC_VECTOR (7 downto 0);
-signal out_3_symbols_phase_x_dut : STD_LOGIC_VECTOR (29 downto 0);
+signal out_3_symbols_phase_x_dut : STD_LOGIC_VECTOR (17 downto 0);
 signal out_4_packet_trigger_through_dut : STD_LOGIC_VECTOR (0 downto 0);
+signal out_5_corrected_phase_dut : STD_LOGIC_VECTOR (17 downto 0);
+signal out_6_offset_phase_dut : STD_LOGIC_VECTOR (0 downto 0);
         signal clk : std_logic;
         signal areset : std_logic;
 
@@ -114,11 +122,13 @@ END PROCESS;
 
 
 -- Channelized data out check
-checkChannelOut : process (clk, areset, out_3_symbols_phase_x_dut, out_3_symbols_phase_x_stm, out_4_packet_trigger_through_dut, out_4_packet_trigger_through_stm)
+checkChannelOut : process (clk, areset, out_3_symbols_phase_x_dut, out_3_symbols_phase_x_stm, out_4_packet_trigger_through_dut, out_4_packet_trigger_through_stm, out_5_corrected_phase_dut, out_5_corrected_phase_stm, out_6_offset_phase_dut, out_6_offset_phase_stm)
 variable mismatch_out_1_v_sym_update : BOOLEAN := FALSE;
 variable mismatch_out_2_qc : BOOLEAN := FALSE;
 variable mismatch_out_3_symbols_phase_x : BOOLEAN := FALSE;
 variable mismatch_out_4_packet_trigger_through : BOOLEAN := FALSE;
+variable mismatch_out_5_corrected_phase : BOOLEAN := FALSE;
+variable mismatch_out_6_offset_phase : BOOLEAN := FALSE;
 variable ok : BOOLEAN := TRUE;
 begin
     IF ((areset = '1')) THEN
@@ -129,6 +139,8 @@ begin
         mismatch_out_2_qc := FALSE;
         mismatch_out_3_symbols_phase_x := FALSE;
         mismatch_out_4_packet_trigger_through := FALSE;
+        mismatch_out_5_corrected_phase := FALSE;
+        mismatch_out_6_offset_phase := FALSE;
         IF ( (out_1_v_sym_update_dut /= out_1_v_sym_update_stm)) THEN
             mismatch_out_1_v_sym_update := TRUE;
             report "mismatch in out_1_v_sym_update signal" severity Failure;
@@ -146,8 +158,16 @@ begin
                 mismatch_out_4_packet_trigger_through := TRUE;
                 report "mismatch in out_4_packet_trigger_through signal" severity Warning;
             END IF;
+            IF ( (out_5_corrected_phase_dut /= out_5_corrected_phase_stm)) THEN
+                mismatch_out_5_corrected_phase := TRUE;
+                report "mismatch in out_5_corrected_phase signal" severity Warning;
+            END IF;
+            IF ( (out_6_offset_phase_dut /= out_6_offset_phase_stm)) THEN
+                mismatch_out_6_offset_phase := TRUE;
+                report "mismatch in out_6_offset_phase signal" severity Warning;
+            END IF;
         END IF;
-        IF (mismatch_out_1_v_sym_update = TRUE or mismatch_out_2_qc = TRUE or mismatch_out_3_symbols_phase_x = TRUE or mismatch_out_4_packet_trigger_through = TRUE) THEN
+        IF (mismatch_out_1_v_sym_update = TRUE or mismatch_out_2_qc = TRUE or mismatch_out_3_symbols_phase_x = TRUE or mismatch_out_4_packet_trigger_through = TRUE or mismatch_out_5_corrected_phase = TRUE or mismatch_out_6_offset_phase = TRUE) THEN
             ok := FALSE;
         END IF;
         IF (ok = FALSE) THEN
@@ -173,6 +193,8 @@ dut : final_project_txrx_fp_Phase_extraction_and_synchronization port map (
     out_2_qc_dut,
     out_3_symbols_phase_x_dut,
     out_4_packet_trigger_through_dut,
+    out_5_corrected_phase_dut,
+    out_6_offset_phase_dut,
         clk,
         areset
 );
@@ -193,6 +215,8 @@ sim : final_project_txrx_fp_Phase_extraction_and_synchronization_stm port map (
     out_2_qc_stm,
     out_3_symbols_phase_x_stm,
     out_4_packet_trigger_through_stm,
+    out_5_corrected_phase_stm,
+    out_6_offset_phase_stm,
         clk,
         areset
 );

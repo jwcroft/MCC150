@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Decode_symbols_into_bitstream
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:04 2019
 
 
 library IEEE;
@@ -37,7 +37,7 @@ entity final_project_txrx_fp_Decode_symbols_into_bitstream is
     port (
         in_1_v : in std_logic_vector(0 downto 0);  -- ufix1
         in_2_c : in std_logic_vector(7 downto 0);  -- ufix8
-        in_3_symbols_x : in std_logic_vector(29 downto 0);  -- sfix30_en14
+        in_3_symbols_x : in std_logic_vector(17 downto 0);  -- sfix18_en14
         in_4_packet_trigger : in std_logic_vector(0 downto 0);  -- ufix1
         in_5_memory_bitstream : in std_logic_vector(0 downto 0);  -- ufix1
         out_1_v_bits : out std_logic_vector(0 downto 0);  -- ufix1
@@ -65,37 +65,37 @@ architecture normal of final_project_txrx_fp_Decode_symbols_into_bitstream is
     signal final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_s : STD_LOGIC_VECTOR (0 downto 0);
     signal final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_q : STD_LOGIC_VECTOR (0 downto 0);
     signal And_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE1_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE1_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE1_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE1_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE1_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE1_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE1_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE3_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE3_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE3_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE3_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE3_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE3_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE3_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE4_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE4_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE4_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE4_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE4_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE4_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE4_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE5_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE5_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE5_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE5_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE5_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE5_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE5_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE6_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE6_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE6_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE6_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE6_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE6_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE6_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE7_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE7_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE7_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE7_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE7_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE7_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE7_n : STD_LOGIC_VECTOR (0 downto 0);
-    signal CmpGE8_a : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE8_b : STD_LOGIC_VECTOR (68 downto 0);
-    signal CmpGE8_o : STD_LOGIC_VECTOR (68 downto 0);
+    signal CmpGE8_a : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE8_b : STD_LOGIC_VECTOR (19 downto 0);
+    signal CmpGE8_o : STD_LOGIC_VECTOR (19 downto 0);
     signal CmpGE8_n : STD_LOGIC_VECTOR (0 downto 0);
     signal Counter_q : STD_LOGIC_VECTOR (1 downto 0);
     signal Counter_i : UNSIGNED (1 downto 0);
@@ -104,35 +104,19 @@ architecture normal of final_project_txrx_fp_Decode_symbols_into_bitstream is
     signal Counter_eq : std_logic;
     attribute preserve of Counter_eq : signal is true;
     signal Lut_q : STD_LOGIC_VECTOR (2 downto 0);
-    signal Mode_Meas10_x_q : STD_LOGIC_VECTOR (53 downto 0);
-    signal Mode_Meas3_x_q : STD_LOGIC_VECTOR (51 downto 0);
-    signal Mode_Meas4_x_q : STD_LOGIC_VECTOR (50 downto 0);
-    signal Mode_Meas5_x_q : STD_LOGIC_VECTOR (51 downto 0);
-    signal Mode_Meas6_x_q : STD_LOGIC_VECTOR (51 downto 0);
-    signal Mode_Meas7_x_q : STD_LOGIC_VECTOR (52 downto 0);
-    signal Mode_Meas8_x_q : STD_LOGIC_VECTOR (52 downto 0);
-    signal Mode_Meas9_x_q : STD_LOGIC_VECTOR (52 downto 0);
+    signal Mode_Meas10_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas3_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas4_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas5_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas6_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas7_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas8_x_q : STD_LOGIC_VECTOR (17 downto 0);
+    signal Mode_Meas9_x_q : STD_LOGIC_VECTOR (17 downto 0);
     signal Mux_s : STD_LOGIC_VECTOR (1 downto 0);
     signal Mux_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Not_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Sequence_rsrvd_fix_q : STD_LOGIC_VECTOR (0 downto 0);
     signal Sequence_rsrvd_fix_eq : std_logic;
-    signal CmpGE_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE1_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE1_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE3_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE3_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE4_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE4_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE5_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE5_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE6_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE6_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE7_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE7_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE8_PreShift_0_q : STD_LOGIC_VECTOR (66 downto 0);
-    signal CmpGE8_PreShift_0_qint : STD_LOGIC_VECTOR (66 downto 0);
     signal Add2_re_add_0_0_a : STD_LOGIC_VECTOR (1 downto 0);
     signal Add2_re_add_0_0_b : STD_LOGIC_VECTOR (1 downto 0);
     signal Add2_re_add_0_0_o : STD_LOGIC_VECTOR (1 downto 0);
@@ -176,146 +160,114 @@ begin
     GND_q <= "0";
 
     -- Mode_Meas10_x(CONSTANT,44)
-    Mode_Meas10_x_q <= "101010000000100100010000010110010001000101100010001011";
-
-    -- CmpGE8_PreShift_0(BITSHIFT,65)@1
-    CmpGE8_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE8_PreShift_0_q <= CmpGE8_PreShift_0_qint(66 downto 0);
+    Mode_Meas10_x_q <= "110101000000010010";
 
     -- CmpGE8(COMPARE,36)@1
-    CmpGE8_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE8_PreShift_0_q(66)) & CmpGE8_PreShift_0_q));
-    CmpGE8_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 54 => Mode_Meas10_x_q(53)) & Mode_Meas10_x_q));
+    CmpGE8_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE8_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas10_x_q(17)) & Mode_Meas10_x_q));
     CmpGE8_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE8_a) - SIGNED(CmpGE8_b));
-    CmpGE8_n(0) <= not (CmpGE8_o(68));
+    CmpGE8_n(0) <= not (CmpGE8_o(19));
 
     -- Mode_Meas9_x(CONSTANT,51)
-    Mode_Meas9_x_q <= "10000010010101100001011101011010101010110001111010001";
-
-    -- CmpGE7_PreShift_0(BITSHIFT,64)@1
-    CmpGE7_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE7_PreShift_0_q <= CmpGE7_PreShift_0_qint(66 downto 0);
+    Mode_Meas9_x_q <= "111000001001010110";
 
     -- CmpGE7(COMPARE,34)@1
-    CmpGE7_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE7_PreShift_0_q(66)) & CmpGE7_PreShift_0_q));
-    CmpGE7_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 53 => Mode_Meas9_x_q(52)) & Mode_Meas9_x_q));
+    CmpGE7_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE7_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas9_x_q(17)) & Mode_Meas9_x_q));
     CmpGE7_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE7_a) - SIGNED(CmpGE7_b));
-    CmpGE7_n(0) <= not (CmpGE7_o(68));
+    CmpGE7_n(0) <= not (CmpGE7_o(19));
 
-    -- Add2_re_add_0_3(ADD,69)@1
+    -- Add2_re_add_0_3(ADD,61)@1
     Add2_re_add_0_3_a <= STD_LOGIC_VECTOR("0" & CmpGE7_n);
     Add2_re_add_0_3_b <= STD_LOGIC_VECTOR("0" & CmpGE8_n);
     Add2_re_add_0_3_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_0_3_a) + UNSIGNED(Add2_re_add_0_3_b));
     Add2_re_add_0_3_q <= Add2_re_add_0_3_o(1 downto 0);
 
     -- Mode_Meas8_x(CONSTANT,50)
-    Mode_Meas8_x_q <= "10110100100110100000111000000011001100110111100010111";
-
-    -- CmpGE6_PreShift_0(BITSHIFT,63)@1
-    CmpGE6_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE6_PreShift_0_q <= CmpGE6_PreShift_0_qint(66 downto 0);
+    Mode_Meas8_x_q <= "111011010010011010";
 
     -- CmpGE6(COMPARE,32)@1
-    CmpGE6_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE6_PreShift_0_q(66)) & CmpGE6_PreShift_0_q));
-    CmpGE6_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 53 => Mode_Meas8_x_q(52)) & Mode_Meas8_x_q));
+    CmpGE6_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE6_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas8_x_q(17)) & Mode_Meas8_x_q));
     CmpGE6_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE6_a) - SIGNED(CmpGE6_b));
-    CmpGE6_n(0) <= not (CmpGE6_o(68));
+    CmpGE6_n(0) <= not (CmpGE6_o(19));
 
     -- Mode_Meas3_x(CONSTANT,45)
-    Mode_Meas3_x_q <= "1100110110111100000010010101011101110111101001011101";
-
-    -- CmpGE_PreShift_0(BITSHIFT,58)@1
-    CmpGE_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE_PreShift_0_q <= CmpGE_PreShift_0_qint(66 downto 0);
+    Mode_Meas3_x_q <= "111110011011011110";
 
     -- CmpGE(COMPARE,23)@1
-    CmpGE_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE_PreShift_0_q(66)) & CmpGE_PreShift_0_q));
-    CmpGE_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 52 => Mode_Meas3_x_q(51)) & Mode_Meas3_x_q));
+    CmpGE_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas3_x_q(17)) & Mode_Meas3_x_q));
     CmpGE_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE_a) - SIGNED(CmpGE_b));
-    CmpGE_n(0) <= not (CmpGE_o(68));
+    CmpGE_n(0) <= not (CmpGE_o(19));
 
-    -- Add2_re_add_0_2(ADD,68)@1
+    -- Add2_re_add_0_2(ADD,60)@1
     Add2_re_add_0_2_a <= STD_LOGIC_VECTOR("0" & CmpGE_n);
     Add2_re_add_0_2_b <= STD_LOGIC_VECTOR("0" & CmpGE6_n);
     Add2_re_add_0_2_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_0_2_a) + UNSIGNED(Add2_re_add_0_2_b));
     Add2_re_add_0_2_q <= Add2_re_add_0_2_o(1 downto 0);
 
-    -- Add2_re_add_1_1(ADD,71)@1
+    -- Add2_re_add_1_1(ADD,63)@1
     Add2_re_add_1_1_a <= STD_LOGIC_VECTOR("0" & Add2_re_add_0_2_q);
     Add2_re_add_1_1_b <= STD_LOGIC_VECTOR("0" & Add2_re_add_0_3_q);
     Add2_re_add_1_1_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_1_1_a) + UNSIGNED(Add2_re_add_1_1_b));
     Add2_re_add_1_1_q <= Add2_re_add_1_1_o(2 downto 0);
 
     -- Mode_Meas4_x(CONSTANT,46)
-    Mode_Meas4_x_q <= "011001001000011111101101010100010001000010110100011";
-
-    -- CmpGE1_PreShift_0(BITSHIFT,59)@1
-    CmpGE1_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE1_PreShift_0_q <= CmpGE1_PreShift_0_qint(66 downto 0);
+    Mode_Meas4_x_q <= "000001100100100010";
 
     -- CmpGE1(COMPARE,24)@1
-    CmpGE1_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE1_PreShift_0_q(66)) & CmpGE1_PreShift_0_q));
-    CmpGE1_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR("000000000000000000" & Mode_Meas4_x_q));
+    CmpGE1_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE1_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas4_x_q(17)) & Mode_Meas4_x_q));
     CmpGE1_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE1_a) - SIGNED(CmpGE1_b));
-    CmpGE1_n(0) <= not (CmpGE1_o(68));
+    CmpGE1_n(0) <= not (CmpGE1_o(19));
 
     -- Mode_Meas5_x(CONSTANT,47)
-    Mode_Meas5_x_q <= "1001011011001011111000111111100110011001000011101001";
-
-    -- CmpGE3_PreShift_0(BITSHIFT,60)@1
-    CmpGE3_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE3_PreShift_0_q <= CmpGE3_PreShift_0_qint(66 downto 0);
+    Mode_Meas5_x_q <= "000100101101100110";
 
     -- CmpGE3(COMPARE,26)@1
-    CmpGE3_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE3_PreShift_0_q(66)) & CmpGE3_PreShift_0_q));
-    CmpGE3_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR("00000000000000000" & Mode_Meas5_x_q));
+    CmpGE3_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE3_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas5_x_q(17)) & Mode_Meas5_x_q));
     CmpGE3_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE3_a) - SIGNED(CmpGE3_b));
-    CmpGE3_n(0) <= not (CmpGE3_o(68));
+    CmpGE3_n(0) <= not (CmpGE3_o(19));
 
-    -- Add2_re_add_0_1(ADD,67)@1
+    -- Add2_re_add_0_1(ADD,59)@1
     Add2_re_add_0_1_a <= STD_LOGIC_VECTOR("0" & CmpGE3_n);
     Add2_re_add_0_1_b <= STD_LOGIC_VECTOR("0" & CmpGE1_n);
     Add2_re_add_0_1_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_0_1_a) + UNSIGNED(Add2_re_add_0_1_b));
     Add2_re_add_0_1_q <= Add2_re_add_0_1_o(1 downto 0);
 
     -- Mode_Meas6_x(CONSTANT,48)
-    Mode_Meas6_x_q <= "1111101101010011110100010100101010101001110000101111";
-
-    -- CmpGE4_PreShift_0(BITSHIFT,61)@1
-    CmpGE4_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE4_PreShift_0_q <= CmpGE4_PreShift_0_qint(66 downto 0);
+    Mode_Meas6_x_q <= "000111110110101010";
 
     -- CmpGE4(COMPARE,28)@1
-    CmpGE4_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE4_PreShift_0_q(66)) & CmpGE4_PreShift_0_q));
-    CmpGE4_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR("00000000000000000" & Mode_Meas6_x_q));
+    CmpGE4_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE4_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas6_x_q(17)) & Mode_Meas6_x_q));
     CmpGE4_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE4_a) - SIGNED(CmpGE4_b));
-    CmpGE4_n(0) <= not (CmpGE4_o(68));
+    CmpGE4_n(0) <= not (CmpGE4_o(19));
 
     -- Mode_Meas7_x(CONSTANT,49)
-    Mode_Meas7_x_q <= "10101111111011011101111101001101110111010011101110101";
-
-    -- CmpGE5_PreShift_0(BITSHIFT,62)@1
-    CmpGE5_PreShift_0_qint <= in_3_symbols_x & "0000000000000000000000000000000000000";
-    CmpGE5_PreShift_0_q <= CmpGE5_PreShift_0_qint(66 downto 0);
+    Mode_Meas7_x_q <= "001010111111101110";
 
     -- CmpGE5(COMPARE,30)@1
-    CmpGE5_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((68 downto 67 => CmpGE5_PreShift_0_q(66)) & CmpGE5_PreShift_0_q));
-    CmpGE5_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR("0000000000000000" & Mode_Meas7_x_q));
+    CmpGE5_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => in_3_symbols_x(17)) & in_3_symbols_x));
+    CmpGE5_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((19 downto 18 => Mode_Meas7_x_q(17)) & Mode_Meas7_x_q));
     CmpGE5_o <= STD_LOGIC_VECTOR(SIGNED(CmpGE5_a) - SIGNED(CmpGE5_b));
-    CmpGE5_n(0) <= not (CmpGE5_o(68));
+    CmpGE5_n(0) <= not (CmpGE5_o(19));
 
-    -- Add2_re_add_0_0(ADD,66)@1
+    -- Add2_re_add_0_0(ADD,58)@1
     Add2_re_add_0_0_a <= STD_LOGIC_VECTOR("0" & CmpGE5_n);
     Add2_re_add_0_0_b <= STD_LOGIC_VECTOR("0" & CmpGE4_n);
     Add2_re_add_0_0_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_0_0_a) + UNSIGNED(Add2_re_add_0_0_b));
     Add2_re_add_0_0_q <= Add2_re_add_0_0_o(1 downto 0);
 
-    -- Add2_re_add_1_0(ADD,70)@1
+    -- Add2_re_add_1_0(ADD,62)@1
     Add2_re_add_1_0_a <= STD_LOGIC_VECTOR("0" & Add2_re_add_0_0_q);
     Add2_re_add_1_0_b <= STD_LOGIC_VECTOR("0" & Add2_re_add_0_1_q);
     Add2_re_add_1_0_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_1_0_a) + UNSIGNED(Add2_re_add_1_0_b));
     Add2_re_add_1_0_q <= Add2_re_add_1_0_o(2 downto 0);
 
-    -- Add2_re_add_2_0(ADD,72)@1
+    -- Add2_re_add_2_0(ADD,64)@1
     Add2_re_add_2_0_a <= STD_LOGIC_VECTOR("0" & Add2_re_add_1_0_q);
     Add2_re_add_2_0_b <= STD_LOGIC_VECTOR("0" & Add2_re_add_1_1_q);
     Add2_re_add_2_0_o <= STD_LOGIC_VECTOR(UNSIGNED(Add2_re_add_2_0_a) + UNSIGNED(Add2_re_add_2_0_b));
@@ -355,7 +307,7 @@ begin
         END IF;
     END PROCESS;
 
-    -- bit_0_x_merged_bit_select(BITSELECT,81)@2
+    -- bit_0_x_merged_bit_select(BITSELECT,73)@2
     bit_0_x_merged_bit_select_b <= final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L_Mux_x_q(0 downto 0);
     bit_0_x_merged_bit_select_c <= final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L_Mux_x_q(1 downto 1);
     bit_0_x_merged_bit_select_d <= final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L_Mux_x_q(2 downto 2);
@@ -369,7 +321,7 @@ begin
     -- final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x(LOGICAL,10)@1
     final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x_q <= final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_Or_x_q and final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_Not_x_q;
 
-    -- redist3_final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x_q_1(DELAY,85)
+    -- redist3_final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x_q_1(DELAY,77)
     redist3_final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x_q_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
     PORT MAP ( xin => final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x_q, xout => redist3_final_project_txrx_fp_Decode_symbols_into_bitstream_SRlatch_And_x_q_1_q, clk => clk, aclr => areset );
@@ -441,7 +393,7 @@ begin
         END CASE;
     END PROCESS;
 
-    -- redist2_final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_q_1(DELAY,84)
+    -- redist2_final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_q_1(DELAY,76)
     redist2_final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_q_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
     PORT MAP ( xin => final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_q, xout => redist2_final_project_txrx_fp_Decode_symbols_into_bitstream_latch_0L1_Mux_x_q_1_q, clk => clk, aclr => areset );
@@ -460,12 +412,12 @@ begin
         END CASE;
     END PROCESS;
 
-    -- redist1_ChannelIn_in_2_c_1(DELAY,83)
+    -- redist1_ChannelIn_in_2_c_1(DELAY,75)
     redist1_ChannelIn_in_2_c_1 : dspba_delay
     GENERIC MAP ( width => 8, depth => 1, reset_kind => "ASYNC" )
     PORT MAP ( xin => in_2_c, xout => redist1_ChannelIn_in_2_c_1_q, clk => clk, aclr => areset );
 
-    -- redist0_Not_rsrvd_fix_q_1(DELAY,82)
+    -- redist0_Not_rsrvd_fix_q_1(DELAY,74)
     redist0_Not_rsrvd_fix_q_1 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
     PORT MAP ( xin => Not_rsrvd_fix_q, xout => redist0_Not_rsrvd_fix_q_1_q, clk => clk, aclr => areset );

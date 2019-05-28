@@ -17,6 +17,7 @@
     <port name='out_6_right_I' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_out_6_right_I' stm='final_project/final_project_txrx_fp_Symbol_recovery_ChannelOut.stm' highLevelName='right_I' highLevelIndex='6' vector='0' complex='0'/>
     <port name='out_7_right_Q' clock='clk' reset='areset' width='12' dir='out' role='data' qsys_role='data_out_7_right_Q' stm='final_project/final_project_txrx_fp_Symbol_recovery_ChannelOut.stm' highLevelName='right_Q' highLevelIndex='7' vector='0' complex='0'/>
     <port name='out_9_packet_trigger' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_9_packet_trigger' stm='final_project/final_project_txrx_fp_Symbol_recovery_ChannelOut.stm' highLevelName='packet_trigger' highLevelIndex='9' vector='0' complex='0'/>
+    <port name='out_10_instant_power' clock='clk' reset='areset' width='25' dir='out' role='data' qsys_role='data_out_10_instant_power' stm='final_project/final_project_txrx_fp_Symbol_recovery_ChannelOut.stm' highLevelName='instant_power' highLevelIndex='10' vector='0' complex='0'/>
     <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
     <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
     <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>

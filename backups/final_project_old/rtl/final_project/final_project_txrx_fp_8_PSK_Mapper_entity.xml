@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='final_project_txrx_fp_8_PSK_Mapper' floating-point-script-prefix='final_project_txrx_fp_8_PSK_Mapper_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>

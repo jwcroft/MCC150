@@ -149,6 +149,9 @@ if {$vcomfailed == 0} {
             if { [catch {exa mismatch_out_9_packet_trigger} mismatch] == 0 && $mismatch } {
                 report_mismatch out_9_packet_trigger $cyclenum
             }
+            if { [catch {exa mismatch_out_10_instant_power} mismatch] == 0 && $mismatch } {
+                report_mismatch out_10_instant_power $cyclenum
+            }
         } else {
             puts "Signal mismatch detected at $my_tb";
         }

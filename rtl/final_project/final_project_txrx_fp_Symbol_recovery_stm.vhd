@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Symbol_recovery
--- VHDL created on Mon May 27 20:44:42 2019
+-- VHDL created on Tue May 28 19:39:06 2019
 
 
 library IEEE;
@@ -41,6 +41,7 @@ entity final_project_txrx_fp_Symbol_recovery_stm is
         out_6_right_I_stm : out std_logic_vector(11 downto 0);
         out_7_right_Q_stm : out std_logic_vector(11 downto 0);
         out_9_packet_trigger_stm : out std_logic_vector(0 downto 0);
+        out_10_instant_power_stm : out std_logic_vector(24 downto 0);
         clk : out std_logic;
         areset : out std_logic
     );
@@ -189,6 +190,8 @@ architecture normal of final_project_txrx_fp_Symbol_recovery_stm is
             variable out_7_right_Q_temp : std_logic_vector(11 downto 0);
             variable out_9_packet_trigger_int_0 : Integer;
             variable out_9_packet_trigger_temp : std_logic_vector(0 downto 0);
+            variable out_10_instant_power_int_0 : Integer;
+            variable out_10_instant_power_temp : std_logic_vector(24 downto 0);
 
         begin
             -- initialize all outputs to 0
@@ -201,6 +204,7 @@ architecture normal of final_project_txrx_fp_Symbol_recovery_stm is
             out_6_right_I_stm <= (others => '0');
             out_7_right_Q_stm <= (others => '0');
             out_9_packet_trigger_stm <= (others => '0');
+            out_10_instant_power_stm <= (others => '0');
 
             wait for 201 ps; -- wait delay
             
@@ -239,6 +243,9 @@ architecture normal of final_project_txrx_fp_Symbol_recovery_stm is
                     read(L, out_9_packet_trigger_int_0);
                     out_9_packet_trigger_temp(0 downto 0) := std_logic_vector(to_unsigned(out_9_packet_trigger_int_0, 1));
                     out_9_packet_trigger_stm <= out_9_packet_trigger_temp;
+                    read(L, out_10_instant_power_int_0);
+                    out_10_instant_power_temp(24 downto 0) := std_logic_vector(to_unsigned(out_10_instant_power_int_0, 25));
+                    out_10_instant_power_stm <= out_10_instant_power_temp;
 
                     deallocate(L);
                 END IF;

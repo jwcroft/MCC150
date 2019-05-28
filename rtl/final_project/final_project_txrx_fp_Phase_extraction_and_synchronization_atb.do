@@ -102,6 +102,12 @@ onerror {
 }
 
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Phase_extraction_and_synchronization.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_addBloA0Z4004ki026142iyc5.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA0Zof03p06o303d0doz.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA1Zof03p06o303d0doz.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_castBlA2Zof03p06o303d0doz.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_subBloA0Z0k614004ki02975u.vhd
+vcom -quiet $base_dir/final_project/floatComponent_final_project_txrx_fp_Phase_extraction_and_synchronization_arcTanA0Z40i0k614004kii5u.vhd
 vcom -quiet -O0 $base_dir/final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_atb.vhd
 vcom -quiet $base_dir/final_project/final_project_txrx_fp_Phase_extraction_and_synchronization_stm.vhd
 
@@ -133,6 +139,12 @@ if {$vcomfailed == 0} {
             }
             if { [catch {exa mismatch_out_4_packet_trigger_through} mismatch] == 0 && $mismatch } {
                 report_mismatch out_4_packet_trigger_through $cyclenum
+            }
+            if { [catch {exa mismatch_out_5_corrected_phase} mismatch] == 0 && $mismatch } {
+                report_mismatch out_5_corrected_phase $cyclenum
+            }
+            if { [catch {exa mismatch_out_6_offset_phase} mismatch] == 0 && $mismatch } {
+                report_mismatch out_6_offset_phase $cyclenum
             }
         } else {
             puts "Signal mismatch detected at $my_tb";

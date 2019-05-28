@@ -4,7 +4,7 @@
     <port name='areset' dir='in' clock='clk' role='resetHigh'/>
     <port name='in_1_v' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_1_v' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='v' highLevelIndex='1' vector='0' complex='0'/>
     <port name='in_2_c' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_2_c' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='c' highLevelIndex='2' vector='0' complex='0'/>
-    <port name='in_3_symbols_x' clock='clk' reset='areset' width='30' dir='in' role='data' qsys_role='data_in_3_symbols_x' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='symbols
+    <port name='in_3_symbols_x' clock='clk' reset='areset' width='18' dir='in' role='data' qsys_role='data_in_3_symbols_x' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='symbols
 ' highLevelIndex='3' vector='0' complex='0'/>
     <port name='in_4_packet_trigger' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_4_packet_trigger' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='packet_trigger' highLevelIndex='4' vector='0' complex='0'/>
     <port name='in_5_memory_bitstream' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_5_memory_bitstream' stm='final_project/final_project_txrx_fp_Decode_symbols_into_bitstream_ChannelIn.stm' highLevelName='memory_bitstream' highLevelIndex='5' vector='0' complex='0'/>

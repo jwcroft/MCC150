@@ -33,7 +33,7 @@ add wave -noupdate -format Logic /final_project_txrx_fp_Decode_symbols_into_bits
 add wave -noupdate -format Logic /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/dut/areset
 add wave -noupdate -format Logical /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/sim/in_1_v_stm
 add_fixpt_wave /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/sim/in_2_c_stm 8 0 unsigned
-add_fixpt_wave /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/sim/in_3_symbols_x_stm 30 14 signed
+add_fixpt_wave /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/sim/in_3_symbols_x_stm 18 14 signed
 add wave -noupdate -format Logical /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/sim/in_4_packet_trigger_stm
 add wave -noupdate -format Logical /final_project_txrx_fp_Decode_symbols_into_bitstream_atb/sim/in_5_memory_bitstream_stm
 add wave -noupdate -divider {Output Ports}

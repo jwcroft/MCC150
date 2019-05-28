@@ -18,7 +18,7 @@ memSize = 1024; % Size of memory holding bitstream.
 stepSize = 1/sampleRate;
 stopTime = 10e3*stepSize;
 
-detection_threshold = 5e5; %% Hardcoded???
+detection_threshold = 100000; %% Hardcoded???
 pilot_bits = [0 0 0 0 0 0 0 0 0 1 1 0 0 0 0]';
 pilot_size = length(pilot_bits);
 memory_data = [pilot_bits; randsrc(memSize-pilot_size,1,[0 1])]; % BPSK
@@ -33,6 +33,8 @@ mapper_LUT_I = [1 0.70710678 0.70710678 0 -0.70710678 0 -1 -0.70710678];
 mapper_LUT_Q = [0 0.70710678 -0.70710678 -1 0.70710678 1 0 -0.70710678];
 
 LUT_rx_map = [6 7 3 2 0 1 5 4 6];
+
+LUT_phase = atan(-2^13:1:2^13);
 
 carrierFreq = 5e6;
 

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='mp_txrx_Symbol_Recovery_Catch_Q_for_sample' floating-point-script-prefix='mp_txrx_Symbol_Recovery_Catch_Q_for_sample_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>
