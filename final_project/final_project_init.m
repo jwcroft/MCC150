@@ -39,3 +39,8 @@ LUT_phase = atan(-2^13:1:2^13);
 carrierFreq = 5e6;
 
 channel_delay = 119;
+%%
+
+
+
+
