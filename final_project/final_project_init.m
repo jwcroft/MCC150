@@ -39,8 +39,25 @@ LUT_phase = atan(-2^13:1:2^13);
 carrierFreq = 5e6;
 
 channel_delay = 119;
-%%
 
+%%
+stap = datasignaltap;
+
+figure(1)
+% subplot(3,1,1)
+plot(stap.VarName1,stap.VarName9,'black')
+grid on
+axis([0 800 -56000 56000])
+
+% subplot(3,1,2)
+% plot(stap.VarName1,stap.VarName7,'black')
+% grid on
+% axis([0 600 100 180])
+% 
+% subplot(3,1,3)
+% plot(stap.VarName1,stap.VarName8,'black')
+% grid on
+% axis([0 600 100 180])
 
 
 
