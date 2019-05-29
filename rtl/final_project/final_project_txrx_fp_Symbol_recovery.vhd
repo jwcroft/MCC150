@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from final_project_txrx_fp_Symbol_recovery
--- VHDL created on Tue May 28 19:39:05 2019
+-- VHDL created on Wed May 29 10:21:56 2019
 
 
 library IEEE;
@@ -718,7 +718,7 @@ begin
     final_project_txrx_fp_Symbol_recovery_SRlatch_Not_x_q <= not (GND_q);
 
     -- Const3(CONSTANT,103)
-    Const3_q <= "0000000110000110101000000";
+    Const3_q <= "0000000011000011010100000";
 
     -- CmpGE(COMPARE,100)@2
     CmpGE_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((26 downto 25 => Mult3_Add1_Mult4_merged_cma_q(24)) & Mult3_Add1_Mult4_merged_cma_q));
